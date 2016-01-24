@@ -62,8 +62,9 @@ El curso **no** se enfocará en ningún software especializado particular (e.g. 
 
 ### Bibliografía
 
-**Bibliografía básica **1. Beckerman AP, Petchey OL (2012) Getting started with R: an introduction for biologists. Oxford University Press.
-2. Buffalo V (2015) Bioinformatics data skills. O’Reilly.3. Adler J (2010) R in a nutshell: A desktop quick reference.  O’Reilly Media, Inc.4. Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
+**Bibliografía básica**1. Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
+2. Buffalo V (2015) Bioinformatics data skills. O’Reilly.3. Adler J (2010) R in a nutshell: A desktop quick reference.  O’Reilly Media, Inc.
+4. Beckerman AP, Petchey OL (2012) Getting started with R: an introduction for biologists. Oxford University Press.
 
 **Bibliografía complementaria**
 1.	Adegenet on the Web (2013). [http://adegenet.r-forge.r-project.org/]()2.	A Little Book of R for Bioinformatics (2013)  [http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html]()3.	Bioconductor - Workflows (2015) [http://www.bioconductor.org/help/workflows/]()4.	File Format Reference - PLINK 1.9. (2015) [http://pngu.mgh.harvard.edu/~purcell/plink2/formats.html]()
