@@ -6,13 +6,22 @@
 
 Profesora: Dra. Alicia Mastretta Yanes
 
-### Objetivo general: Brindar a los y las alumnas las herramientas computacionales y las mejores prácticas para manejar y explorar una gran cantidad datos de forma reproducible y robusta utilizando software libre, con un enfoque en datos secuenciación masiva y análisis genéticos. 
+### Objetivo general: 
+Brindar a los y las alumnas las herramientas computacionales y las mejores prácticas para manejar y explorar una gran cantidad datos de forma reproducible y robusta utilizando software libre, con un enfoque en datos secuenciación masiva y análisis genéticos. 
 
 El curso **no** se enfocará en ningún software especializado particular (e.g. en ensamblado *de novo*) sino que brindará las herramientas para que los y las alumnas sean capaces de aprender a utilizar por si mismos cualquier software especializado y organizar su propio proyecto bioinformático. 
 
-### Objetivos específicos: 1.	Introducir a los  y las alumnas a los principios de investigación reproducible en bioinformática y su importancia 2.	Introducir a los alumnos a Shell para manejo general de datos3.	Introducir a los y las alumnos al pensamiento lógico y estructurado de la ejecución de un algoritmo4.	Presentar a los alumnos los tipos de datos genéticos que se analizan con bioinformática 5.	Introducir a los y las alumnas al uso general de software especializado (ensambladores, alineadores, etc)6.	Enseñar a los y las alumnas cómo organizar un proyecto bioinformático7.	Formar a los alumnos en el uso de R para análisis bioinformáticos y gráficas
+### Objetivos específicos: 
+1.	Introducir a los  y las alumnas a los principios de investigación reproducible en bioinformática y su importancia 
+2.	Introducir a los alumnos a Shell para manejo general de datos
+3.	Introducir a los y las alumnos al pensamiento lógico y estructurado de la ejecución de un algoritmo
+4.	Presentar a los alumnos los tipos de datos genéticos que se analizan con bioinformática 
+5.	Introducir a los y las alumnas al uso general de software especializado (ensambladores, alineadores, etc)
+6.	Enseñar a los y las alumnas cómo organizar un proyecto bioinformático
+7.	Formar a los alumnos en el uso de R para análisis bioinformáticos y gráficas
 
-### Mecanismos de evaluación:* 20% Exámenes parciales* 30% Tareas y trabajos fuera del aula* 10% Exposición de seminarios por los alumnos * 10% Participación en clase* 30% Proyecto final con datos propios (si los tienes) o brindados por la profesora### Temario
+
+### Temario
 
 | Tema                                                                        | Horas teóricas | Horas prácticas |
 |-----------------------------------------------------------------------------|:--------------:|:---------------:|
@@ -62,12 +71,31 @@ El curso **no** se enfocará en ningún software especializado particular (e.g. 
 
 ### Bibliografía
 
-**Bibliografía básica**1. Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
-2. Buffalo V (2015) Bioinformatics data skills. O’Reilly.3. Adler J (2010) R in a nutshell: A desktop quick reference.  O’Reilly Media, Inc.
+**Bibliografía básica**
+
+1. Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
+
+2. Buffalo V (2015) Bioinformatics data skills. O’Reilly.
+3. Adler J (2010) R in a nutshell: A desktop quick reference.  O’Reilly Media, Inc.
 4. Beckerman AP, Petchey OL (2012) Getting started with R: an introduction for biologists. Oxford University Press.
 
 **Bibliografía complementaria**
-1.	Adegenet on the Web (2013). [http://adegenet.r-forge.r-project.org/]()2.	A Little Book of R for Bioinformatics (2013)  [http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html]()3.	Bioconductor - Workflows (2015) [http://www.bioconductor.org/help/workflows/]()4.	File Format Reference - PLINK 1.9. (2015) [http://pngu.mgh.harvard.edu/~purcell/plink2/formats.html]()
-5.	Getting Comfortable in the Terminal: Linux | Codecademy (2015)  [https://www.codecademy.com/blog/72-getting-comfortable-in-the-terminal-linux]()6.	Learn the Command Line | Codecademy (2015) [https://www.codecademy.com/courses/learn-the-command-line]()
-7.	Montana, Giovanni. 2015. CRAN Task View: Statistical Genetics (2015) [http://CRAN.R-project.org/view=Genetics]()
-8.	Next Generation Sequencing (NGS)/Alignment - Wikibooks, Open Books for an Open World (2015) [https://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Alignment]()9.	Next Generation Sequencing (NGS)/De Novo Assembly - Wikibooks, Open Books for an Open World. (2015) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/De_novo_assembly#Typical_workflow]()10.	Next Generation Sequencing (NGS)/Pre-Processing - Wikibooks, Open Books for an Open World (2014) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality]()11.	Population Genetics in R (2015) [http://grunwaldlab.github.io/Population_Genetics_in_R/index.html]()12.	R & Bioconductor – Manuals (2013) [http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Basics-on-Functions-and-Packages]()13.	Reference-Guide – Rmarkdown Reference Guide (2015) [http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf]()14.	Try R. Code School (2015) [http://tryr.codeschool.com]()
+
+1.	Adegenet on the Web (2013). [http://adegenet.r-forge.r-project.org/]()
+2.	A Little Book of R for Bioinformatics (2013)  [http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html]()
+3.	Bioconductor - Workflows (2015) [http://www.bioconductor.org/help/workflows/]()
+4.	File Format Reference - PLINK 1.9. (2015) [http://pngu.mgh.harvard.edu/~purcell/plink2/formats.html
+]()
+5.	Getting Comfortable in the Terminal: Linux | Codecademy (2015)  [https://www.codecademy.com/blog/72-getting-comfortable-in-the-terminal-linux]()
+6.	Learn the Command Line | Codecademy (2015) [https://www.codecademy.com/courses/learn-the-command-line
+]()
+7.	Montana, Giovanni. 2015. CRAN Task View: Statistical Genetics (2015) [http://CRAN.R-project.org/view=Genetics
+]()
+8.	Next Generation Sequencing (NGS)/Alignment - Wikibooks, Open Books for an Open World (2015) [https://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Alignment]()
+9.	Next Generation Sequencing (NGS)/De Novo Assembly - Wikibooks, Open Books for an Open World. (2015) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/De_novo_assembly#Typical_workflow]()
+10.	Next Generation Sequencing (NGS)/Pre-Processing - Wikibooks, Open Books for an Open World (2014) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality]()
+11.	Population Genetics in R (2015) [http://grunwaldlab.github.io/Population_Genetics_in_R/index.html]()
+12.	R & Bioconductor – Manuals (2013) [http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Basics-on-Functions-and-Packages]()
+13.	Reference-Guide – Rmarkdown Reference Guide (2015) [http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf
+]()14.	Try R. Code School (2015) [http://tryr.codeschool.com
+]()

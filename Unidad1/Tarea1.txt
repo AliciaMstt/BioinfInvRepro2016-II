@@ -1,0 +1,8 @@
+¿A qué se refiere Buffalo con "bioinformática forense"?
+
+¿Por qué es una buena idea utilizar funciones como "assert()" o "stopifnot()?
+
+¿De qué sirve tratar los datos como "read-only"?
+
+
+

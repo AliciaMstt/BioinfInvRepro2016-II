@@ -11,12 +11,13 @@ Introducción a la materia y dinámica de clase.
 
 1.2. Repositorios de datos1.3. Código en computación1.4. Scripts y repositorios de código
 
-#### Clase práctica
-
-* Buscar repositorios de datos asociados a artículos que hayan leído.
 
 #### Tarea
+* Buscar repositorios de datos asociados a artículos que hayan leído.
+ 
 * Crear un repositorio de datos en formato Dryad para algún artículo/tesis que hayan realizado.
+
+* Responder cuestionario online
 
 
 ## 04-Feb (Jue)
@@ -28,8 +29,9 @@ Introducción a la materia y dinámica de clase.
 
 ##09-Feb (Mar)
 #### Clase práctica 
+* Comentar resultadados de la tarea sobre repositorios Dryad.
 
-Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
+* Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
 
 ## 11-Feb (Jue)
 #### Clase práctica
