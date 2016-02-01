@@ -84,12 +84,15 @@ La naturaleza de sus datos:
 ![](cuandodatos.png)
 
 Sus expectativas personales:
+
 ![](expectativapersonal.png)
 
 Las herramientas que más necesitan:
+
 ![](expectativaherramientas.png)
 
 Cómo se sienten:
+
 ![](comomesiento.PNG)
 
 
