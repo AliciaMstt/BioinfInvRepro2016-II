@@ -26,9 +26,11 @@ A mi parecer aprender técnicas de biología computacional es igual que el traba
         * Siempre pueden también hacer una partición o correr Biolinux desde un USB.
 
 Afortunadamente la mayoría de uds ya tienen Mac o Linux:
+
 ![](OSalumnos.png)
 
 Y si no, la mayoría pueden arregláselas:
+
 ![](helpantiwindows.png)
 
 * **¿Necesito instalar algo más? Sí**
@@ -70,8 +72,6 @@ Y si no, la mayoría pueden arregláselas:
 Aquí algunos resultados del sondeo que les pedí contestaran:
 
 El conocimiento con el que llegan:
-
-![]()
 
 ![](sudosanwich.PNG)
 
