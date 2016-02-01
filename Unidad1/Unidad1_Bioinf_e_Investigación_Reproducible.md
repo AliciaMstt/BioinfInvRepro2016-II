@@ -6,7 +6,7 @@ Lecturas para esta unidad:
 
 * Ideology: Data Skills for Robust and Reproducible Bioinformatics. Capítulo 1 de Buffalo V (2015) Bioinformatics data skills.
     
-* http://ropensci.github.io/reproducibility-guide/sections/checklist/
+* [Guía ROpenSci de reproducibilidad](http://ropensci.github.io/reproducibility-guide/sections/checklist/)
 
 
 ## Biología y computadoras:
@@ -20,7 +20,7 @@ Lecturas para esta unidad:
 
 Como biólogo/as evolutivos utilizamos ambas:
 
- La mayoría de la investigación que se publica recientemente utilizó una mezcla de los programas de alguien más (sobretodo en los primeros pasos del procesamiento de datos) y después se utilizan *funciones*  propias para realizar análisis más específicos. 
+ La mayoría de la investigación que se publica recientemente utilizó una mezcla de los programas de alguien más (sobretodo en los primeros pasos del procesamiento de datos) y después se utilizan **funciones**  propias para realizar análisis más específicos. 
 
 Este curso empieza por biología computacional y deriba en la posibilidad de que crees tu propio código para analizar tus datos. 
 
@@ -94,27 +94,41 @@ No temer decir que sí a:
 ## 1.2. Repositorios de datos
 
 ### ¿Materiales suplementarios?
-Supplementary materials have size limitations and do not always provide optimal file and viewing formats, particularly for large and complex data sets. But where no repository — or publication focused on detailed descriptions of data sets — exists, supplementary materials have often been the best option
+
+Contras:
+
+* Limitación de tamaño (MB) o número de archivos
+* Complicados para conjuntos de datos grandes y de formatos específicos
+* Oscuros y difíciles de rastrear y citar
 
 
-### NCBI and SRA
-Sequence Read Archive (SRA) 
+### Especializados en datos genéticos
+* [NCBI Gene Bank](http://www.ncbi.nlm.nih.gov/genbank/). Banco de datos genéticos desde la secuenciación Sanger. Seguor ya lo conocen.
+* [Sequence Read Archive (SRA)](http://www.ncbi.nlm.nih.gov/sra). Rama de NCBI dedicada a datos de secuenciación masiva. 
+* [BOLD](http://www.boldsystems.org/). Dedicado a datos del "barcode de la vida".
+* Y varios más 
 
 
 ### Dryad
+[Dryad Digital Repository](http://datadryad.org/) es un repositorio de datos digitales de *cualquier tipo* siempre y cuando sean parte de una publicación científica. 
+
+Acepta archivos excel, scripts, alineamientos de secuencias de ADN, datos semi-crudos y cualquier archivo digital que sea necesario para repetir una investigación.
+
+Muchas revistas científicas piden como requisito que los datos estén en Dryad además de en NCBI o símil.
 
 
-ommunity-supported, specialized data repositories are usually the best way to share large data sets. General, unstructured repositories, such as figshare and Dryad, provide options where no community repository exists, and are preferable to publishing data as Supplementary Information. .
-
-
+### Otros
 Checa otros repositorios de datos [aquí](http://ropensci.github.io/reproducibility-guide/sections/dataStorage/).
 
 
-#### Artículos de datos
-Scientific Data’s peer-review and in-house curation processes focus on ease of reuse. A data-curation editor reviews data files, checks their format, archiving and annotations, and works with authors to produce a standardized, machine-readable summary of the study in the ISA-Tab format
+### Artículos de datos
+Son artículos enfocados en describir un **set de datos**, incluyendo todos los aspectos técnicos y formatos para que puedan ser fácilmente reutilizados. 
 
-Data papers
-http://www.nature.com/sdata/about/principles
+Ejemplos:
+
+* [Scientific data](http://www.nature.com/sdata/about/principles)
+
+* [Genomics Data](http://www.journals.elsevier.com/genomics-data/)
 
 ### Un buen README 
 
@@ -133,9 +147,6 @@ Y si abres el README.mdwon verás algo así (los colores y el fondo negro son po
 
 ![README_example](README_example.png) 
 
-** Ejercicio ** Prueba visualizar el archivo README.mdown del repositorio anterior con un editor de texto, con un editor de MarkDown y con un visualizador de MarkDown.
-
-
 ## 1.3. Código en computación
 
 * Instrucciones escritas **para una computadora** en un **lenguaje de cómputo**   
@@ -144,12 +155,39 @@ Y si abres el README.mdwon verás algo así (los colores y el fondo negro son po
 * El código puede ser muy largo y formar un programa (**software**) entero o de una sóla línea para realizar una única operación.
 * Escribir código para que lo ejecuten las computadoras y **comentado** para seres humanos.
 
-¿Cómo escribir comentarios en el código?
-En la mayoría de los lenguajes de programación el texto a la derecha de un `#` **no se ejecuta**.
-
-EJEMPLOS 
 
 ## 1.4. Scripts y repositorios de código
+
+Un **script** es un archivo de nuestros análisis que es:
+
+* un archivo de texto plano (**¡¡NO WORD!!**)
+* permanente,
+* repetible,
+* antoado,
+* compartible y 
+* compatible con otras plataformas
+
+En otras palabras, un script es una recopilación por escrito de las instrucciones que queremos que la computadora corra, de modo que al tener esas instrucciones cualquiera pueda repetir el análisis tal cual se hizo. 
+
+El script consta de dos tipos de texto: 
+
+**1.** El **código** (comandos) que queremos que se ejecute, en el órden que queremos que lo ejecute.
+
+Es decir lo mismo que escribiríamos en la Terminal para hacer un análisis, pero guardado en un archivo de texto que tiene todos los comandos juntos y que podemos abrir para **repetir** o **compartir** el análisis.
+
+**2.** Comentarios escritos **para un ser humano** en un **lenguaje de humanos**, dígase no solo en español, sino que nos permita entender qué hace el código, qué tipo de información requiere y cualquier otra cosa que una persona cualquiera necesite para poder utilizar el código del script de forma correcta.
+
+
+Para que la computadora distinga entre el código y los comentarios para humanos se utiliza el símbolo `#`. Todo el texto a la *derecha* del símbolo `#` será ignorado por la computadora, aunque sí "se imprima" en la Consola. 
+
+Por ejemplo, el texto siguiente es un estracto de un script para correr Admixture:
+
+```
+# run admixture using K=3  multithreaded mode, fixed random seed and bootstraping to estimate standar erros.
+cd ../admixture
+./admixture_macosx-1.23/admixture ../data/SNPs/nuevos_final.bed 3 -j4 -s 21 -B
+```
+
 
 ### ¿Por qué compartir nuestro código?
 
@@ -177,6 +215,15 @@ Si respondiste sí (o tus colaboradores) a cualquiera de los anteriores checa es
 
 ### GitHub
  
+Es un repositorio de código que:
+
+* Utiliza `git` para llevar un sistema de **control de versiones**,
+* Tiene una interfase Web pública,
+* Se puede bajar como una aplicación de escritorio, 
+* Permite escribir/revisar código en equipo
+* Su símbolo es un gatopulpo. 
+
+![](Octocat.png)
 
 
 

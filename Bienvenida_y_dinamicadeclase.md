@@ -16,6 +16,7 @@ A mi parecer aprender técnicas de biología computacional es igual que el traba
 * Exposición + ejercicos y ejemplos en clase
 * Todos los materiales de la clase los iré subiendo a GitHub conforme avance el semestre
 * Dejaré **lecturas** a casa antes o después de algunos temas. Es una muy buena idea sí leerlas.
+
 * **¿Necesito una computadora?** 
     * El curso es teórico-práctico, por lo que se requiere traigan su laptop a cada clase.
     * Mac y Linux bienvenidas sin ningún cambio.
@@ -24,31 +25,43 @@ A mi parecer aprender técnicas de biología computacional es igual que el traba
         * De las unidades 4 en adelante lo mejor es que instalen Biolinux en VirtualBox. [Instrucciones aquí ](http://environmentalomics.org/bio-linux-installation/)o en el **Anexo 1 de Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA**. 
         * Siempre pueden también hacer una partición o correr Biolinux desde un USB.
 
-Afortunadamente la mayoría de uds ya tienen Mac o Linux
+Afortunadamente la mayoría de uds ya tienen Mac o Linux:
+![](OSalumnos.png)
 
+Y si no, la mayoría pueden arregláselas:
+![](helpantiwindows.png)
+
+* **¿Necesito instalar algo más? Sí**
+     1. Un editor de texto decente. Listo para la 2da clase. Recomendaciones:
+         * Windows: [Notepad++](https://notepad-plus-plus.org/)
+         * Mac: [TextWrangler](http://download.cnet.com/TextWrangler/3000-2351_4-10220012.html) o [Fraise](http://www.macupdate.com/app/mac/33751/fraise)
+         * Linux: [Gedit](http://sourceforge.net/projects/gedit/)
+     2. Un editor de Markdown. Listo para la Unidad 6, mejor si desde antes. Recomendaciones:    
+         * Windows: [Markdownpad](http://markdownpad.com/)
+         * Mac: [MacDown](http://macdown.uranusjr.com/)
+         * Linux: [Remarkable](http://remarkableapp.github.io/linux/download.html)
+     3. [R y RStudio](https://www.rstudio.com/products/rstudio/download/). Listos para la Unidad 7.
 
 ### Mecanismos de evaluación:
 * **20% Exámenes parciales**    
     - 1ro: Unidades 1-3
     - 2do: Unidades 4-6
-    (las unidades 7-8 se evaluan con el proyecto final)
 
 * **30% Tareas y trabajos fuera del aula**
-    - Una tarea/trabajo por unidad. 
-    - Se entregan en formato digital y no se reciben después de la fecha límite (salvo que me avisen **días antes** si su trabajo de campo interfiere con la entrega).
-
-* **10% Exposición de seminarios por los alumnos**
-    - Del trabajo final o de la Unidad 4.
+    - Más o menos una tarea/trabajo por unidad. 
+    - Se entregan en formato digital y no se reciben después de la fecha límite (salvo que me avisen **días antes** si su **trabajo de campo** interfiere con la entrega).
 
 * **10% Participación en clase**
     - Pregunten, respondan, discutan.
 
 * **30% Proyecto final con datos propios (si los tienes) o brindados por la profesora**
     - Individual.
-    - Debe incluir temas vistos en las unidades 7 y 8 
+    - Debe incluir temas vistos en las unidades 6 a 8
 
+* **10% Presentación de seminario**
+   - Breve exposición del proyecto final 
 
-**Copiar o plagiar (tareas, exámenes, trabajo final) es motivo suficiente para reprobarte sin lugar a discusión**
+**Copiar o plagiar (tareas, exámenes, trabajo final, lo que sea) es motivo suficiente para reprobarte sin lugar a discusión**
 
 
 
@@ -56,7 +69,34 @@ Afortunadamente la mayoría de uds ya tienen Mac o Linux
 
 Aquí algunos resultados del sondeo que les pedí contestaran:
 
+El conocimiento con el que llegan:
+
+![]()
+
+![](sudosanwich.PNG)
+
+La naturaleza de sus datos:
+
+![](datosalumnos.png)
+
+![](plataforma_datosalumnos.png)
+
+![](cuandodatos.png)
+
+Sus expectativas personales:
+![](expectativapersonal.png)
+
+Las herramientas que más necesitan:
+![](expectativaherramientas.png)
+
+Cómo se sienten:
+![](comomesiento.PNG)
+
+
+
 Ya veremos a donde llegamos.
+
+
 
 
 
