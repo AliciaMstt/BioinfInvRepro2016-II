@@ -73,6 +73,9 @@ Aquí algunos resultados del sondeo que les pedí contestaran:
 
 El conocimiento con el que llegan:
 
+![graficaR](conocimientosprev_plot.png)
+
+
 ![](sudosanwich.PNG)
 
 La naturaleza de sus datos:
