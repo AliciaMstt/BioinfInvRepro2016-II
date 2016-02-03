@@ -25,7 +25,7 @@ Introducción a la materia y dinámica de clase.
 
 ##09-Feb (Mar)
 #### Clase práctica 
-* Comentar resultadados de la tarea sobre repositorios Dryad.
+* Dudas sobre la tarea sobre repositorios Dryad.
 
 * Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
 

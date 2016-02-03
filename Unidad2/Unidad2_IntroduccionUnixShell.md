@@ -195,6 +195,15 @@ O en otras palabras ir al directorio donde ya estás. Suena inútil, y en genera
 
 ## `ls`
 
+Enlista los archivos y directorios presentes en un directorio. Ejemplo:
+
+```
+$ cd Maiz
+$ ls
+nuevos_final.bed	nuevos_final.fam
+nuevos_final.bim	nuevos_final.log
+```
+
 Nota que los enlista en órden alfabético. 
 
 Para tener más info de los archivos:
@@ -205,30 +214,169 @@ si es un directorio (d) o un archivo (-), permisos (si es sólo lectura, editabl
 Ejemplo:
 
 ```
+$ ls -l
+total 5216
+-rwx------  1 ticatla  staff  1551105  6 May  2015 nuevos_final.bed
+-rwx------  1 ticatla  staff  1109078  6 May  2015 nuevos_final.bim
+-rwx------  1 ticatla  staff     3604  6 May  2015 nuevos_final.fam
+-rwx------  1 ticatla  staff     1825  6 May  2015 nuevos_final.log
+
 ```
 
-Pero se pueden ordenar por fecha de modificación, por ejemplo:
+Pero se pueden ordenar por fecha (y hora, aunque no se vea) de modificación, por ejemplo:
 
 ```
-
+$ ls -lt
+total 5216
+-rwx------  1 ticatla  staff     1825  6 May  2015 nuevos_final.log
+-rwx------  1 ticatla  staff     3604  6 May  2015 nuevos_final.fam
+-rwx------  1 ticatla  staff  1551105  6 May  2015 nuevos_final.bed
+-rwx------  1 ticatla  staff  1109078  6 May  2015 nuevos_final.bim
 ```
 
 
-`man ls` abre el manual de `ls`, donde vienen muchas más opciones para usar este comando.**-->UTILIZAR PARA EJERCICIOS---**
+`man ls` abre el manual de `ls` (**o de cualquier otro comando**), donde vienen muchas más opciones para usar este comando.
 
 **Tip**: presiona "q" para salir de la pantalla de `man`. 
 
+**Ejercicio**:
+* Enlista el contenido de `Maiz` por tamaño del archivo y has que el tamaño del archivo se lea en KB y MB (ie reducido en vez de todos los bytes).
+
 ### `mkdir`
+
+Crea un directorio. 
+
+```
+$ mkdir Prueba
+$ ls
+Prueba			nuevos_final.bim	nuevos_final.log
+nuevos_final.bed	nuevos_final.fam
+```
+
+Nota: Se puede combinar con paths absolutos o relativos para crearlo en un directorio diferente al WD.
+
+
+**Ejercicio:** ¿Qué pasa si intentas crear un directorio que ya existe? ¿Para qué sirve el flag `-p`?
+
 
 ### `cp`
 
+Copia un archivo o directorio de lugar A a lugar B.
+
+```
+$ cp -r Prueba ../
+$ ls ../
+Maiz		Manzanas	Peras		Prueba		Tomates
+```
+
+¿Por qué utilicé el flag `-r` en el ejemplo anterior?
+
+
 ### `mv`
 
-### `rmv`
+Mueve un archivo o directorio de lugar A a lugar B. Equivalente a "copy-paste".
+
+```
+$ mv ../Prueba ../Manzanas
+$ ls ../
+Maiz		Manzanas	Peras		Tomates
+$ ls ../Manzanas
+Prueba
+
+```
+
+Nota que con `mv` no es necesario utilizar `-r` para borrar directorios.
 
 
-### `tar` y `zip`
-http://www.tecmint.com/18-tar-command-examples-in-linux/
+### `rm`
+
+Borra (**AGUAS al usar esto**) archivos o directorios.
+
+```
+$ rm -r Prueba
+$ rm -r ../Manzanas/Prueba
+```
+
+**Pregunta:** ¿Si borras un directorio se borra su contenido? 
+
+
+### `tar`
+
+Es un método de ultra comprensión (más que zip) utilizado por sistemas Linux/Unix. Viene de "*tape archive*" y originalmente surgió para comprimir archivos para los discos "tape" de respaldo. 
+
+La compresión tar genera archivos "tarball", gzip y bzip. Con terminaciones como `.tar.gz`.
+
+#### Crear un tar.gz
+
+Imaginemos que queremos comprimir la carpeta `Maiz`
+
+```
+cd ..
+$ ls
+Maiz		Manzanas	Peras		Tomates
+tar cvzf Maiz.tar.gz Maiz
+Maiz/
+Maiz/.DS_Store
+Maiz/nuevos_final.bed
+Maiz/nuevos_final.bim
+Maiz/nuevos_final.fam
+Maiz/nuevos_final.log
+$ls -lhS
+total 2528
+-rw-r--r--  1 ticatla  staff   1.2M  3 Feb 08:27 Maiz.tar.gz
+drwxr-xr-x  7 ticatla  staff   238B  3 Feb 08:11 Maiz
+drwxr-xr-x  4 ticatla  staff   136B 23 Jan 14:59 Tomates
+drwxr-xr-x  2 ticatla  staff    68B  3 Feb 08:12 Manzanas
+drwxr-xr-x  2 ticatla  staff    68B 23 Jan 14:19 Peras
+
+```
+¿Qué hacen los flags de `tar` que utilizamos?
+
+`c`  Crea un nuevo archivo .tar.
+
+`v`  Muestra "*Verbosely*" el progreso de la compresión.
+
+`z`  Especifica que queremos un `.gzip`.
+
+`f`  Nombre del archivo tar que queremos como resultado.
+
+#### Descomprimir (Untar) archivos .tar.gz
+
+```
+$ rm -r Maiz
+$ tar -xvf Maiz.tar.gz
+Maiz/
+Maiz/.DS_Store
+Maiz/nuevos_final.bed
+Maiz/nuevos_final.bim
+Maiz/nuevos_final.fam
+Maiz/nuevos_final.log
+$ ls
+Maiz		Maiz.tar.gz	Manzanas	Peras		Tomates
+```
+
+**Pregunta:** ¿Qué hacen las flags `-xvf`?
+
+#### Ver el contenido de un archivo tar SIN descomprimirlo
+
+```
+tar -tvf Maiz.tar.gz
+drwxr-xr-x ticatla/staff     0 2016-02-03 08:11 Maiz/
+-rw-r--r-- ticatla/staff  6148 2016-02-03 07:46 Maiz/.DS_Store
+-rwx------ ticatla/staff 1551105 2015-05-06 10:05 Maiz/nuevos_final.bed
+-rwx------ ticatla/staff 1109078 2015-05-06 10:05 Maiz/nuevos_final.bim
+-rwx------ ticatla/staff    3604 2015-05-06 11:06 Maiz/nuevos_final.fam
+-rwx------ ticatla/staff    1825 2015-05-06 12:19 Maiz/nuevos_final.log
+
+```
+
+**Pregunta:** ¿En qué situación puede ser útil ver el contendio de un tar sin descomprimirlo?
+
+[Aquí una guía con más opciones para usar `tar`](http://www.tecmint.com/18-tar-command-examples-in-linux/)
+
+## Crear archivos desde la terminal
+
+
 
 ## Regular expressions y el uso de `*` `?` `[]` `{}`
 

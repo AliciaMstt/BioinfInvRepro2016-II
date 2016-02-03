@@ -15,7 +15,7 @@ Para más detalles:
 
 * **[Calendario de clases dividido por temas] (Temario_Calendarizado.md)** (lo iré actualizando conforme avance el semestre). 
 
-* **[Bienvenida al curso y mecanismos de evaluación](Bienvenida_y_dinamicadeclase.md). 
+* **[Bienvenida al curso y mecanismos de evaluación](Bienvenida_y_dinamicadeclase.md)**. 
 
 
 
