@@ -18,16 +18,23 @@ Introducción a la materia y dinámica de clase.
 
 ## 04-Feb (Jue)
 
-#### Clase teórica
+#### Clase teórico - práctica
 
 **Unidad 2 Introducción a Unix Shell** 2.1. Introducción a la Consola y Línea de Comando
-2.2. Funciones básicas de navegación y manejo de archivos2.3. Funciones básicas de exploración de archivos2.4. Redirección2.5. Loops
+2.2. Funciones básicas de navegación y manejo de archivos2.3. Funciones básicas de exploración de archivos (sin tema grep)2.4. Redirección* Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
+
 
 ##09-Feb (Mar)
-#### Clase práctica 
+
 * Dudas sobre la tarea sobre repositorios Dryad.
+ 
+#### Clase teórico-práctica 
+2.3. Funciones básicas de exploración de archivos (tema faltante grep)
+
+ 2.5. Loops
 
 * Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
+
 
 ## 11-Feb (Jue)
 #### Clase práctica
