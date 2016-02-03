@@ -11,9 +11,11 @@ El objetivo general del curso es brindar alumna/os con una formación en biolog�
 
 Para más detalles:
 
-* **[Objetivos particulares, mecanismos de evaluación y temario completo](Objs_Temario_Eval.md)**. 
+* **[Objetivos particulares y temario completo](Objs_Temario_Eval.md)**. 
 
 * **[Calendario de clases dividido por temas] (Temario_Calendarizado.md)** (lo iré actualizando conforme avance el semestre). 
+
+* **[Bienvenida al curso y mecanismos de evaluación](Bienvenida_y_dinamicadeclase.md). 
 
 
 

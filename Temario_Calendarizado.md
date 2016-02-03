@@ -12,12 +12,8 @@ Introducción a la materia y dinámica de clase.
 1.2. Repositorios de datos1.3. Código en computación1.4. Scripts y repositorios de código
 
 
-#### Tarea
-* Buscar repositorios de datos asociados a artículos que hayan leído.
- 
-* Crear un repositorio de datos en formato Dryad para algún artículo/tesis que hayan realizado.
-
-* Responder cuestionario online
+#### Tarea 1 
+[Tarea 1.](Unidad1/Tarea1.md) 
 
 
 ## 04-Feb (Jue)
