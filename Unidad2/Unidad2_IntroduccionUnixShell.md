@@ -280,7 +280,7 @@ Maiz		Manzanas	Peras		Prueba		Tomates
 
 ### `mv`
 
-Mueve un archivo o directorio de lugar A a lugar B. Equivalente a "copy-paste".
+Mueve un archivo o directorio de lugar A a lugar B. Equivalente a "cut-paste".
 
 ```
 $ mv ../Prueba ../Manzanas
@@ -471,8 +471,6 @@ ejemplo_final.bed	nuevos_final.bed
 Hay más comodines, puedes explorarlos [aquí](http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm).
 
 
-http://tldp.org/LDP/abs/html/x17129.html
-
 ## 2.3. Funciones básicas de exploración de archivos
 
 ### `more`
@@ -553,7 +551,7 @@ $ wc nuevos_final.fam
      165     990    3604 nuevos_final.fam
 ```
 
-### ´cat´
+### `cat`
 
 Viene de *Concatenate*. Sirve para unir uno detrás de otro varios archivos.
 
@@ -847,6 +845,9 @@ Más detalles y otras formas de redireccionar (que ocupan algunos programas) las
 Lo veremos la siguiente clase. Recomiendo traer leído:
 
 Cap 2. y Cap 5 a partir de *Regular expressions at the command line with grep*. Ambos de Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
+
+
+Buena referencia [aquí](http://tldp.org/LDP/abs/html/x17129.html) 
 ## 2.5. Loops
 
 Lo veremos la siguiente clase.
