@@ -28,6 +28,13 @@ Introducción a la materia y dinámica de clase.
 
 * Dudas sobre la tarea sobre repositorios Dryad.
  
+#### Clase práctica  
+Hacer el tutorial de CodeAcademy:
+[https://www.codecademy.com/learn/learn-the-command-line]() 
+
+
+
+## 11-Feb (Jue)
 #### Clase teórico-práctica 
 2.3. Funciones básicas de exploración de archivos (tema faltante grep)
 
@@ -35,10 +42,10 @@ Introducción a la materia y dinámica de clase.
 
 * Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
 
-
-## 11-Feb (Jue)
 #### Clase práctica
 Ejercicios para aplicar los comandos de la Unidad 2 a problemas específicos. 
+
+
 
 ## 16-Feb (Mar)
 #### Clase teórica
