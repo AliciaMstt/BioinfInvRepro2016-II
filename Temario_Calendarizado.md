@@ -30,10 +30,10 @@ Introducción a la materia y dinámica de clase.
  
 #### Clase práctica  
 Hacer el tutorial de CodeAcademy:
-[https://www.codecademy.com/learn/learn-the-command-line]() 
+[https://www.codecademy.com/learn/learn-the-command-line](https://www.codecademy.com/learn/learn-the-command-line) 
 
 O alternativamente este jueguito:
-[http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html]()
+[http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html](http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html)
 
 
 ## 11-Feb (Jue)
