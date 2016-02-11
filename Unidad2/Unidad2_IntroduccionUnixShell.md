@@ -873,7 +873,7 @@ Utilidad alternativa:
 
 ### ¿Cómo utilizar expresiones regulares en la línea de comando?
 
-El comando `grep` busca dentro de uno o más archios las líneas que contengan una expresión regular dada y copia dicha línea al stdout (o hace algo con ese output, si se lo indicamos).
+El comando `grep` busca dentro de uno o más archivos las líneas que contengan una expresión regular dada y copia dicha línea al stdout (o hace algo con ese output, si se lo indicamos).
 
 `grep [options] [regularexpression] [filename]`
 
@@ -892,7 +892,7 @@ La *regularexpression* puede ser tal cual el texto a buscar, pero también podem
 * **\w** Cualquier "caracter de palabra", ie: letras, números y _.
 * **\W** Cualquier "caracter de NO palabra", ie: símbolos raros que no son letras, números ni _.
 
-* **\\**  Sirve para usar los metacaracteres ($ * + . ? [ ] ^ { } | ( ) \) como caracteres literales. Por ejemplo \\$3 para el string \$3. A esto se le conoce como "escapar" (*scape*).
+* **\\**  Sirve para usar los metacaracteres ($ * + . ? [ ] ^ { } | ( ) \) como caracteres literales. Por ejemplo \\$3 para el string \$3. A esto se le conoce como "escapar" (*escape*).
 
 * **|**  Operador "or" acepta un patrón u otro, por ejemplo p(err|at)o va a aceptar tanto "perro" como "pato".
 
@@ -904,7 +904,7 @@ La *regularexpression* puede ser tal cual el texto a buscar, pero también podem
 
 * **+**  Una o más ocurrencias del caracter anterior, por ejemplo 10+, va a aceptar las cadenas 10", "100", "1000", etc, pero no la cadena "1"
 
-* **?**  Hasta una ocurrencia del caracter anterior, por ejemplo patos?, va aveptar las cadenas "pato" y "patos"
+* **?**  Hasta una ocurrencia del caracter anterior, por ejemplo patos?, va aceptar las cadenas "pato" y "patos"
 
 * **{n}**  Exactamente n veces el caracter anterior, por ejemplo 10{5}, únicamente va a aceptar la cadena "100000"
 
@@ -1009,7 +1009,7 @@ tomatesverdes.fasta
 ```
 
 #### `grep -i` 
-Hace que la búsqueda sea **insensible** a Mayúsculas/minísculas. 
+Hace que la búsqueda sea **insensible** a Mayúsculas/minúsculas. 
 
 ```
 $ grep -l physalis *.fasta
