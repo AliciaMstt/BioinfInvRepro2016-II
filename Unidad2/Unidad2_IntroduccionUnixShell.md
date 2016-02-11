@@ -13,7 +13,7 @@ La primera línea dice la fecha y hora y "ttys001". ttys viene de "Teletype" ([u
 
 En mi caso la segunda línea me dice que tengo correo. Uds probablemente no tengan esto.
 
-La tercera línea es la más importante: dice el **nombre del equipo** (Aliicas-MacBook-Pro en este caso), el **directorio** donde estoy (`~` signfica "home directory", lo veremos más adelante) y el **nombre del usuario** con quién estoy en la terminal (en mi caso ticatla). 
+La tercera línea es la más importante: dice el **nombre del equipo** (Aliicas-MacBook-Pro en este caso), el **directorio** donde estoy (`~` significa "home directory", lo veremos más adelante) y el **nombre del usuario** con quién estoy en la terminal (en mi caso ticatla). 
 
 Notarás que la tercera línea termina en `$`
 
@@ -21,7 +21,7 @@ Notarás que la tercera línea termina en `$`
 
 
 
-#### ¿Qué signficica que La Terminal tenga un interpretador? 
+#### ¿Qué significa que La Terminal tenga un interpretador? 
 
 Que le damos comandos y nos responde. 
 
@@ -59,7 +59,7 @@ $ echo hello world
 hello world
 ``` 
  
-Para facilidad visual, de aquí en adelante utilizaremos la opción con el texto a partir de `$` (al menos que sea pertiente ver lo que hay antes). Este tipo de formato te lo encontrarás en diversos foros de ayuda, libros de textos y manuales.
+Para facilidad visual, de aquí en adelante utilizaremos la opción con el texto a partir de `$` (al menos que sea pertinente ver lo que hay antes). Este tipo de formato te lo encontrarás en diversos foros de ayuda, libros de textos y manuales.
  
 
 **Pregunta**: ¿Qué pasa si intentas correr el comando  `algo`?:
@@ -72,11 +72,11 @@ Que quiere decir que no existe el comando `algo`.
 
 
 ## 2.2. Funciones básicas de navegación y manejo de archivos y directorios
-Windows, Mac y las interfases gráficas de Linux (como Ubuntu y Biolinux) tienen un sistema de archivos que estamos acostumbrados a explorar a través carpetas y subcarpetas que podemos ver en una ventana. Por ejemplo así:
+Windows, Mac y las interfaces gráficas de Linux (como Ubuntu y Biolinux) tienen un sistema de archivos que estamos acostumbrados a explorar a través carpetas y subcarpetas que podemos ver en una ventana. Por ejemplo así:
 
 ![Findereg](Finder01.png) 
 
-A continuación vamos a ver cómo navegar por este **mismo** sistema de archivos, pero desde la Terminal y con el telcado en vez de desde una ventana y con clicks.### `pwd``pwd` nos da el directorio en donde estamos (viene de print **working directory**). 
+A continuación vamos a ver cómo navegar por este **mismo** sistema de archivos, pero desde la Terminal y con el teclado en vez de desde una ventana y con clicks.### `pwd``pwd` nos da el directorio en donde estamos (viene de print **working directory**). 
 
 El directorio de trabajo es **dónde estamos**, equivalente a tener una ventana abierta del explorador en una carpeta determinada. Al menos que le indiques lo contrario, todo archivo que se genere como parte de la ejecución de un programa se guardará aquí. También este será el lugar donde cualquier programa/script buscará los archivos que le pidas, y NO los encontrará si no están exactamente ahí. Claro que es posible decirle que busque en otro directorio, lo veremos adelante.  
 
@@ -175,7 +175,7 @@ Alicias-MacBook-Pro:Manzanas ticatla$
 #### No moverse
 O en otras palabras ir al directorio donde ya estás. Suena inútil, y en general lo es si lo hace con `cd`, pero el concepto es importante para otros comandos que veremos más adelante. 
 
-`cd ./` te lleva al directorio en el que estás. Lo imporante a recordar es que `.` significa "el directorio actual". 
+`cd ./` te lleva al directorio en el que estás. Lo importante a recordar es que `.` significa "el directorio actual". 
 
 #### Errores comunes al usar `cd`
 * `-bash: cd: manzanas: No such file or directory`
@@ -185,21 +185,21 @@ O en otras palabras ir al directorio donde ya estás. Suena inútil, y en genera
 * `-bash: cd: ../Manzanas: No such file or directory`
 
 
-  Sí está bien escrito, el directorio Manzanas existe y no lo encuentra. Ok, existe, pero NO en el directorio inmediatamente arriba. Checa dónde estás y a dónde dirigien tus `cd ..`
+  Sí está bien escrito, el directorio Manzanas existe y no lo encuentra. Ok, existe, pero NO en el directorio inmediatamente arriba. Checa dónde estás y a dónde dirigen tus `cd ..`
 
 * `-bash: cd..: command not found`. 
   
   Ojo, con tus espacios `cd..` no es lo mismo que `cd ..`. Otro clásico es poner `cd ...`
 
-En resumen: checa que esté bien escrito y que puedas ir a ese diretorio con la ruta que le estás pidiendo. 
+En resumen: checa que esté bien escrito y que puedas ir a ese directorio con la ruta que le estás pidiendo. 
 
 #### Tips de acceso rápido en la Terminal
 
-**Flecha arriba/abajo** para acceder a los últimos comandos utilizaods
+**Flecha arriba/abajo** para acceder a los últimos comandos utilizados
 **TAB** para "completar" la escritura del path o nombre de archivos.
 
 
-## `ls`
+### `ls`
 
 Enlista los archivos y directorios presentes en un directorio. Ejemplo:
 
@@ -210,7 +210,7 @@ nuevos_final.bed	nuevos_final.fam
 nuevos_final.bim	nuevos_final.log
 ```
 
-Nota que los enlista en órden alfabético. 
+Nota que los enlista en orden alfabético. 
 
 Para tener más info de los archivos:
 
@@ -376,9 +376,15 @@ drwxr-xr-x ticatla/staff     0 2016-02-03 08:11 Maiz/
 
 ```
 
-**Pregunta:** ¿En qué situación puede ser útil ver el contendio de un tar sin descomprimirlo?
+**Pregunta:** ¿En qué situación puede ser útil ver el contenido de un tar sin descomprimirlo?
 
 [Aquí una guía con más opciones para usar `tar`](http://www.tecmint.com/18-tar-command-examples-in-linux/)
+
+`tar` tiene muchas opciones, lo importante es saber que existen y cómo buscarlas en el manual. Casi siempre:
+
+
+![tar_xkcd.png](tar_xkcd.png)
+
 
 ## Crear archivos desde la terminal
 
@@ -395,7 +401,7 @@ Y abrirá una nueva ventana, donde pueden escribir así:
 
 ![nanoej1](nanoej1.png)
 
-Al guardar con `^O` pedirá un nombre de archivo. Yo lo guardé como "ejemplonano.txt". 
+Al guardar con `^O` (ctrl + O) pedirá un nombre de archivo. Yo lo guardé como "ejemplonano.txt". 
 
 Una vez fuera de nano podemos verlo en la Terminal y volverlo a abrir si queremos:
 
@@ -407,7 +413,7 @@ $ nano ejemplonano.txt
 ```
 
 
-## Comodies o el uso de `*` `?` `[]` `{}` 
+## Comodines o el uso de `*` `?` `[]` `{}` 
 
 Volvamos a ver el contenido de Maiz:
 
@@ -433,11 +439,11 @@ ejemplonano.txt		nuevos_final.fam
 Fácilmente podemos ver que hay 7 archivos, y que hay dos que terminan en .bed y dos que terminan en .fam. 
 
 
-¿Y si tubieramos 1,000 archivos con las terminaciones .bed, .fam, bim pero con diferente prefijo? ¿Cómo contarlos y ver cuántos .bed hay?
+¿Y si tuviéramos 1,000 archivos con las terminaciones .bed, .fam, bim pero con diferente prefijo? ¿Cómo contarlos y ver cuántos .bed hay?
 
 ### `*`
 
-"Comodín" o *wildcard*. Caulquier texto (uno o más caracteres) a partir (dercha o izquierda) de dónde se ponga el `*`.
+"Comodín" o *wildcard*. Cualquier texto (uno o más caracteres) a partir (derecha o izquierda) de dónde se ponga el `*`.
 
 Ejemplo:
 
@@ -452,7 +458,7 @@ nuevos_final.bim	nuevos_final.log
 
 
 ### `?`
-Parecido a ´*´ pero para un sólo caractér.
+Parecido a ´*´ pero para un sólo carácter.
 
 ```
 $ ls *.b??
@@ -543,8 +549,8 @@ Muestra las últimas líneas de un archivo.
 
 **Pregunta:** ¿Para qué podría ser útil ver las últimas líneas de un archivo?
 
-### ´wc´
-Brinda el número de líneas, el número de palabras y el número de caractéres del archivo.
+### `wc`
+Brinda el número de líneas, el número de palabras y el número de caracteres del archivo.
 
 ```
 $ wc nuevos_final.fam
@@ -812,14 +818,14 @@ Writing recoded file to [ nuevos_final.raw ]
 Analysis finished: Wed May 06 12:19:30 2015
 ```
 
-Nota que si el archivo catejemplo.txt ya existe será borrado por el comando anterior. Si no deseas que esto ocurra sino que el nuevo contenido se agrege al final de un archivo ya existente entonces usa  `>>`. Así:
+Nota que si el archivo catejemplo.txt ya existe será borrado por el comando anterior. Si no deseas que esto ocurra sino que el nuevo contenido se agregue al final de un archivo ya existente entonces usa  `>>`. Así:
 
 ```
 $ cat nuevos_final.fam *log >> catejemplo.txt
 ```
 
 ### `|`
-Toma el stdout de un comando y lo conviernte en el input de otro (*Pipes* the strout).
+Toma el stdout de un comando y lo convierte en el input de otro (*Pipes* the strout).
 
 Ejemplo:
 
@@ -842,12 +848,313 @@ Más detalles y otras formas de redireccionar (que ocupan algunos programas) las
 
 ## Regular expressions y búsqueda de patrones (`grep`)
 
-Lo veremos la siguiente clase. Recomiendo traer leído:
+### ¿Qué son las expresiones regulares
+Las *expresiones regulares* son una herramienta de búsqueda o búsqueda-remplazo de cadenas de texto acorde a un patrón dado. Existen en la línea de comando, pero también en otros lenguajes, como R y casi cualquier buscador de texto.
 
-Cap 2. y Cap 5 a partir de *Regular expressions at the command line with grep*. Ambos de Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
+Una expresión regular se puede pensar como una combinación de caracteres literales y metacaracteres. 
+
+* Los **caracteres literales** son de los que están formadas las **palabras en el lenguaje utilizado**. Ejemplo: "c",""o","n","a","b","i","o","2","0","6"
+
+* Los **metacaracteres** son aquellos que tienen una **función particular en la expresión regular**. Ejemplo:  "*","?",".","|","^","$","(",")","[","]"
+
+Las expresiones regulares también se conocen como *regexp*, *regex* o `grep` (global regular expression print), que es el comando que utilizaremos. Pero en realidad `grep` solo es uno de los comandos que las utiliza, es decir hay otros. 
+
+### ¿Para qué sirven? 
+
+Las principales aplicaciones de las expresiones regulares en bioinformática son:
+
+* Reformatear archivos de datos. **Una se la vive haciendo esto**
+* Decirle a un algoritmo que realice análisis en ciertas muestras y no otras
+* Identificar patrones cortos de ADN en una secuencia, por ejemplo enzimas de restricción o índices. 
+
+Utilidad alternativa:
+
+![regular_expressions_xkcd.png](regular_expressions_xkcd.png)
+
+### ¿Cómo utilizar expresiones regulares en la línea de comando?
+
+El comando `grep` busca dentro de uno o más archios las líneas que contengan una expresión regular dada y copia dicha línea al stdout (o hace algo con ese output, si se lo indicamos).
+
+`grep [options] [regularexpression] [filename]`
+
+Las opciones de grep pueden verse en el manual (**Pregunta** ¿Cómo buscar el manual de `grep` en la Terminal?). Veremos los casos más usados adelante. 
+
+La *regularexpression* puede ser tal cual el texto a buscar, pero también podemos hacer una búsqueda mucho más compleja con **operadores**, **cuantificadores**, y **posicionadores**, que de forma similar a las *wildcards* nos permiten realizar búsquedas más flexibles. 
+
+##### Operadores
+
+* **.**  Cualquier símbolo (una vez)
+
+* **[....]**  Para hacer una lista de caracteres, por ejemplo [Bb]iology10[1234] acepta cualquiera de las cadenas "Biology102", "biology101". También se pueden incluir rangos, por ejemplo: [0-9] para todos los números. 
+
+* **[^...]** Para hacer una lista de caracteres negativos, o sea que busque cualquiera excepto los enlistados. 
+
+* **\w** Cualquier "caracter de palabra", ie: letras, números y _.
+* **\W** Cualquier "caracter de NO palabra", ie: símbolos raros que no son letras, números ni _.
+
+* **\\**  Sirve para usar los metacaracteres ($ * + . ? [ ] ^ { } | ( ) \) como caracteres literales. Por ejemplo \\$3 para el string \$3. A esto se le conoce como "escapar" (*scape*).
+
+* **|**  Operador "or" acepta un patrón u otro, por ejemplo p(err|at)o va a aceptar tanto "perro" como "pato".
+
+* **(....)**  Grupos, sirven para recuperar partes del patrón encontrado para ser usadas después
+
+##### Cuantificadores
+
+* **\***  Cero o más ocurrencias del caracter anterior, por ejemplo 10\*, va a aceptar las cadenas "1", "10", "100", "1000", etc
+
+* **+**  Una o más ocurrencias del caracter anterior, por ejemplo 10+, va a aceptar las cadenas 10", "100", "1000", etc, pero no la cadena "1"
+
+* **?**  Hasta una ocurrencia del caracter anterior, por ejemplo patos?, va aveptar las cadenas "pato" y "patos"
+
+* **{n}**  Exactamente n veces el caracter anterior, por ejemplo 10{5}, únicamente va a aceptar la cadena "100000"
+
+* **{n,}**  Mínimo n veces el caracter anterior, por ejemplo 10{5,}, aceptará las cadenas "100000", "1000000", "1000000", etc
+
+* **{n,m}**  Entre n y m veces el caracter anterior, por ejemplo 10{2,5}, aceptará las cadenas "100", "10000"
+
+##### Posicionadores
+* **<** Inicio de la cadena (palabra), por ejemplo <GAAA aceptará "GAAACCCTTT", pero no "CCCTGAAAC"
+
+* **>** Fin de la cadena, por ejemplo TCCA> aceptará "ACTTCCA" pero no "AGTCCATC"
+
+* **^** Igual que los anteriores, pero para el inicio de una línea
+
+* **$** Final de una línea
 
 
-Buena referencia [aquí](http://tldp.org/LDP/abs/html/x17129.html) 
-## 2.5. Loops
 
-Lo veremos la siguiente clase.
+### Usos comunes de `grep` 
+
+Empecemos por ver el archivo [tomatesverdes.fasta](../Practicas/Uni2/Tomates/tomatesverdes.fasta). (Vive en: `BioinfInvRepro2016-II/Practicas/Uni2/Tomates/`)
+
+```
+$ less tomatesverdes.fasta 
+>gi|156629013|gb|EF438954.1| Physalis philadelphica isolate P061 maturase K (matK) gene, partial cds; chloroplast
+TAGGTCGATTTTGTTGGAAAATCCAGGTTATAACAATAAATTTAGTTTCCTAATTGTGAAACGTTTAATT
+ACTCGAATGTATCAACAGAATCATTTTATTATTTCTACTAATGATTCTAACAAAAATCCATTTTTGGGGT
+GCAACAAGAGTTTGTATTCTCAAATGATATCAGAGGGATTTGCATTTATTGTGGAAATTCCGTTTTCTCT
+ACGATTAATATCTTCTTTATCTTCTTTCGAAGGCAAAAAGATTTTAAAATCTCATAATTTACGATCAATT
+CATTCAACATTTCCTTTTTTAGAGGACAATTTTTCACATCTAAATTATGTATTAGATATACTAATACCCT
+ACCCCGTTCATCTGGAAATCTTGGTTCAAACTCTTCGCTATTGGGTAAAAGATGCCTCTTCTTTACATTT
+ATTACGATTCTTTCTCCACGAATATTGGAATTTGAATAGTCTTATTACTTCAAAGAAGCCCGGTTACTCC
+TTTTCAAAAAAAAATCAAAGATTCTTCTTCTTCTTATATAATTCTTATGTATATGAATGGGAATCCACTT
+TCGTCTTTCTACGGAACCAATCTTCTCATTTACGATCAACATCTTTTGGAGCCCTTCTTGAACGAATATA
+TTTCTATGGAAAAATAGAACGTCTTGTAGAAGTCTTTGCTAAGGATTTTCAGGTTACCTTATGGTTATTC
+AAGGATCCTTTCATGCATTATGTTAGGTATCAAGGAAAATCAATTCTGGCTTCAAAAGGGACGTTTCTTT
+TGATGAATAATTGGAAATTTTACCTAGTGGATTTTTGGCACTGTCATTTTTTTCGGTGCTTTCACTCATG
+TAGGATCCTTATAAACCAATTGGCCAATCATTTACGTGACTTTCTGGGCTATCTTTCAAGTGTGCGGCTA
+AATCTTTCAATGGTTCGTAGAAAA
+>gi|156629009|gb|EF438952.1| Physalis philadelphica isolate P059 maturase K (matK) gene, partial cds; chloroplast
+TAGGTCGATTTTGTTGGAAAATCCAGGTTATAACAATAAATTTAGTTTCCTAATTGTGAAACGTTTAATT
+ACTCGAATGTATCAACAGAATCATTTTATTATTTCTACTAATGATTCTAACAAAAATCCATTTTTGGGGT
+GCAACAAGAGTTTGTATTCTCAAATGATATCAGAGGGATTTGCATTTATTGTGGAAATTCCGTTTTCTCT
+ACGATTAATATCTTCTTTATCTTCTTTCGAAGGCAAAAAGATTTTAAAATCTCATAATTTACGATCAATT
+CATTCAACATTTCCTTTTTTAGAGGACAATTTTTCACATCTAAATTATGTATTAGATATACTAATACCCT
+ACCCCGTTCATCTGGAAATCTTGGTTCAAACTCTTCGCTATTGGGTAAAAGATGCCTCTTCTTTACATTT
+ATTACGATTCTTTCTCCACGAATATTGGAATTTGAATAGTCTTATTACTTCAAAGAAGCCCGGTTACTCC
+TTTTCAAAAAAAAATCAAAGATTCTTCTTCTTCTTATATAATTCTTATGTATATGAATGGGAATCCACTT
+TCGTCTTTCTACGGAACCAATCTTCTCATTTACGATCAACATCTTTTGGAGCCCTTCTTGAACGAATATA
+TTTCTATGGAAAAATAGAACGTCTTGTAGAAGTCTTTGCTAAGGATTTTCAGGTTACCTTATGGTTATTC
+AAGGATCCTTTCATGCATTATGTTAGGTATCAAGGAAAATCAATTCTGGCTTCAAAAGGGACGTTTCTTT
+TGATGAATAAATGGAAATTTTACCTTGTCAATTTTTGTCAATGTCATTTTTTTCTGTGCTTTCACACAGG
+AAGGATCCATATAAACCAATTATCCAATCATTTACGTGACTTTATGGGCTATCTTTCAAGTGTGCGACTA
+AATCATTCAATGGTACGTAGTCAAATGTTAGAAAA
+:
+```
+
+**Preguntas:** 
+
+1) ¿Qué tipo de archivo es? 
+
+2) ¿Cuántas secuencias contiene?
+
+3) ¿Cuál es el encabezado de las secuencias?
+
+`grep` puede permitirnos extraer información de archivos como este, pero mucho más grandes y difíciles de ver. 
+
+Formas comunes de usar `grep`:
+
+#### `grep` a secas: 
+Busca una expresión regular y otorga las líneas donde se encontró dicha expresión.
+
+Ejemplo:
+
+```
+$ grep ">" tomatesverdes.fasta 
+>gi|156629013|gb|EF438954.1| Physalis philadelphica isolate P061 maturase K (matK) gene, partial cds; chloroplast
+>gi|156629009|gb|EF438952.1| Physalis philadelphica isolate P059 maturase K (matK) gene, partial cds; chloroplast
+>gi|156628921|gb|EF438908.1| Physalis philadelphica isolate P056 maturase K (matK) gene, partial cds; chloroplast
+>gi|156628893|gb|EF438894.1| Physalis philadelphica isolate P050 maturase K (matK) gene, partial cds; chloroplast
+>gi|156629011|gb|EF438953.1| Physalis philadelphica isolate P060 maturase K (matK) gene, partial cds; chloroplast
+```
+**Pregunta**: ¿Por qué está ">" entre comillas? 
+
+**Ejercicio** En el mismo directorio hay otro archivo fasta. Utiliza grep para ver el encabezado de `tomatesverdes.fasta` y `jitomate.fasta`. ¿Qué diferencia hay con el output anterior?
+
+#### `grep -c` 
+Para contar en cuántas líneas aparece la expresión de búsqueda 
+
+```
+$ grep -c ">" tomatesverdes.fasta 
+5
+```
+
+#### `grep -l`
+Sólo enlista los archivos donde se encontró la expresión, pero no las líneas.
+
+```
+$ grep -l Physalis *.fasta
+tomatesverdes.fasta
+
+```
+
+#### `grep -i` 
+Hace que la búsqueda sea **insensible** a Mayúsculas/minísculas. 
+
+```
+$ grep -l physalis *.fasta
+$
+$ grep -li physalis *.fasta
+tomatesverdes.fasta
+
+```
+
+#### `grep -w`
+Sirve para buscar palabras completas, por ejemplo para buscar "he" y no "the". 
+
+```
+$ grep iso tomatesverdes.fasta 
+>gi|156629013|gb|EF438954.1| Physalis philadelphica isolate P061 maturase K (matK) gene, partial cds; chloroplast
+>gi|156629009|gb|EF438952.1| Physalis philadelphica isolate P059 maturase K (matK) gene, partial cds; chloroplast
+>gi|156628921|gb|EF438908.1| Physalis philadelphica isolate P056 maturase K (matK) gene, partial cds; chloroplast
+>gi|156628893|gb|EF438894.1| Physalis philadelphica isolate P050 maturase K (matK) gene, partial cds; chloroplast
+>gi|156629011|gb|EF438953.1| Physalis philadelphica isolate P060 maturase K (matK) gene, partial cds; chloroplast
+$ grep -w iso tomatesverdes.fasta 
+$ 
+```
+
+
+#### `grep -E
+
+Lee el texto entre comillas como una expresión regular  completa, es decir con operadores, cuantificadores y posicionadores.
+
+```
+$ grep -oE "\| \w+ \w+" tomatesverdes.fasta 
+| Physalis philadelphica
+| Physalis philadelphica
+| Physalis philadelphica
+| Physalis philadelphica
+| Physalis philadelphica
+
+```
+
+**Ejercicio 1** Obtener el nombre de la especie como en el ejemplo anterior, pero sin el "|" del principio.
+
+**Ejercicio 2** Obtener el *nombre de las secuencias* de los archivos tomatesverdes.fasta y jitomares.fasta y escribirlos a un archivo.
+ 
+
+
+**Más información de expresiones regulares en:**
+
+Cap 2. Cap 3. y Cap 5 de Haddock SHD, Dunn CW (2011) Practical computing for biologists. Sinauer Associates Sunderland, MA.
+
+Buena referencia de expresiones regulares [aquí](http://tldp.org/LDP/abs/html/x17129.html) 
+
+Y buenos ejemplos de cómo usar `grep` [aquí](http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/)
+
+**Nota:** `awk` y `sed` son otros comandos similares a grep que también usan expresiones regulares. No los cubriremos aquí, pero vale la pena darles un ojo. [Aquí ejemplos de cómo se utilizan para manipular archivos fasta](http://bioinformatics.cvr.ac.uk/blog/short-command-lines-for-manipulation-fastq-and-fasta-sequence-files/).
+
+## 2.5. For loops
+
+### For loops
+
+Los *for loops* permiten **repetir** una serie de comandos con diferentes **variables de una lista*.
+
+
+Sintaxis: 
+
+```
+for i in list; do
+ command1
+ command2
+ ..
+done
+```
+
+"i" puede leerse como "el elemento i de la lista". Y  la lista no es más que el conjunto total de las variables que queremos. 
+
+Ejemplo:
+
+```
+$ for i in adenina citosina guanina timina; do
+> echo "La $i es una base nitrogenada"
+> done
+La adenina es una base nitrogenada
+La citosina es una base nitrogenada
+La guanina es una base nitrogenada
+La timina es una base nitrogenada
+```
+
+
+**Observaciones importantes:**
+* Los elementos de la lista NO se separan por comas (en otros lenguajes sí).
+* Para referirnos al "elemento i" dentro de los comandos debemos usar como prefijo el símbolo $. 
+
+Otro ejemplo:
+
+```
+for perro in labrador "pastor mesoamericano" xolo; do
+echo Mi mejor amigo es un $perro; done
+Mi mejor amigo es un labrador
+Mi mejor amigo es un pastor mesoamericano
+Mi mejor amigo es un xolo
+```
+
+**Preguntas** 
+
+1) ¿Cuándo debo usar comillas en la lista de elementos?
+
+2) ¿Qué hace `;`?
+
+
+### Definir variables
+
+Los for loops utilizan *variables* definidas por el usuario, es decir "i" y "perro" en los ejemplos anteriores. Sin embargo, también pueden crearse variables **afuera** de un for loop, y usarlas para lo que queramos. 
+
+Ejemplo:
+
+```
+$ varx=2
+$ $varx
+-bash: 2: command not found
+
+```
+
+**Observaciones importantes**
+* NO debe haber espacios entre el símbolo = y la variable o su valor.
+* El nombre de la variable puede ser cualquier cosa que queramos **MENOS** el nombre de un comando que exista. 
+
+Las variables se pueden usar para acortar algo que escribamos muy seguido (como un path o un nombre de archivo largos) y conjuntar con otras variables dentro de un loop. 
+
+Ejemplo:
+
+```
+$ maullido=miau
+$ for i in gato gatito gatón; do
+> echo El $i hace $maullido
+> done
+El gato hace miau
+El gatito hace miau
+El gatón hace miau
+```
+
+Ejercicio:
+
+Navega al directorio `BioinfInvRepro2016-II/Practicas/Uni2`. Desde ahí (i.e. **sin** utilizar `cd`) utiliza un for loop para crear por lo menos cuatro directorios dentro del directorio `Tomates/VerdesFritos`. Tu for loop debe incluir una variable definida externamente. 
+
+
+**Más información de for loops**
+Aquí presenté la sintaxis más usada, pero hay otros métodos para escribir loops que hacen lo mismo. Y también pueden hacerse más complejos agregando "ifs". 
+Puedes consultar esta y más info de for loops en [esta guía con ejemplos y varios formatos](http://www.thegeekstuff.com/2011/07/bash-for-loop-examples/). 
+
+
