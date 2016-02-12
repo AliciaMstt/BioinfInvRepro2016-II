@@ -900,7 +900,7 @@ La *regularexpression* puede ser tal cual el texto a buscar, pero también podem
 
 ##### Cuantificadores
 
-* **\***  Cero o más ocurrencias del caracter anterior, por ejemplo 10\*, va a aceptar las cadenas "1", "10", "100", "1000", etc
+* * Cero o más ocurrencias del caracter anterior, por ejemplo 10\*, va a aceptar las cadenas "1", "10", "100", "1000", etc
 
 * **+**  Una o más ocurrencias del caracter anterior, por ejemplo 10+, va a aceptar las cadenas 10", "100", "1000", etc, pero no la cadena "1"
 
@@ -1089,6 +1089,7 @@ Ejemplo:
 $ for i in adenina citosina guanina timina; do
 > echo "La $i es una base nitrogenada"
 > done
+
 La adenina es una base nitrogenada
 La citosina es una base nitrogenada
 La guanina es una base nitrogenada
@@ -1097,14 +1098,17 @@ La timina es una base nitrogenada
 
 
 **Observaciones importantes:**
+
 * Los elementos de la lista NO se separan por comas (en otros lenguajes sí).
 * Para referirnos al "elemento i" dentro de los comandos debemos usar como prefijo el símbolo $. 
+* No tienes que escribir el `>` antes de `echo` y de `done`, los pongo solo para mostrar que eso aparece en la terminal hasta que terminemos de meter los comandos que formarán parte del loop. De hecho `done` sirve para decir "ok, aquí termina el loop". En los ejemplos de abajo ya no lo pondré.
 
 Otro ejemplo:
 
 ```
 for perro in labrador "pastor mesoamericano" xolo; do
 echo Mi mejor amigo es un $perro; done
+
 Mi mejor amigo es un labrador
 Mi mejor amigo es un pastor mesoamericano
 Mi mejor amigo es un xolo
@@ -1116,6 +1120,16 @@ Mi mejor amigo es un xolo
 
 2) ¿Qué hace `;`?
 
+Y un ejemplo más:
+
+```
+for i in {1..100};do
+mkdir directorio$i; done
+```
+
+Lo cual hará 100 directorios, llamados directorio1, directorio2 y así.
+
+**Pregunta** ¿De qué manera sencilla borrarías esos 100 directorios que acabas de crear?
 
 ### Definir variables
 

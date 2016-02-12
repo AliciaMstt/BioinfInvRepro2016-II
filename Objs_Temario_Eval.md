@@ -81,21 +81,23 @@ El curso **no** se enfocará en ningún software especializado particular (e.g. 
 
 **Bibliografía complementaria**
 
-1.	Adegenet on the Web (2013). [http://adegenet.r-forge.r-project.org/]()
-2.	A Little Book of R for Bioinformatics (2013)  [http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html]()
-3.	Bioconductor - Workflows (2015) [http://www.bioconductor.org/help/workflows/]()
+1.	Adegenet on the Web (2013). [http://adegenet.r-forge.r-project.org/](http://adegenet.r-forge.r-project.org/)
+2.	A Little Book of R for Bioinformatics (2013)  [http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html](http://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/index.html)
+3.	Bioconductor - Workflows (2015) [http://www.bioconductor.org/help/workflows/](http://www.bioconductor.org/help/workflows/)
 4.	File Format Reference - PLINK 1.9. (2015) [http://pngu.mgh.harvard.edu/~purcell/plink2/formats.html
-]()
-5.	Getting Comfortable in the Terminal: Linux | Codecademy (2015)  [https://www.codecademy.com/blog/72-getting-comfortable-in-the-terminal-linux]()
-6.	Learn the Command Line | Codecademy (2015) [https://www.codecademy.com/courses/learn-the-command-line
-]()
+](http://pngu.mgh.harvard.edu/~purcell/plink2/formats.html)
+5.	Learn the Command Line | Codecademy (2015) [https://www.codecademy.com/courses/learn-the-command-line
+](https://www.codecademy.com/courses/learn-the-command-line)
+6.     Acordeón de comandos Unix (Línea de comando) de FOSSwire [https://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/](https://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/)
 7.	Montana, Giovanni. 2015. CRAN Task View: Statistical Genetics (2015) [http://CRAN.R-project.org/view=Genetics
-]()
-8.	Next Generation Sequencing (NGS)/Alignment - Wikibooks, Open Books for an Open World (2015) [https://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Alignment]()
-9.	Next Generation Sequencing (NGS)/De Novo Assembly - Wikibooks, Open Books for an Open World. (2015) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/De_novo_assembly#Typical_workflow]()
-10.	Next Generation Sequencing (NGS)/Pre-Processing - Wikibooks, Open Books for an Open World (2014) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality]()
-11.	Population Genetics in R (2015) [http://grunwaldlab.github.io/Population_Genetics_in_R/index.html]()
-12.	R & Bioconductor – Manuals (2013) [http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Basics-on-Functions-and-Packages]()
-13.	Reference-Guide – Rmarkdown Reference Guide (2015) [http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf
-]()14.	Try R. Code School (2015) [http://tryr.codeschool.com
-]()
+](http://CRAN.R-project.org/view=Genetics)
+8.	Next Generation Sequencing (NGS)/Alignment - Wikibooks, Open Books for an Open World (2015) [https://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Alignment](https://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Alignment)
+9.	Next Generation Sequencing (NGS)/De Novo Assembly - Wikibooks, Open Books for an Open World. (2015) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/De_novo_assembly#Typical_workflow](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/De_novo_assembly#Typical_workflow)
+10.	Next Generation Sequencing (NGS)/Pre-Processing - Wikibooks, Open Books for an Open World (2014) [http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality)
+11.	Try R. Code School (2015) [http://tryr.codeschool.com
+](Try R. Code School)
+12. Population Genetics in R (2015) [http://grunwaldlab.github.io/Population_Genetics_in_R/index.html](http://grunwaldlab.github.io/Population_Genetics_in_R/index.html)
+13.	R & Bioconductor – Manuals (2013) [http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Basics-on-Functions-and-Packages](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual#TOC-Basics-on-Functions-and-Packages)
+14.	Reference-Guide – Rmarkdown Reference Guide (2015) [http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf
+](http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf)
+15.	Bioconductor for Genomic Data Science, sitio del curso de Kasper Daniel Hansen [http://kasperdanielhansen.github.io/genbioconductor/](http://kasperdanielhansen.github.io/genbioconductor/)
