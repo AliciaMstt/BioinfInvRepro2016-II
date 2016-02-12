@@ -58,10 +58,8 @@ O alternativamente este jueguito:
 
 * Ejercicios para conocer y familiarizarse con la apliación de los principales comandos de los temas de la Unidad 2. 
 
-#### Clase práctica
-Ejercicios para aplicar los comandos de la Unidad 2 a problemas específicos. 
-
-
+#### Les dejo la Tarea 2
+[Tarea 2.](Unidad2/Tarea2.md) 
 
 ## 16-Feb (Mar)
 
