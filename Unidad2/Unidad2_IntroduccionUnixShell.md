@@ -412,6 +412,43 @@ nuevos_final.bed	nuevos_final.fam
 $ nano ejemplonano.txt
 ```
 
+## curl
+
+Sirve para bajar archivos de internet a la computadora.
+
+Sintaxis:
+
+    curl [opciones] [direccionURLdelarchivo]
+   
+Ejemplo:
+
+```
+$ curl -s "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=937202862"
+>gi|937202862|gb|KT820711.1| Chiropterotriton sp. SMR-2015b voucher MVZ:Herp:269665 cytochrome b (cytb) gene, partial cds; mitochondrial
+TTAATACCTCATTCATTGATCTGCCTACACCATCAAACATCTCTTATCTTTGAAATTTTGGATCTCTATT
+AGGCGTATGTCTTATTATACAAATCTTAACAGGTGTATTTTTAGCTCTACACTTTACCGCAGACACACTA
+TCTGCATTTTCATCAGTAGCCCATATTTGTCGAGACGTAAATTATGGATGAATAATTCGAAATATTCACA
+CTAATGGCGCCTCCATATTTTTTATCTGCCTATACTTACACATTGGTCGAGGCATTTATTATGGATCATT
+TATATATAAACAAACCTGAAACATTGGAATTATCTTATTATTCTTAGTAATAGCAACCGCATTTATAGGA
+TACGTTTTACCATGAGGCCAAATATCATTTTGAGGAGCAACTGTAATCACAAATTTATTATCAGCAATCC
+CTTATATTGGAGATATATTAGTACAGTGAGTATGGGGGGGGTTTTCAGTAGACAAGGCCACTCTTACCCG
+ATTCTTTGCCTTTCACTTTATTTTACCCTTCATTATTTCAGGAGTTAGTATCATCCATTTACTTTTCCTA
+CATGAAACGGGTTCTAACAATCCAACAGGATTAAATTCTAACTCAGATAAAATCCCGTTTCATCCATACT
+TTACCCACAAGGACCTTCTTGGGATCTTACTCTTAATTTTAGTCTTAGCTCCACTATCTTTATTTTCACC
+AAACCTATTAGGAGATCCAGACAATTTCATTCAAGCAAACCCACTAATTACACCCCCTCAT
+```
+
+En bioinformática `curl` se utiliza para transferir desde archivos FASTA de secuencias individuales de GeneBank hasta genomas completos. 
+
+Más info:
+
+* Cómo bajar archivos de GeneBank utilizando e-utils (ejemplo anterior): [http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch](http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch)
+
+* Truco para bajar varios metagenomas (o genomas, secuencias, etc) en una sóla línea de código [https://www.biostars.org/p/94875/](https://www.biostars.org/p/94875/)
+
+
+Nota:
+`wget` hace algo parecido a `curl`, pero lo salva a un archivo directamente. No existe de base en Mac, pero es posible instalarlo.
 
 ## Comodines o el uso de `*` `?` `[]` `{}` 
 
@@ -559,7 +596,7 @@ $ wc nuevos_final.fam
 
 ### `cat`
 
-Viene de *Concatenate*. Sirve para unir uno detrás de otro varios archivos.
+Viene de *Concatenate*. Sirve para unir uno detrás de otro varios archivos, o para imprimir todo el contendio de un archivo a la consola.
 
 ``` 
 $ cat nuevos_final.fam *log
