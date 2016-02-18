@@ -243,7 +243,7 @@ $ ./getsecsNCBI.sh
 
 2. Escribe un script que cree 4 directorios llamados PobA, PobB, PobC, PobD y dentro de cada uno de ellos un archivo de texto que diga "Este es un individuo de la población x" donde x debe corresponder al nombre del directorio. 
 
-3. Escribe un script que baje 5 secuencias (algún loci corto, no un genoma) de una especie que te interese y señala cuántas veces existe la secuencia "CCTGCAGG" en cada una de ellas. ¿Sabes qué hace esta secuencia?
+3. Escribe un script que baje 5 secuencias (algún loci corto, no un genoma) de una especie que te interese y señala cuántas veces existe la secuencia "TGCA" en cada una de ellas. ¿Sabes qué hace esta secuencia?
 
 4. Imagina que tienes datos de RADseq de una serie de poblaciones de una especie a lo largo de la Sierra Madre Occidental colectados a altas y bajas altitudes. Ya has filtrado las secuencias sucias, demultiplexeado y corrido un ensamblaje *de novo* utilizando el programa [Stacks](http://catchenlab.life.illinois.edu/stacks/). 
 
