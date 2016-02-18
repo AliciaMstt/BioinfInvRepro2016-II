@@ -239,11 +239,55 @@ $ ./getsecsNCBI.sh
 
 ## Ejercicios
 
-1. Escribe una línea de código que cree un archivo con los nombres de las muestras de maiz enlistadas en `Practicas/Uni2/Maiz/nuevos_final.fam`. 
+1. Escribe **una** línea de código que cree un archivo con los nombres de las muestras de maiz enlistadas en `Practicas/Uni2/Maiz/nuevos_final.fam`. 
 
 2. Escribe un script que cree 4 directorios llamados PobA, PobB, PobC, PobD y dentro de cada uno de ellos un archivo de texto que diga "Este es un individuo de la población x" donde x debe corresponder al nombre del directorio. 
 
-3. Escribe un script que baje 5 secuencias (algún loci corto, no un genoma) de una especie que te interese y señala en cuáles existe la secuencia "CCTGCAGG". ¿Sabes qué hace esta secuencia?
+3. Escribe un script que baje 5 secuencias (algún loci corto, no un genoma) de una especie que te interese y señala cuántas veces existe la secuencia "CCTGCAGG" en cada una de ellas. ¿Sabes qué hace esta secuencia?
+
+4. Imagina que tienes datos de RADseq de una serie de poblaciones de una especie a lo largo de la Sierra Madre Occidental colectados a altas y bajas altitudes. Ya has filtrado las secuencias sucias, demultiplexeado y corrido un ensamblaje *de novo* utilizando el programa [Stacks](http://catchenlab.life.illinois.edu/stacks/). 
+
+En [Practicas/Uni3/Ejstacks](../Practicas/Uni3/Ejstacks) encontrarás varios directorios como los que hubieras generado hasta este momento si dichos datos fueran reales. Por ejemplo, en el directorio `/raw` estarían tus secuencias crudas y en el directorio `/stacks` el output del ensamblado de Stacks y tu Population Map [busca qué es aquí](http://catchenlab.life.illinois.edu/stacks/comp/populations.php). 
+
+**a) Desde la Terminal explora el archivo `Ejstacks/stacks/PopMapAll.txt`.**  
+
+Notarás un patrón muy simple en cómo están llamadas tus muestras:
+
+* Los primeros tres caracteres corresponden a un estado de la república
+* Los segundos tres caracteres corresponen a la categoría altitudinal de la muestra
+* Los números del final se refieren al número de muestra para ese estado y altitud. 
+
+Tras un análisis del resultado que obtuviste de estos datos tu y una colaboradora deciden correr un programa que requiere los datos en formato [plink](http://pngu.mgh.harvard.edu/~purcell/plink/), por lo que tuviste que utilizar el módulo [*populations* de Stacks](http://catchenlab.life.illinois.edu/stacks/comp/populations.php) para exportar tus datos al formato adecuado. 
+
+Esto lo lograste incluyendo en un script una líndea de comando como la de abajo (pero sustituyendo lo que está entre `[]` por el path adecuado:
+
+`populations -P [pathdirectorioDatosStacks] -M [../stacks/PopMapAll.txt] -b 1 -f p_value --plink --write_single_snp`
+
+Después de analizar estos datos tu colaboradora observa que tienes muchos datos faltantes (missing data), lo cual interfiere con el análisis, por lo que te escribe lo siguiente:
+
+"*Seems like in order to get all the populations (State+Altitude) included, 7 individuals is the highest we can go. I'd recommend filtering out all SNPs that are in less than 7 individuals per population, and then selecting SNPs again to export to plink format as you did before. It might be worth going back in the future and doing this again at different levels of individuals; so could you please send me the data ran independently for each population for everything from min 7 to 10 individuals?*"
+
+Tras consultar el manual de [*populations* de Stacks](http://catchenlab.life.illinois.edu/stacks/comp/populations.php) notas que hay una opción (`-r`) para filtrar los loci acorde a que existan en un mínimo de individuos de una población, pero que está en términos de porcentaje y no de número de individuos. 
+
+`
+r — minimum percentage of individuals in a population required to process a locus for that population.
+`
+
+**b) Haz un script que te permitiría correr el programa _populations_ de Stacks independientemente para cada población y para cada mínimo de individuos que te pidió tu colaboradora, considerando lo siguiente**:
+
+ 
+*  Tu script debe determinar automáticamente el valor que darle a `-r` con base en el número total de individuos por cada población (ej: 5 individuos de 10 que hay en la población= 5/10). 
+
+* Como no tienes instalado el programa Stacks (ni datos) la línea de tu script donde correrías *populations* debe hacer un `echo` de cómo debiera verse la línea para correr *populations*. Otros comando, por ejemplo crear directorios, sí deben funcionar. 
+
+* El output de *populations* serían dos archivos llamados plink.ped y plink.map. Como no lo estamos corriendo de verdad, el ejercico es que el `echo` del punto anterior sea escrito a un archivo de texto llamado `falsoplink.out` y que dicho archivo quede dentro un directorio por población y filtro mínimo de individuos. 
 
 
 
+
+
+
+
+
+
+  
