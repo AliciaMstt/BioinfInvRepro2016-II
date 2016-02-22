@@ -78,13 +78,25 @@ Empezará a las 8:45 am
 
 ## 18-Feb (Jue)
 #### Clase práctica
-Realizar y correr una serie de scripts propios, incluir loops, redirección y correrlos con `bash`. Deben estar muy bien **comentados**.
+Realizar y correr una serie de scripts propios, incluir loops, redirección y correrlos. Deben estar muy bien **comentados**.
   
 
 ## 23-Feb (Mar)
-#### 
+#### Clase práctica
+* Comentarios y soluciones de la tarea 2
+* Más ejercicios unidad 2 y 3
 
 
 
 ## 25-Feb (Jue)
+#### Clase teórica
+**Unidad 4 Datos genéticos utilizados en bioinformática**
 
+
+
+
+
+
+## 03-Marzo (Jue)
+### Primer Examen parcial 
+**Unidades 1 a 3**
