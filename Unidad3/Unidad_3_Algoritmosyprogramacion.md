@@ -261,7 +261,7 @@ Tras un análisis del resultado que obtuviste de estos datos tu y una colaborado
 
 Esto lo lograste incluyendo en un script una líndea de comando como la de abajo (pero sustituyendo lo que está entre `[]` por el path adecuado:
 
-`populations -P [pathdirectorioDatosStacks] -M [../stacks/PopMapAll.txt] -b 1 -f p_value --plink --write_single_snp`
+`populations -P [pathdirectorioDatosStacks] -M ../stacks/PopMapAll.txt -b 1 -f p_value --plink --write_single_snp`
 
 Después de analizar estos datos tu colaboradora observa que tienes muchos datos faltantes (missing data), lo cual interfiere con el análisis, por lo que te escribe lo siguiente:
 
@@ -282,9 +282,9 @@ r — minimum percentage of individuals in a population required to process a lo
 
 * El output de *populations* serían dos archivos llamados plink.ped y plink.map. Como no lo estamos corriendo de verdad, el ejercico es que el `echo` del punto anterior sea escrito a un archivo de texto llamado `falsoplink.out` y que dicho archivo quede dentro un directorio por población y filtro mínimo de individuos. 
 
-5. Revisa la sección de Métodos del artículo [Zhang X, Niu J, Liang Y, Liu X, Yin H (2016) Metagenome-scale analysis yields insights into the structure and function of microbial communities in a copper bioleaching heap. BMC Genetics, 17, 21.](http://bmcgenet.biomedcentral.com/articles/10.1186/s12863-016-0330-4) y describe su pipeline bioinformática a manera de algoritmo.
+5.- Revisa la sección de Métodos del artículo [Zhang X, Niu J, Liang Y, Liu X, Yin H (2016) Metagenome-scale analysis yields insights into the structure and function of microbial communities in a copper bioleaching heap. BMC Genetics, 17, 21.](http://bmcgenet.biomedcentral.com/articles/10.1186/s12863-016-0330-4) y describe su pipeline bioinformática a manera de algoritmo.
 
-6. Describe a manera de algoritmo cuáles son los pasos que ocupó la pipeline bioinformática de un artículo que haya utilizado el tipo de datos y preguntas biológicas de tu proyecto.
+6.- Describe a manera de algoritmo cuáles son los pasos que ocupó la pipeline bioinformática de un artículo que haya utilizado el tipo de datos y preguntas biológicas de tu proyecto.
 
 
 
