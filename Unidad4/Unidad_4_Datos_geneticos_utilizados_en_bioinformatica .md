@@ -145,6 +145,8 @@ En la Unidad 1 vimos cómo descomprimir archivos .tar.gz ¿Cómo descomprimir un
 
 
 
+## 4.3. Análisis básicos de calidad y preparación de datos (Pre-procesamiento)
+
 ### Visualización e interpretación de la calidad de secuencias FASTQ
 
 Antes de saltar a filtrar tus datos con filtros de calidad que la terminal ejecute muy obediente, lo mejor es ver algunos gráficos básicos que nos dicen mucho más que una serie semi-eterna de caracteres ASCII. 
@@ -187,7 +189,7 @@ Vamos a la página de dicho programa a ver ejemplos de:
 Los adaptadores se ligan al ADN de nuestras muestras en un paso de ligación, sin embargo, también pueden ligarse entre sí y luego pegarse a la *flow cell* (que lo traduzca quién sepa cómo). Resultado: son secuenciados pero no proven datos útiles, simplemente la secuencia de los adaptadores repetida  muchas veces. Adelante veremos cómo lidiar con ellos bioinformáticamente, pero se recomienda intentar deshacerse de ellos desde el laboratorio (con pequeños, pequeños imanes como [Agencourt](https://www.beckmancoulter.com/wsrportal/wsrportal.portal;jsessionid=jhp2WT8G5B4zYXhzKCPnWk8J1n3TL1JRGLsDbp130t9VRWtbFrY4!-1744838288!-683502135?_nfpb=true&_windowLabel=UCM_RENDERER&_urlType=render&wlpUCM_RENDERER_path=%2Fwsr%2Fcountry-selector%2Findex.htm&_WRpath=%252Fwsr%252Fresearch-and-discovery%252Fproducts-and-services%252Fnucleic-acid-sample-preparation%252Fagencourt-ampure-xp-pcr-purification%252Findex.htm&intBp=true) o símiles de otras marcas). 
 
 
-### ¿Qué tanto importa el análisis FASTQC?
+**¿Qué tanto importa el análisis FASTQC?**
 
 Mucho, a partir del análisis FASTQC es que decidirás si tu secuenciación fue exitosa y qué parámetros de pre-procesamiento deberás utilizar para deshacerte del ruido y quedarte con **datos limpios**. 
 
@@ -195,11 +197,7 @@ Escoger los parámetros adecuados de pre-procesamiento es vital ya que todas las
 
 Además entender bien tu FASTQC puede permitirte **rescatar** datos usables incluso dentro de una mala corrida. 
 
-
-## 4.3. Análisis básicos de calidad y preparación de datos (Pre-procesamiento)
-
-stuff here
-
+### Pre-procesamiento 
 
 
 ## 4.4. Datos procesados
