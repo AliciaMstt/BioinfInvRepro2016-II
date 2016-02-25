@@ -17,7 +17,7 @@ Son las secuencias tal cual salen de la plataforma de secuenciación (Illumina, 
 
 Los datos crudos (sin importar la plataforma y el método de laboratorio utilizado) conllevan cierto nivel de basura, es decir:
 
-* *reads* de baja calidad que deben ser descartados por completo o en parte (*trimmed*) antes de proceder a los análisis biógicos de los datos. 
+* *reads* de baja calidad que deben ser descartados por completo o en parte (*trimmed*) antes de proceder a los análisis biológicos de los datos. 
 
 * Secuencias sobrerepresentadas, por ejemplo dímeros de adaptadores.
 
@@ -94,6 +94,9 @@ Dependiendo del tipo y versión de plataforma de secuenciación se toman diferen
 
 ![ascii_fastqplataformas.png](ascii_fastqplataformas.png)
 
+(Tomé la imágen de [aquí](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality)
+)
+
 Pero en todos los casos el **valor máximo de calidad es = ~40** y los valores **< 20 se consideran bajos**.
 
 
@@ -110,7 +113,18 @@ ATGTCTCCTGGACCCCTCTGTGCCCAAGCTCCTCATGCATCCTCCTCAGCAACTTGTCCTGTAGCTGAGGCTCACTGACT
 +
 1:DAADDDF<B<AGF=FGIEHCCD9DG=1E9?D>CF@HHG??B<GEBGHCG;;CDB8==C@@>>GII@@5?A?@B>CEDCFCC:;?CCCAC
 ```
- Ejemplso de datos FASTQ del SRA:
+Y uno más:
+
+```
+@OBIWAN:24:D1KUMACXX:3:1112:9698:62774 1:N:0:
+TAATATGGCTAATGCCCTAATCTTAGTGTGCCCAACCCACTTACTAACAAATAACTAACATTAAGATCGGAAGAGCACACGTCTGAACTCAGTCACTGACC
++
+CCCFFFFFHHHHHIJJJJJJJJJJJJIIHHIJJJJJJJJJJJJJJJJJJJJIJJJJJJIJJJJIJJJJJJJHHHHFDFFEDEDDDDDDDDDDDDDDDDDDC
+
+```
+¿Quieres saber cuáles son las partes del Header? [Clic aquí](https://en.wikipedia.org/wiki/FASTQ_format#Illumina_sequence_identifiers). Y sí, el último ejemplo es real y por lo tanto hay un Illumina HiSeq2000 que se llama Obiwan :)
+
+ Ejemplo de datos FASTQ del SRA:
 
 ```
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=36
@@ -118,6 +132,9 @@ GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACC
 +SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=36
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9IC
 ```
+
+
+
 
 Los datos FASTQ típicamente están comprimidos en formato 
 `gzip` (.gz) o `tar` (.tar.gz o .tgz).
@@ -130,9 +147,9 @@ En la Unidad 1 vimos cómo descomprimir archivos .tar.gz ¿Cómo descomprimir un
 
 ### Visualización e interpretación de la calidad de secuencias FASTQ
 
-Antes de saltar a filtrar tus datos con filtros de calidad que la terminal ejecute muy obvediente, lo mejor es ver algunos gráficos básicos que nos dicen mucho más que una serie semi-eterna de caracteres ASCII. 
+Antes de saltar a filtrar tus datos con filtros de calidad que la terminal ejecute muy obediente, lo mejor es ver algunos gráficos básicos que nos dicen mucho más que una serie semi-eterna de caracteres ASCII. 
 
-[FASTQ](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) es un programa que hace una serie de análisis básicos y estándar de calidad. La mayoría de las empresas de secuenciación efectuan este análisis y te mandan los resultados junto con tus datos crudos.
+[FASTQ](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) es un programa que hace una serie de análisis básicos y estándar de calidad. La mayoría de las empresas de secuenciación efectúan este análisis y te mandan los resultados junto con tus datos crudos.
 
 Los análisis de FASTQ son útiles para identificar problemas que pudieron surgir durante el laboratorio o durante la secuenciación. 
 
@@ -167,7 +184,7 @@ Vamos a la página de dicho programa a ver ejemplos de:
 
 **¿Qué que son los dímeros de adaptadores?**
 
-Los adaptadores se ligan al ADN de nuestras muestras en un paso de ligación, sin embargo, también pueden ligarse entre sí y luego pegarse a la *flow cell* (que lo traduzca quién sepa cómo). Resultado: son secuenciados pero no proven datos útiles, simplemente la secuencia de los adaptadores repetida  muchas veces. Adelante veremos cómo lidear con ellos bioinformáticamente, pero se recomienda intentar deshacerse de ellos desde el laboratorio (con pequeños, pequeños imanes como [Agencourt](https://www.beckmancoulter.com/wsrportal/wsrportal.portal;jsessionid=jhp2WT8G5B4zYXhzKCPnWk8J1n3TL1JRGLsDbp130t9VRWtbFrY4!-1744838288!-683502135?_nfpb=true&_windowLabel=UCM_RENDERER&_urlType=render&wlpUCM_RENDERER_path=%2Fwsr%2Fcountry-selector%2Findex.htm&_WRpath=%252Fwsr%252Fresearch-and-discovery%252Fproducts-and-services%252Fnucleic-acid-sample-preparation%252Fagencourt-ampure-xp-pcr-purification%252Findex.htm&intBp=true) o símiles de otras marcas). 
+Los adaptadores se ligan al ADN de nuestras muestras en un paso de ligación, sin embargo, también pueden ligarse entre sí y luego pegarse a la *flow cell* (que lo traduzca quién sepa cómo). Resultado: son secuenciados pero no proven datos útiles, simplemente la secuencia de los adaptadores repetida  muchas veces. Adelante veremos cómo lidiar con ellos bioinformáticamente, pero se recomienda intentar deshacerse de ellos desde el laboratorio (con pequeños, pequeños imanes como [Agencourt](https://www.beckmancoulter.com/wsrportal/wsrportal.portal;jsessionid=jhp2WT8G5B4zYXhzKCPnWk8J1n3TL1JRGLsDbp130t9VRWtbFrY4!-1744838288!-683502135?_nfpb=true&_windowLabel=UCM_RENDERER&_urlType=render&wlpUCM_RENDERER_path=%2Fwsr%2Fcountry-selector%2Findex.htm&_WRpath=%252Fwsr%252Fresearch-and-discovery%252Fproducts-and-services%252Fnucleic-acid-sample-preparation%252Fagencourt-ampure-xp-pcr-purification%252Findex.htm&intBp=true) o símiles de otras marcas). 
 
 
 ### ¿Qué tanto importa el análisis FASTQC?
