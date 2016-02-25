@@ -151,11 +151,11 @@ En la Unidad 1 vimos cómo descomprimir archivos .tar.gz ¿Cómo descomprimir un
 
 Antes de saltar a filtrar tus datos con filtros de calidad que la terminal ejecute muy obediente, lo mejor es ver algunos gráficos básicos que nos dicen mucho más que una serie semi-eterna de caracteres ASCII. 
 
-[FASTQ](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) es un programa que hace una serie de análisis básicos y estándar de calidad. La mayoría de las empresas de secuenciación efectúan este análisis y te mandan los resultados junto con tus datos crudos.
+[FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) es un programa que hace una serie de análisis básicos y estándar de calidad. La mayoría de las empresas de secuenciación efectúan este análisis y te mandan los resultados junto con tus datos crudos.
 
-Los análisis de FASTQ son útiles para identificar problemas que pudieron surgir durante el laboratorio o durante la secuenciación. 
+Los análisis de FASTQC son útiles para identificar problemas que pudieron surgir durante el laboratorio o durante la secuenciación. 
 
-El análisis de FASTQ consiste en los siguientes campos:
+El análisis de FASTQC consiste en los siguientes campos:
 
 
 * [Basic Statistics](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html)
