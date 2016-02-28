@@ -139,7 +139,7 @@ r — minimum percentage of individuals in a population required to process a lo
 
 Solución: 
 
-La solución a este ejercicose encuentra en [`Ejstacks/bin/ejercicio4.sh`](`Ejstacks/bin/ejercicio4.sh`) ya que `bin` es el directorio donde normalmente los scripts se guardan cuando el análisis involucra muchos datos subdivididos en directorios. 
+La solución a este ejercicose encuentra en [/Ejstacks/bin/ejercicio4.sh](./Ejstacks/bin/ejercicio4.sh) ya que bin es el directorio donde normalmente los scripts se guardan cuando el análisis involucra muchos datos subdivididos en directorios. 
 
 Este es el contenido del script (pero si lo ves en el link el formato es mejor):
 
