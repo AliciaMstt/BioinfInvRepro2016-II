@@ -1,1 +1,0 @@
-Aquí es un buen lugar para poner tus scripts

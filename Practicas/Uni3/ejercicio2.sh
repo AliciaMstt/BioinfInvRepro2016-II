@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Este script cree 4 directorios y dentro de cada uno de ellos un archivo de texto
+# Este script crea 4 directorios y dentro de cada uno de ellos un archivo de texto
 
 # Utilizar un loop
 for i in PobA PobB PobC PobD; do

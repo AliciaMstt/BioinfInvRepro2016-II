@@ -1,0 +1,13 @@
+ZacAlt01	10
+ZacAlt02	10
+ZacAlt03	10
+ZacAlt04	10
+ZacAlt05	10
+ZacAlt06	10
+ZacAlt07	10
+ZacAlt08	10
+ZacAlt09	10
+ZacAlt10	10
+ZacAlt11	10
+ZacAlt12	10
+ZacAlt13	10
