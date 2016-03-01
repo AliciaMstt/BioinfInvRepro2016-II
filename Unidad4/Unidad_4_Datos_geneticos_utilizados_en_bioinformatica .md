@@ -4,8 +4,6 @@ Referencias recomendadas para esta Unidad:
 
 * [Next Generation Sequencing (NGS)/Pre-Processing - Wikibooks, Open Books for an Open World (2014)](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality)
 
-
-
 	
 
 ## 4.1. Datos crudos 	
@@ -199,10 +197,52 @@ Además entender bien tu FASTQC puede permitirte **rescatar** datos usables incl
 
 ### Pre-procesamiento 
 
+El pre-procesamiento se refiere al filtrado y edición de los datos crudos para quedarnos con los **datos limpios**, que son los que se analizarán para resolver preguntas biológicas.
+
+El input son archivos .fastq y el output son también archivos .fastq (o más posiblemente sus versiones comprimidas).
+
+El pre-procesamiento por lo común incluye los siguientes pasos:
+
+##### Recortar secuencias por calidad (*Sequence Quality Trimming*)
+Recortar (quitar) las bases de baja calidad de la secuencia. En Illumina por lo general se trata de las últimas bases (-3' end). Cuántas bases cortar puede determinarse tras la inspección visual de análisis FASTQC o automáticamente con un parámetro de calidad. 
+
+**Factor a considerar**: algunos programas de ensamblado requieren que las secuencias a ensamblar sean del mismo largo, por lo que si ocuparás uno de esos programas es necesario recortar todos tus datos al mismo largo (incluso si se secuenciaron en lanes distintas y una tiene buena calidad).
+
+##### Recortar secuencias (*Trimming*)
+Recortar (quitar) x bases de la secuencia porque no nos interesa conservarlas para el análisis (por ejemplo barcodes o sitios de restricción). 
+
+##### Filtrar secuencias por calidad
+Remueve del conjunto de datos todas las secuencias que estén por debajo de un mínimo de calidad (número de bases con calidad <x, promedio de calidad <x y símiles).
+
+##### Quitar adaptadores 
+Busca la secuencia de los adaptadores y los recorta de las secuencias finales. También es posible limitar las secuencias finales a sólo aquellas con un adaptador especificado (en vez de otro que pudiera ser contaminación). 
+
+##### Filtrar artefactos
+Detecta primers de PCRs, quimeras y otros artefactos y los desecha de los datos finales.
+
+##### Separar por barcodes "demultiplexear" (*demultiplexing*)
+Identifica las secuencias que contienen uno o más *barcodes* (también llamado índices), que son secuencias cortas (4-8 bp por lo general) que se incluyen en los adaptadores y que son únicos por muestra. Esto permite identificar y separar todas las secuencias pertenecientes a una muestra de otra secuenciadas al mismo tiempo. 
+
+Requiere que le demos la lista de barcodes utilizados y en qué extremo se localizan. Muchos programas tendrán como output un archivo llamado algo como GATCATGC.fastq.gz, donde se encuentran todas las secuencias del barcode GATCATGC. El nombre de tu muestra deberás ponerlo en un paso subsecuente.
+
+**Ojo** Tu lista barcodes-nombremuestra es de la info más valiosa de tu proyecto, no la pierdas.
+
+##### *Paired end merging*
+Si se realizó secuenciación Illumina a ambos lados (*pair end*) es posible unir las lecturas si se detecta que coinciden (aunque sea parcialmente). Esto permite corregir errores de secuenciación al tomar la base de la lectura de mayor calidad.
+
+##### Remover otras secuencias no deseadas
+Busca secuencias no deseadas, como genoma de *E. coli*, restos de PhiX o partes del genoma que no son de interés (e.g. cpDNA).  
+
+**Ejercicio**: busca un artículo con datos y análisis parecidos a los que tendrás en tu proyecto y determina con qué programas y parámetros realizaron el pre-procesamiento. 
+
+#### Software para realizar el pre-procesamiento
+
+La mayoría de los pasos del pre-procesamiento puede hacerse con programas dedicados a esto como [FASTX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/), pero también algunos programas especializados (e.g. en datos RAD, como pyRAD o Stacks) tienen sus propios módulos para el pre-procesamiento. 
+
 
 ## 4.4. Datos procesados
 
-and more stuff here. Feliz siguiente clase. 
+and more stuff here. Feliz siguiente clase teórica
 
 
 
