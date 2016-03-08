@@ -255,7 +255,6 @@ Galaxy es útil para realizar ciertos análisis sin tener que instalar nada, per
 1) Entra a [https://usegalaxy.org/](https://usegalaxy.org/) y crea una cuenta (Usuario > Register).
 
 2) Toma el tour virtual a Galaxy (Galaxy UI)
-http://manuals.bioinformatics.ucr.edu/home/gui-ngs-analysis
 
 Lo encuentras en el menú Help:
 
