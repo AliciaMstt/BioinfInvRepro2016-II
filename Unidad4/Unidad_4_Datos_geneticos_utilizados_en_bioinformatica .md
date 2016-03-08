@@ -305,6 +305,13 @@ Y puedes volver a correr el FastQC sobre los datos ya limpiados, para ver si los
 
 ![galaxy_fastqcafterfilter.PNG](galaxy_fastqcafterfilter.PNG)
 
+Puedes ver esta historia aquí:
+
+[https://usegalaxy.org/u/aliciamstt/h/prueba-pre-procesamiento](https://usegalaxy.org/u/aliciamstt/h/prueba-pre-procesamiento)
+
+Para generar ese link, ve a las herramientas (ruedita engrane) de historia y dale en **Share history**.
+
+
 
 ## 4.4. Datos procesados
 
