@@ -237,24 +237,79 @@ Busca secuencias no deseadas, como genoma de *E. coli*, restos de PhiX o partes 
 
 #### Software para realizar el pre-procesamiento
 
+##### Línea de comando con programa especializado
+
 La mayoría de los pasos del pre-procesamiento puede hacerse con programas dedicados a esto como [FASTX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/), pero también algunos programas especializados (e.g. en datos RAD, como pyRAD o Stacks) tienen sus propios módulos para el pre-procesamiento. 
+
+Es importante hacer el pre-procesamiento acorde a la naturaleza y calidad de nuestros datos. 
+
+
+**Ejercicio**
+
+El siguiente ejercicio lo realizaremos en Galaxy, que es un servidor que permite hacer análisis bioinformáticos a través de una página web, aunque en realidad en los servidores los programas corren con la líea de comando. 
+
+Galaxy es útil para realizar ciertos análisis sin tener que instalar nada, pero posiblemente lo que requieras hacer no está en Galaxy o tus datos sean demasiado grandes para sus servidores. De cualquier modo puedes utilizar Galaxy para diseñar tu pipeline con un subset de tus datos y posteriormente correrlos via línea de comando en otro servidor.
+
+
+
+1) Entra a [https://usegalaxy.org/](https://usegalaxy.org/) y crea una cuenta (Usuario > Register).
+
+2) Toma el tour virtual a Galaxy (Galaxy UI)
+http://manuals.bioinformatics.ucr.edu/home/gui-ngs-analysis
+
+Lo encuentras en el menú Help:
+
+![galaxy_interactivetour.png](galaxy_interactivetour.png)
+
+3) Crea una historia nueva llamda "Prueba pre-procesamiento"
+
+![galaxy_namehistory.png](galaxy_namehistory.png)
+
+4) Baja datos de prueba de Galaxy 
+
+    Shared Data-> Data Libraries deprecated ->Sample NGS Datasets-> Import  human illumina dataset to your current history.
+
+En el último paso deberás ver algo así:
+
+![galaxy_importdataset.png](galaxy_importdataset.png)
+
+5) Ve al menu **Analyze Data** para hacer un **FastQC Read Quality report**. Está dentro de **NGS: QC and manipulation**, en el menú de herramientas de la izquierda
+
+![galaxy_fastqc.png](galaxy_fastqc.png)
+
+Tardará un rato en correr. Mientras tanto tendrás una pantalla así:
+
+![galaxy_fastqccola.png](galaxy_fastqccola.png)
+
+Cuando termine deberás ver algo así:
+
+![galaxy_fastqcresults.png](galaxy_fastqcresults.png)
+
+Explora los resultadps deñ FastQC ¿Qué puedes decir sobre la calidad de estos datos? 
+
+6) Explora las otras herremientas de **NGS: QC and manipulation**. ¿Cuál elegirías para limpiar las secuencias obtenidas? ¿Con qué parámetros?
+
+7) Realiza la limpieza de los datos según lo que decidiste en el punto anterior.
+
+Cada paso se hace de forma independiente y necesita los datos del paso anterior para poder seguir. 
+
+Una vez que terminó un análisis puedes dar click en ese paso para ver los resultados (eg. nuevo set de secs fastq) y sus atributos.
+
+![galaxy_filtradoresults_atr.png](galaxy_filtradoresults_atr.png)
+
+Si das click en el símbolo de info (i) puedes ver el detalle completo del programa que corrió:
+
+![galaxy_filtradoresults_info.png](galaxy_filtradoresults_info.png)
+
+
+Y puedes volver a correr el FastQC sobre los datos ya limpiados, para ver si los métodos y parámetros que escogiste funcionan como deseas y si sería necesario hacer algo más.
+
+![galaxy_fastqcafterfilter.png](galaxy_fastqcafterfilter.png)
 
 
 ## 4.4. Datos procesados
 
 and more stuff here. Feliz siguiente clase teórica
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
