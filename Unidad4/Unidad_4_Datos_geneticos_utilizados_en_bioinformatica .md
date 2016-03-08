@@ -90,7 +90,7 @@ Ordenados de menor a mayor estos son los caracteres ASCII usados para representa
 Dependiendo del tipo y versión de plataforma de secuenciación se toman diferentes caracteres (pero sin desordenarlos):
 
 
-![ascii_fastqplataformas.png](ascii_fastqplataformas.png)
+![ascii_fastqplataformas.PNG](ascii_fastqplataformas.PNG)
 
 (Tomé la imágen de [aquí](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality)
 )
@@ -258,11 +258,11 @@ Galaxy es útil para realizar ciertos análisis sin tener que instalar nada, per
 
 Lo encuentras en el menú Help:
 
-![galaxy_interactivetour.png](galaxy_interactivetour.png)
+![galaxy_interactivetour.PNG](galaxy_interactivetour.PNG)
 
 3) Crea una historia nueva llamda "Prueba pre-procesamiento"
 
-![galaxy_namehistory.png](galaxy_namehistory.png)
+![galaxy_namehistory.PNG](galaxy_namehistory.PNG)
 
 4) Baja datos de prueba de Galaxy 
 
@@ -270,19 +270,19 @@ Lo encuentras en el menú Help:
 
 En el último paso deberás ver algo así:
 
-![galaxy_importdataset.png](galaxy_importdataset.png)
+![galaxy_importdataset.PNG](galaxy_importdataset.PNG)
 
 5) Ve al menu **Analyze Data** para hacer un **FastQC Read Quality report**. Está dentro de **NGS: QC and manipulation**, en el menú de herramientas de la izquierda
 
-![galaxy_fastqc.png](galaxy_fastqc.png)
+![galaxy_fastqc.PNG](galaxy_fastqc.PNG)
 
 Tardará un rato en correr. Mientras tanto tendrás una pantalla así:
 
-![galaxy_fastqccola.png](galaxy_fastqccola.png)
+![galaxy_fastqccola.PNG](galaxy_fastqccola.PNG)
 
 Cuando termine deberás ver algo así:
 
-![galaxy_fastqcresults.png](galaxy_fastqcresults.png)
+![galaxy_fastqcresults.PNG](galaxy_fastqcresults.PNG)
 
 Explora los resultadps deñ FastQC ¿Qué puedes decir sobre la calidad de estos datos? 
 
@@ -294,16 +294,16 @@ Cada paso se hace de forma independiente y necesita los datos del paso anterior 
 
 Una vez que terminó un análisis puedes dar click en ese paso para ver los resultados (eg. nuevo set de secs fastq) y sus atributos.
 
-![galaxy_filtradoresults_atr.png](galaxy_filtradoresults_atr.png)
+![galaxy_filtradoresults_atr.PNG](galaxy_filtradoresults_atr.PNG)
 
 Si das click en el símbolo de info (i) puedes ver el detalle completo del programa que corrió:
 
-![galaxy_filtradoresults_info.png](galaxy_filtradoresults_info.png)
+![galaxy_filtradoresults_info.PNG](galaxy_filtradoresults_info.PNG)
 
 
 Y puedes volver a correr el FastQC sobre los datos ya limpiados, para ver si los métodos y parámetros que escogiste funcionan como deseas y si sería necesario hacer algo más.
 
-![galaxy_fastqcafterfilter.png](galaxy_fastqcafterfilter.png)
+![galaxy_fastqcafterfilter.PNG](galaxy_fastqcafterfilter.PNG)
 
 
 ## 4.4. Datos procesados
