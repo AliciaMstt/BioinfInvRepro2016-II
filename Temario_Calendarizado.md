@@ -94,9 +94,13 @@ Realizar y correr una serie de scripts propios, incluir loops, redirección y co
 
 
 
-
-
-
 ## 03-Marzo (Jue)
 ### Primer Examen parcial 
 **Unidades 1 a 3**
+
+
+## 08-Marzo (Mar)
+### Primer Examen parcial 
+Revisión de examen
+
+Ejercicios Unidad 4, pre-procesamiento con Galaxy

@@ -62,13 +62,47 @@ En ámbos casos, es una buena idea ligarlos a la publicación de la que proviene
 `chmod u-x miscript.sh`
 
 
+#### Escribe una línea de comando que te permita contar (imprimir en pantalla) cuántas muestras hay de la categoría de gran altitud (Alt) dentro del archivo /Practicas/Uni3/Ejstacks/stacks/PopMapAll.txt Asume que te encuentras en el directorio stacks.
+
+`grep -o Alt PopMapAll.txt | wc -l`
+
+`grep -c Alt PopMapAll.txt`
+
+Si tienen algo parecido a lo anterior que funciona en sus equipos y no se las califiqué con todos los puntos avisarme.
+
+#### Escribe una sola línea de comando que te permita obtener todas las muestras del estado de Durango (Dgo) que se encuentran en el archivo  /Practicas/Uni3/Ejstacks/stacks/PopMapAll.txt y escribirlas a un archivo llamado muestrasDgoAlt.txt que se guarde en el directorio /Ejstacks. Asume que te encuentras dentro del directorio /stacks
+
+
+`grep -oE "Dgo\w+" PopMapAll.txt > ../muestrasDgo.txt`
+
+(notese el `../`)
+
+Ojo la respuesta que a algunos les salió originalmente en su examen calificado:
+
+`grep -oE DgoAlt[0-9]* PopMapAll.txt > ../muestrasDgo.txt`
+
+Aplica sólo si quisieran las muestras de Durango categoría alto (que era la pregunta original pero la edité sin guardar el cambio de respuesta)
+
+
+#### ¿Cuál de los siguientes operadores redirige el stdout a un archivo nuevo sin sobrescribir su contenido si el archivo ya existe?
+
+`>>`
+
+
+#### Escribe un for loop que cree 3 directorios y que dentro de cada uno de ellos guarde una secuencia de proteína bajada de NCBI mediante un comando. El nombre del archivo fasta debe ser igual que el nombre del directorio más la terminación .fasta
+
+```
+
+for i in 50604368 50604366 6634488; do
+mkdir prot$i
+curl -s "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&rettype=fasta&id=$i" > prot$i/prot$i.fasta
+done
+```
 
 
 #### Dentro de la carpeta Examen1/muestras encontrarás una serie de archivos con nombres como AATCAGTC.fs.
 
-#### 1) Escribe un script en el recuadro de abajo que cambie el nombre de los
-  15 primeros archivos (asumiendo orden alfabético) a muestra01, muestra02
-y así sucesivamente.
+#### 1) Escribe un script en el recuadro de abajo que cambie el nombre de los 15 primeros archivos (asumiendo orden alfabético) a muestra01, muestra02 y así sucesivamente.
 
 #### 2) Asumiendo que tu script se llame renameSamples.sh ¿Qué linea de comando ocuparías para correrlo sin hacerlo un ejecutable?
 
@@ -95,36 +129,42 @@ mv TTCAACCC.fs muestra15.fs
 ```
 
 
-ojo no da solo los primeros 15, se podría modificar con un head
+`bash renameSamples.sh`
+
+#### Escribe un for loop que cree 1000 archivos llamados elefante1, elefante2... y así sucesivamente. Cada uno de estos archivos debe contener el texto "x elefante(s) se columpiaban sobre la tela de una araña" donde x debe coincidir con el número de archivo.
+
 ```
-#! /bin/bash
 
-# Este script renombra los archivos dentro del directorio muestras
-
-n=0
-for i in *.fs
-do
-mv "$i" "Muestra$((++n)).fs"
+for i in {1..1000}; do
+echo "$i elefante(s) se columpiaban sobre la tela de una araña" > elefante$i.txt
 done
 ```
-
-```
-
-#! /bin/bash
-
-#Primero se enlistan solo los primeros 5 archivps y después se cambian los nombres
-
-ls *fs | grep -m 5 .fs | for i in *.fs; for j in {01..05}; do mv -v "$i" "muestra$j"
-pipe pipe for for> done
-```
-
-
-`bash renameSamples.sh`
 
 
 #### Escribe un script que concatene en un sólo archivo llamado tomates.fasta los archivos jitomate.fasta y tomatesverdes.fasta (están en /Practicas/Uni2/Tomates) y que luego cuente cuantas secuencias de Solanum hay en el archivo tomates.fasta. El resultado de la cuenta debe imprimirse en pantalla (no en un archivo)
 
+```
+#! /bin/bash
 
+# concatenar los archivos y crear uno nuevo
+cat jitomate.fasta tomatesverdes.fasta > tomates.fasta
+# grep para extraer "Solanum" y pipe para contar cuántos Solanum
+grep -oE "Solanum" tomates.fasta | wc -l
+```
+
+Otra alternativa, con `grep` solito:
+
+```
+#! /bin/bash
+
+# Este script concatena en un solo archivo las jitomates.fasta y tomatesverdes.fasta
+
+# Concatenar
+cat *.fasta > tomates.fasta
+
+#Cuenta la cantidad de Solanum en el file
+grep -c Solanum tomates.fasta
+```
 
 
 
