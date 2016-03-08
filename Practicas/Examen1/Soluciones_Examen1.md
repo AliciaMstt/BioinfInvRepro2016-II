@@ -47,6 +47,7 @@ Un README de un repositorio de código debe incluir:
 
 Un readme de un repositorio de datos debe incluír:
 -Tipo de datos (RADsec, GBS, etc).
+-Información sobre los datos (lat, long, info de cada muestra, etc)
 -Procesamiento de los datos crudos (Trimming, filtrado por calidad, demultiplex, etc.; incluyendo versión del software y parámetros utilizados)
 
 En ámbos casos, es una buena idea ligarlos a la publicación de la que provienen.
@@ -100,37 +101,6 @@ done
 ```
 
 
-#### Dentro de la carpeta Examen1/muestras encontrarás una serie de archivos con nombres como AATCAGTC.fs.
-
-#### 1) Escribe un script en el recuadro de abajo que cambie el nombre de los 15 primeros archivos (asumiendo orden alfabético) a muestra01, muestra02 y así sucesivamente.
-
-#### 2) Asumiendo que tu script se llame renameSamples.sh ¿Qué linea de comando ocuparías para correrlo sin hacerlo un ejecutable?
-
-
-```
-#! /bin/bash
-
-#cambiar el nombre de los archivos de forma manual
-mv AATCAGTC.fs muestra01.fs
-mv ACCGCCTC.fs muestra02.fs
-mv AGAGATTC.fs muestra03.fs
-mv CAAGACCC.fs muestra04.fs
-mv CATCGTCC.fs muestra05.fs
-mv CCGCTACC.fs muestra06.fs
-mv CGCTTGAC.fs muestra07.fs
-mv CTGCTGAC.fs muestra08.fs
-mv GAAGCGCC.fs muestra09.fs
-mv GATTGATC.fs muestra10.fs
-mv GGCAAGGC.fs muestra11.fs
-mv TATGCAGC.fs muestra12.fs
-mv TCCGGAAC.fs muestra13.fs
-mv TCTTCTGC.fs muestra14.fs
-mv TTCAACCC.fs muestra15.fs
-```
-
-
-`bash renameSamples.sh`
-
 #### Escribe un for loop que cree 1000 archivos llamados elefante1, elefante2... y así sucesivamente. Cada uno de estos archivos debe contener el texto "x elefante(s) se columpiaban sobre la tela de una araña" donde x debe coincidir con el número de archivo.
 
 ```
@@ -165,6 +135,42 @@ cat *.fasta > tomates.fasta
 #Cuenta la cantidad de Solanum en el file
 grep -c Solanum tomates.fasta
 ```
+
+#### Dentro de la carpeta Examen1/muestras encontrarás una serie de archivos con nombres como AATCAGTC.fs.
+
+#### 1) Escribe un script en el recuadro de abajo que cambie el nombre de los 15 primeros archivos (asumiendo orden alfabético) a muestra01, muestra02 y así sucesivamente.
+
+#### 2) Asumiendo que tu script se llame renameSamples.sh ¿Qué linea de comando ocuparías para correrlo sin hacerlo un ejecutable?
+
+
+```
+#! /bin/bash
+
+#cambiar el nombre de los archivos de forma manual
+mv AATCAGTC.fs muestra01.fs
+mv ACCGCCTC.fs muestra02.fs
+mv AGAGATTC.fs muestra03.fs
+mv CAAGACCC.fs muestra04.fs
+mv CATCGTCC.fs muestra05.fs
+mv CCGCTACC.fs muestra06.fs
+mv CGCTTGAC.fs muestra07.fs
+mv CTGCTGAC.fs muestra08.fs
+mv GAAGCGCC.fs muestra09.fs
+mv GATTGATC.fs muestra10.fs
+mv GGCAAGGC.fs muestra11.fs
+mv TATGCAGC.fs muestra12.fs
+mv TCCGGAAC.fs muestra13.fs
+mv TCTTCTGC.fs muestra14.fs
+mv TTCAACCC.fs muestra15.fs
+```
+
+
+`bash renameSamples.sh`
+
+Una manera fácil de hacer este tipo de cosas es con la función `CONCATENATE` de Excel/LibreOffice etc:
+
+![ConcatenateExcel.png](ConcatenateExcel.png)
+
 
 
 
