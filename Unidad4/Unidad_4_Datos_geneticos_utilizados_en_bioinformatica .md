@@ -312,10 +312,156 @@ Puedes ver esta historia aquí:
 Para generar ese link, ve a las herramientas (ruedita engrane) de historia y dale en **Share history**.
 
 
+**Ejercicio** 
+
+Como mencionamos antes, además de programas dedicados sólo al pre-procesamiento como FASTX, hay programas especializados que incluyen una pipeline completa para pre-procesar y procesar los datos. Esto puede ser una buena idea para cierto tipo de datos que no necesariamente cumplen con las espectativas de herramientas como FASTX. 
+
+El ejercicio es que formen equipos de 3 personas con un tipo de datos en común y que discutan entre sí con qué programas se analizan sus tipos de datos y si estos realizan también el pre-procesamiento. 
+
+Algunos temas para formar los equipos:
+
+* Mapeo a genomas de referencia
+* Transcriptomas/genomas de novo
+* RAD/GBS para genética de poblaciones 
+* RAD/GBS para filogenética
+* ChipsSeq para asociaciones fenotipo-genotipo
+* Metabarcoding
+
 
 ## 4.4. Datos procesados
 
-and more stuff here. Feliz siguiente clase teórica
+Son los datos *output* de procesar los datos crudos (ya limpios) con un pograma bioinformático para darles significado biológico, como son (dependiendo de la naturaleza de los datos): 
+
+* Ensamblado *de novo*
+* Mapeo a genoma de referencia
+* Genotipificación
+* Asignación de OTUs
+
+Los datos procesados en dicho formato específico serán a su vez el *input* de nuevos análisis, por ejemplo de genómica de poblaciones, genómica comparativa, filogenética, niveles de expresión génica o diferenciación de comunidades. 
+
+### Formatos de datos procesados
+
+Dependiendo del **tipo de procesamiento** y del **software** que se utilizó los datos procesados podrán pasar del formato .fastq (y considerarse meramente *reads*) a un **formato específico** según si se trata de alineamientos, genotipificaciones, etc. 
+
+Muchos formatos están asociados a un programa en particular, aunque los más usados son relativamente convencionales y ya pueden ser utilizados por otros programas y herramientas.
+
+Otros programas tienen sus propios formatos y hay que transformarlos manualmente (bueno, con la línea de comando) para analizarlos con otro sofware (lo cual puede ser doloroso).
+
+Por lo tanto hay decenas de formatos. Algunos listados ejemplo:
+
+[Utilizados por la UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html) 
+
+[Utilizados por the Ensembl Project](http://www.ensembl.org/info/website/upload/index.html#formats)
+
+[Recomendados por the Broad Institute según tipo de datos](https://www.broadinstitute.org/igv/RecommendedFileFormats)
+
+[Formatos de OBITools](http://pythonhosted.org/OBITools/welcome.html) y [QUIME](http://qiime.org/documentation/index.html) (metabarcoding).
+
+[Plink porque es bastante estandar](https://www.cog-genomics.org/plink2/)
+
+y [VCF también](http://www.1000genomes.org/wiki/Analysis/variant-call-format)
+
+A continuación explicaremos algunos de los formatos más comunes. A cada quién le tocara
+
+
+#### BED 
+Se utiliza en genomas anotados, determina la localización precisa y estructura (intervalos, listas de intervalos e info biológica asociada a ellos) de características genómicas (genes, promotores, sitios de inicio/fin de la traducción, etc) a lo largo del genoma. 
+
+Por ejemplo: 
+coordenadas de inicio/fin de exon/intron
+
+Encabezado del Formato Básico:
+
+`#Chr start end`
+
+Encabezado del Formato Extendendido
+`#Chr start end name score strand thick_start thick_end rgb`
+
+
+Ojo: hay diferentes formas de contar inicio/fin
+
+0-based: cuenta espacios
+1-based: cuenta las bases
+
+
+#### GTF 
+"Genetic transfer format"
+
+Representar genes
+
+`#chr program feature start end strand frame gene_id; txpt_id`
+
+Cada intervalo toma una línea, con info en difernetes columnas.
+Columnas 1-9 separadas por tab y campso *dentro* de la col 9 separados por espacio.
+La columna 9 es compuesta y puede tener varios atributos: mínimo el identificador (id) del gen, y luego 
+Las coordenadas son 1-based
+
+
+### GFF3
+Genomic feature format
+
+`#chr source feature start end starand frame ID;Name;Parent`
+
+
+ Alineamientos
+
+Mapear las letras (bases) de dos o más secuencias, permitieando algunos espaciadores (indels). 
+
+Variaciones:
+Indels
+Substituciones
+
+
+El ADN se alinea de forma continua al genoma
+
+Pero el mRNA puede tener un alineameinto dividido (spliced aligment) -> <- y forman un continuo
+ 
+
+#### Formato SAM/BAM
+
+Formato para representar un alineamiento de NGS seq
+
+Header: líneas que empiezan con @ y dan información del aliamiento, la longitud de cada chromosoma, programa con el que se hizo, etc.
+
+Alineamiento: una línea por cada alineamiento.
+
+Read id
+FLAG: en formato binario, brinda info sobre la secuencia (paired, proper pair, mapped, mate maped, forward, mate reverse, passed quality check, not PCR duplicate, etc(.
+Chr
+Start
+Mapping quality
+CIGAR (aligment): indica si es un match, indel, intron (region que se salta), soft clipping, hardclipping, paddin, mismatch. 
+Mate chr
+Mate start
+Mate dist
+Query seq
+Query base quals
+Alignment score
+Edot distance to reference
+Number of hits
+Strand
+Hit index for this alignment
+
+#### Plink
+
+https://www.cog-genomics.org/plink2/
+
+
+#### VCF
+
+
+#### Documentos de texto 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
