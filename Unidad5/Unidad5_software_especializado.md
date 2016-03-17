@@ -150,9 +150,19 @@ En el siguiente link puedes encontrar las instrucciones para instalar Docker en 
 
 Y aquí unos videos de referencias extra, por si les quieres dar un ojo: [Tutoriales en video](https://training.docker.com/self-paced-training).
 
-Este es un ejemplo de lo que podremos hacer una vez tengas instalado docker:
+#### Ejemplo de funcionamiento básico de docker:
 
-Primero bajamos la última versión de ubuntu
+1) Primero prendemos la máquina (para poder correr los comandos de docker, esto es similar a prender una máquina virtual en VirtualBox). 
+
+* En Mac o Linux desde la terminal:
+`docker-machine start default`
+
+* En Windwos o Mac:
+Click en QuickStartTerminal
+
+Nota: al correr desde QuickStartTerminal los comandos son `docker OPTIONS`, mientras que si lo hacemos desde la terminal normal es necesario escribirlo así: `docker $(docker-machine config default) OPTIONS`. Se ve más engorroso, pero permite quitar una capa extra (el QuickSratTerminal) y que montar volúmenes sea más sencillo. Esto lo veremos adelante, por lo pronto, volvamos al ejemplo. 
+
+2) Bajamos la última versión de ubuntu con `pull`:
 
 ```
 $ docker pull ubuntu #Baja la última versión de ubuntu 
@@ -167,7 +177,9 @@ Digest: sha256:4e85ebe01d056b43955250bbac22bdb8734271122e3c78d21e55ee235fc6802d
 Status: Downloaded newer image for ubuntu:latest
 ```
  
-Revisamos tenerla:
+Aquí por default bajó la última, pero también hubieramos podido especificar qué versión de ubuntu queríamos, así:  `docker pull ubuntu:14.04`
+ 
+Para revisar hayamos bajado la imagen deseada:
 
 ```
 $ docker images #Enlista imagenes ya bajadas
@@ -177,7 +189,7 @@ hello-world         latest              690ed74de00f        5 months ago        
 docker/whalesay     latest              6b362a9f73eb        9 months ago        247 MB
 ```    
 
-Corremos la imagen. Voilá, estamos dentro de un Ubuntu
+3) Cargamos la imagen dentro de un contenedor con `run`. Voilá, estamos dentro de un Ubuntu, específicamente dentro de un **contenedor** corriendo Ubuntu.
       
 ```
 $ docker run -it ubuntu bash
@@ -190,7 +202,7 @@ boot  etc  lib   media  opt  root  sbin  sys  usr
 **Pregunta**: ¿Qué significa el `#` en vez del `$`?
 
 
-Es una versión tan básica de Ubuntu que prácticamente nada viene pre-instalado. Por eso es buena idea correr esto:
+4) Es una versión tan básica de Ubuntu que prácticamente nada viene pre-instalado, y si sí, no en su última versión. Por eso es buena idea correr `apt-get update`:
 
 ```
 # apt-get update
@@ -221,15 +233,152 @@ Fetched 21.5 MB in 27s (778 kB/s)
 Reading package lists... Done
 ```
 
-Y ahora sí, podemos instalar herramientas, por ejemplo `curl`:
+5) Y ahora sí, podemos instalar herramientas, por ejemplo `curl`:
 
 ```
 # apt-get install curl
 ```
 
-Nota que si sales (`exit`) de esta imágen y la vuelves a correr tus cambios se habrán perdido. Adelante veremos como evitar esto, y cómo crear contenedores más complejos a través de un *dockerfile*.
+6) Cuando termines puedes salir (`exit`) de este contenedor. Los cambios que hayas hecho **no se guardarán en la imagen**, pero **sí en el contenedor que se creó al correrla**. 
+
+Vamos a ver qué contenedores tenemos:
+
+```
+$ docker ps  
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                    PORTS               NAMES
+a5864268eadd        ubuntu              "bash"              46 hours ago        Up 7 minutes                            sleepy_pasteur
+```
+
+Ese es nuestro contenedor. Se encuentra corriendo (aunque no haga nada). Para volver a entrar a él utilizamos `exec`:
+
+```
+$ docker exec -it a5864268eadd bash
+root@a5864268eadd:/#
+root@a5864268eadd:/# mkdir Prueba # hacer un directorio prueba
+root@a5864268eadd:/# ls
+Prueba  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+```
+(nota que el texto alfanumérico después de `exec` es el ID del container. 
+
+Si nos salimos (`exit`) y luego queremos detenerlo por completo:
+
+```
+$ docker stop a5864268eadd 
+```
+
+Si enlistamos con `docker ps` los contenedores corriendo ya no tendremos ningún resultado. Sin embargo, aún podemos ver ver otros contenedores no activos:
+
+```
+$ docker ps -a 
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                    PORTS               NAMES
+a5864268eadd        ubuntu              "bash"              46 hours ago        Exited (0) 32 hours ago                       sleepy_pasteur
+28500c7d3069        ubuntu              "bash"              46 hours ago        Exited (0) 46 hours ago                       elegant_yalow
+ee966523a24f        hello-world         "/hello"            46 hours ago        Exited (0) 46 hours ago                       tiny_feynman
+f09c940dfdc9        docker/whalesay     "cowsay boo"        46 hours ago        Exited (0) 46 hours ago                       big_einstein
+d44c3d46c6f9        hello-world         "/hello"            46 hours ago        Exited (0) 46 hours ago                       mad_euclid
+e5af547543fa        ubuntu              "/bin/bash"         46 hours ago        Exited (0) 46 hours ago                       determined_mccarthy
+a638c4048191        ubuntu              "/bin/bash"         46 hours ago        Exited (0) 46 hours ago                       big_ritchie
+5b4ad6c46797        hello-world         "/hello"            46 hours ago        Exited (0) 46 hours ago                       adoring_babbage
+```
+
+Si queremos volver a ejecutar un proceso en nuestro contenedor (con `exec` como hicimos arriba) primero necesitamos reiniciarlo (o sea deshacer el stop):
+
+`docker restart a5864268eadd`
+
+Y ya luego podemos volver a entrar a el:
+
+```
+docker exec -it a5864268eadd bash
+root@a5864268eadd:/# ls
+Prueba  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+```
+
+Nota que los cambios que hayas realizado dentro del contenedor continúan existiendo.
+
+Si quieres borrar contenedores o imágenes (son espacio en disco):
+
+* Borrar un contenedor: Primero deterlo con `docker stop CONTAINER_ID` y luego borrarlo con `docker rm CONTAINER_ID`
+
+* Borrar una imagen: `docker rmi -f IMAGE_ID`
 
 
+#### Ejemplo de cómo instalar software especializado en un contenedor dentro de docker:
 
 
+1) Prende la máquina 
 
+Mac y Linux, Preferentemente desde tu terminal con (Windows desde QuickStartTerminal):
+
+```
+$ docker-machine start default
+Starting "default"...
+(default) Check network to re-create if needed...
+(default) Waiting for an IP...
+Machine "default" was started.
+Waiting for SSH to be available...
+Detecting the provisioner...
+Started machines may have new IP addresses. You may need to re-run the `docker-machine env` command.
+```
+
+2) Enlista las imagenes:
+
+```
+$ docker $(docker-machine config default) images
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+miproyecto/analisis1   v1                  b951cd1b24b5        12 hours ago        188 MB
+ubuntu                 latest              07c86167cdc4        13 days ago         188 MB
+hello-world            latest              690ed74de00f        5 months ago        960 B
+```
+
+Ya debes tener una imagen de ubuntu (si seguiste el tuturial de la instalación), si no `docker $(docker-machine config default) pull ubuntu`.
+
+3) Corre la imagen de ubuntu dentro de un contenedor, pero **montando un volumen**, es decir un directorio en tu equipo que podrá ser accedido por el contenedor:
+
+```
+docker $(docker-machine config default) run -v /Users/ticatla/Copy/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2016-II/Practicas/Uni5/DatosContenedor1:/DatosContenedorEjercicioClase -it ubuntu /bin/bash
+```
+
+Desglozando el comando anterior:
+
+`-v` es la bandera para indicar que queremos que monte un volumen 
+
+`/Users/ticatla/Copy/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2016-II/Practicas/Uni5/DatosContenedor1` es la ruta absoluta. Sí, absoluta (así que cambiala por la ruta de tu equipo) ya que así es cuando se trata de montar volúmenes :(
+
+`:/DatosContenedorEjercicioClase` es el nombre del directorio como quremos que aparezca dentro de nuestro contenedor. 
+
+4) Explora el volumen que montaste, prueba hacer un archivo. Nota que puedes acceder a el desde tu explorador, es decir todo lo que suceda en ese directorio puedes verlo/modificarlo desde dentro y fuera del contenedor. 
+
+```
+root@dd4667e94adb:/# ls
+DatosContenedorEjercicioClase  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@dd4667e94adb:/# cd DatosContenedorEjercicioClase/
+root@dd4667e94adb:/DatosContenedorEjercicioClase# ls
+eg_ddRAD_data.fastq
+root@dd4667e94adb:/DatosContenedorEjercicioClase# touch Prueba
+root@dd4667e94adb:/DatosContenedorEjercicioClase# ls
+Prueba  eg_ddRAD_data.fastq
+```
+
+5) Actualiza el software instalado y bajar algunos escenciales que no vienen en nuestra imagen de ubuntu down to basics. 
+
+```
+apt-get update
+apt-get install build-essential
+```
+6) Ve a la página de [FastX-Tools](http://hannonlab.cshl.edu/fastx_toolkit/download.html) y baja el archivo `fastx_toolkit-0.0.14.tar.bz2` (ojo NO las librerías pre-compiladas). Guarda este archivo en `DatosContenedor1` para que podamos verlo en el volumen `DatosContenedorEjercicioClase`. 
+
+7) Descomprime el archivo que acabas de bajar desde adentro de tu contenedor
+
+`tar -xvf fastx_toolkit-0.0.14.tar.bz2`
+(no pego el output de tar por brevedad) Pero aquí el resultado:
+
+```
+root@3c3c2e063371:/DatosContenedorEjercicioClase# ls
+datos  fastx_toolkit-0.0.14  fastx_toolkit-0.0.14.tar.bz2
+root@3c3c2e063371:/DatosContenedorEjercicioClase# cd fastx_toolkit-0.0.14
+root@3c3c2e063371:/DatosContenedorEjercicioClase/fastx_toolkit-0.0.14# ls
+AUTHORS  ChangeLog  Makefile.am  NEWS    THANKS      build_scripts  config.h.in  configure.ac  galaxy                   m4      scripts
+COPYING  INSTALL    Makefile.in  README  aclocal.m4  config         configure    doc           install_galaxy_files.sh  reconf  src
+```
+
+8) **Ejercicio** Instala FastX-Tools
