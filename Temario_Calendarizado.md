@@ -100,7 +100,21 @@ Realizar y correr una serie de scripts propios, incluir loops, redirección y co
 
 
 ## 08-Marzo (Mar)
-### Primer Examen parcial 
 Revisión de examen
 
 Ejercicios Unidad 4, pre-procesamiento con Galaxy
+
+## 10-Marzo (Jue)		
+4.4. Datos procesados (e.g. Plink, VCF)
+
+## 15-Marzo (Mar)
+**Unidad 5 Uso general de software especializado**
+5.1. Utilidad de software especializado 		
+5.2. Cómo entender la instalación y documentación de software especializado
+
+Introducción a Docker
+
+## 17-Marzo (Jue)
+Ejercios en Docker 
+
+##
