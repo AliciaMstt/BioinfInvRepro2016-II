@@ -132,7 +132,7 @@ Terminología básica:
 
 * Una **imagen** es el software que cargamos en un contenedor. 
 
-* Un **dockerfile** describe el software que pondremos en una imagen, pero esto no incluye sólo el programa en sí, sino también cualquier detalle de la configuración del ambiente y hasta los comandos que queremos corra.
+* Un **dockerfile** es un script que describe (e instala) el software que pondremos en una imagen, pero esto no incluye sólo el programa en sí, sino también cualquier detalle de la configuración del ambiente y hasta los comandos que queremos corra.
 
 
 ![docker_layered.png](docker_layered.png)
@@ -157,7 +157,7 @@ Y aquí unos videos de referencias extra, por si les quieres dar un ojo: [Tutori
 * En Mac o Linux desde la terminal:
 `docker-machine start default`
 
-* En Windwos o Mac:
+* En Windows o Mac:
 Click en QuickStartTerminal
 
 Nota: al correr desde QuickStartTerminal los comandos son `docker OPTIONS`, mientras que si lo hacemos desde la terminal normal es necesario escribirlo así: `docker $(docker-machine config default) OPTIONS`. Se ve más engorroso, pero permite quitar una capa extra (el QuickSratTerminal) y que montar volúmenes sea más sencillo. Esto lo veremos adelante, por lo pronto, volvamos al ejemplo. 
@@ -320,10 +320,12 @@ Detecting the provisioner...
 Started machines may have new IP addresses. You may need to re-run the `docker-machine env` command.
 ```
 
+Recuerda que si estás en Mac y prendiste la máquina con `docker-machine start dafault` los comandos de abajo deben ir acompañados de `$(docker-machine config default)` por ejemplo `docker $(docker-machine config default) images`.
+
 2) Enlista las imagenes:
 
 ```
-$ docker $(docker-machine config default) images
+$ docker images
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
 miproyecto/analisis1   v1                  b951cd1b24b5        12 hours ago        188 MB
 ubuntu                 latest              07c86167cdc4        13 days ago         188 MB
@@ -335,14 +337,14 @@ Ya debes tener una imagen de ubuntu (si seguiste el tuturial de la instalación)
 3) Corre la imagen de ubuntu dentro de un contenedor, pero **montando un volumen**, es decir un directorio en tu equipo que podrá ser accedido por el contenedor:
 
 ```
-docker $(docker-machine config default) run -v /Users/ticatla/Copy/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2016-II/Practicas/Uni5/DatosContenedor1:/DatosContenedorEjercicioClase -it ubuntu /bin/bash
+docker run -v /Users/ticatla/Copy/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2016-II/Practicas/Uni5/DatosContenedor1:/DatosContenedorEjercicioClase -it ubuntu /bin/bash
 ```
 
 Desglozando el comando anterior:
 
 `-v` es la bandera para indicar que queremos que monte un volumen 
 
-`/Users/ticatla/Copy/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2016-II/Practicas/Uni5/DatosContenedor1` es la ruta absoluta. Sí, absoluta (así que cambiala por la ruta de tu equipo) ya que así es cuando se trata de montar volúmenes :(
+`/Users/ticatla/Copy/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2016-II/Practicas/Uni5/DatosContenedor1` es la ruta absoluta. Sí, absoluta (así que cambiala por la ruta de tu equipo) ya que así es cuando se trata de montar volúmenes :(. Ojo, para windows debes iniciar la ruta con `/c/Users` y después el resto de la ruta.
 
 `:/DatosContenedorEjercicioClase` es el nombre del directorio como quremos que aparezca dentro de nuestro contenedor. 
 
@@ -381,4 +383,233 @@ AUTHORS  ChangeLog  Makefile.am  NEWS    THANKS      build_scripts  config.h.in 
 COPYING  INSTALL    Makefile.in  README  aclocal.m4  config         configure    doc           install_galaxy_files.sh  reconf  src
 ```
 
-8) **Ejercicio** Instala FastX-Tools
+8) **Ejercicio** Instala FastX-Tools dentro de un contenedor
+
+
+#### Cómo instalar software especializado a partir de un dockerfile:
+
+
+Recordemos que los contenedores de docker son creados a partir de una **imagen**. Dicha imagen puede ser básica, es decir el OS en su forma más simple, pero también puede incluir un software o conjunto de softwares ya instalados y listos para correr, y hasta los comandos que queremos que corra.
+
+Lo anterior se hace a través de un **dockerfile**, es decir un script que describe (e instala) el software que pondremos en una imagen y además incluye cualquier detalle de la configuración del ambiente y hasta los comandos a correr.
+
+Es decir un dockerfile nos permite construir (*build*) y compartir una imagen especializada en correr el proceso que deseemos.
+
+Veamos un ejemplo sencillo de un dockerfile:
+
+```
+#####################################################
+# Dockerfile ejemplo
+# Este dockerfile jala la ultima imagen de Ubuntu y crea una carpeta llamada prueba
+## Para construir la imagen basada en este dockerfile escribir en la terminal (WD al docker file)
+# docker build -t miproyecto/analisis1:v1 . 
+
+# "miproyecto" es el nombre del repositorio y "analisis1:v1"" el de la imagen y la versión, estos **no** son los nombres de la carpeta y del dockerfile, sino otros que le asignamos.
+ 
+## Para correr un proceso dentro de un contenedor
+# docker run -it miproyecto/analisis1:v1 /bin/bash
+#####################################################
+
+# Set the base image to Ubuntu
+FROM ubuntu:latest
+
+# Crear una carpeta prueba
+RUN mkdir /Prueba
+
+# File author
+MAINTAINER Alicia Mastretta-Yanes
+```
+
+Las instrucciones de cómo utilizarlo vienen al principio del dockerfile, como comentarios:
+
+Para construir la imagen basada en este dockerfile escribir en la terminal (WD al dockerfile, en este caso vive en [Practicas/Uni5/bin/Analisis1](/Practicas/Uni5/bin/Analisis1))
+
+`$ docker build -t miproyecto/analisis1:v1 . `
+
+Para correr un proceso dentro del contenedor
+`$ docker run -it miproyecto/analisis1:v1 /bin/bash`
+
+
+Ahora probemos con un dockerfile más complejo, como [este](https://github.com/BioDocker/containers/blob/master/biodocker/Dockerfile) que instala en una base de ubuntu varias herramientas útiles para bioinformática:
+
+```
+#################################################################
+# Dockerfile
+#
+# Version:          1
+# Software:         BioDocker base Image
+# Software Version: 20150814
+# Description:      Basic image for BioDocker
+# Website:          http://biodocker.org/
+# Tags:             Genomics|Proteomics|Transcriptomics|General|Metabolomics
+# Provides:         autotools-dev|automake|cmake|curl|fuse|git|wget|zip|openjdk-7-jre|build-essential|pkg-config|python|python-dev|python-pip|zlib1g-dev
+# Base Image:       ubuntu:14.04.3
+# Build Cmd:        docker build --rm -t biodckr/biodocker .
+# Pull Cmd:         docker pull biodckr/biodocker
+# Run Cmd:          docker run --rm biodckr/biodocker bash
+#################################################################
+# Source Image
+FROM ubuntu:14.04.3
+
+# Set noninterative mode
+ENV DEBIAN_FRONTEND noninteractive
+
+################## BEGIN INSTALLATION ######################
+
+# add apt mirror
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bkp && \
+    bash -c 'echo -e "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main restricted universe multiverse\n\n" > /etc/apt/sources.list' && \
+    cat /etc/apt/sources.list.bkp >> /etc/apt/sources.list && \
+    cat /etc/apt/sources.list
+
+# apt update and install global requirements
+RUN apt-get clean all &&\
+    apt-get update &&\ 
+    apt-get upgrade -y && \
+    apt-get install -y  \
+        autotools-dev   \
+        automake        \
+        cmake           \
+        curl            \
+        fuse            \
+        git             \
+        wget            \
+        zip             \
+        openjdk-7-jre   \
+        build-essential \
+        pkg-config      \
+        python          \
+	python-dev      \
+        python-pip      \
+        zlib1g-dev && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+#        subversion \
+#        mercurial  \
+#        cvs        \
+
+# create shared folders
+RUN mkdir /data /config
+
+# Add user biodocker with password biodocker
+RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sudo,fuse biodocker && \
+    echo `echo "biodocker\nbiodocker\n" | passwd biodocker` && \
+    chown biodocker:biodocker /data && \
+    chown biodocker:biodocker /config
+
+# Change user
+USER biodocker
+
+# Create $HOME/bin folder
+RUN mkdir /home/biodocker/bin
+
+# Add $HOME/bin to path
+ENV PATH=$PATH:/home/biodocker/bin
+ENV HOME=/home/biodocker
+
+# Share default volumes
+VOLUME ["/data", "/config"]
+
+# Overwrite this with 'CMD []' in a dependent Dockerfile
+CMD ["/bin/bash"]
+
+# change workdir
+WORKDIR /data
+
+##################### INSTALLATION END #####################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+```
+
+Este dockerfile vive en el [github de Biodocker](https://github.com/BioDocker/). En un momento veremos qué es Biodocker, pero primero sigamos con el ejemplo de nuestro dockerfile. 
+
+Vamos a utilizar ese dockerfile para crear un contenedor:
+
+```
+$ docker pull biodckr/biodocker
+Using default tag: latest
+latest: Pulling from biodckr/biodocker
+8387d9ff0016: Already exists 
+3b52deaaf0ed: Already exists 
+4bd501fad6de: Already exists 
+a3ed95caeb02: Pull complete 
+1271a85e53b2: Pull complete 
+038e0519162f: Pull complete 
+b7326f133df8: Pull complete 
+174099b62d65: Pull complete 
+aed7fb466079: Pull complete 
+Digest: sha256:5856e57be18548b8f4244bad94b548a777c1b7261dba896f7ecd09d9a58aefeb
+Status: Downloaded newer image for biodckr/biodocker:latest
+$
+$ docker images 
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+miproyecto/analisis1   v1                  b951cd1b24b5        11 days ago         188 MB
+ubuntu                 latest              07c86167cdc4        3 weeks ago         188 MB
+biodckr/biodocker      latest              5c0a896aa5b1        7 weeks ago         702.5 MB
+hello-world            latest              690ed74de00f        5 months ago        960 B
+$
+$ docker run -it biodckr/biodocker /bin/bash
+biodocker@4e415e3c6633:/data$ curl
+curl: try 'curl --help' or 'curl --manual' for more information 
+```
+
+**Observaciones y preguntas**:
+
+* En vez de ser root (´#´ al inicio de la línea de comando) como es el default de docker, somos un usuario normal y estamos en un directorio llamado ´data´. ¿Con qué líneas del dockerfile se realizó esto?
+
+* `curl` está instalado (el default no es este, según vimos la clase pasada). ¿Con qué líneas del dockerfile se especificó esto?
+
+* Pude hacer un docker pull porque el dockerfile de arriba existe en un repositorio de contenedores llamado `biodckr`. ¿Cuál es la diferencia entre `pull` y `build` an image?
+
+* La línea 81 dice `VOLUME ["/data", "/config"]` ¿Qué significa esto? 
+
+**Ejercicio** ¿Cómo puedo utilizar `run` para que el volumen `data` corresponda a un directorio en mi computadora? 
+
+
+El contenedor creado a partir de `biodckr/biodocker` ya tiene varias cosas instaladas (como `zlib1g-dev`, que quizá recuerdes), por lo que instalar FastXtools debiera ser más sencillo que desde cero.
+
+Una vez dentro del contenedor:
+
+```
+$ #Install Gtextutils
+$ wget https://github.com/agordon/libgtextutils/releases/ download/0.7/libgtextutils-0.7.tar.gz
+$ tar -xvf libgtextutils-0.7.tar.gz
+$ cd libgtextutils-0.7 
+$ ./configure
+$ make
+$ sudo make install
+$ cd ..
+$ #Install FastX
+$ wget https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2
+$ tar -xvf fastx_toolkit-0.0.14.tar.bz2 
+$ cd fastx_toolkit-0.0.14
+$ ./configure
+$ make
+$ sudo make install
+$ cd ..
+$ rm -rf fas* lib*
+```
+
+Lo anterior también podríamos haberlo puesto dentro del dockerfile. ¿No sería genial que existieran dockerfiles así pero para instalar ese software que tanto necesitas? Pues bien, ya hay dos proyectos que están dockerizando software bioinformático:
+
+* **[Biodocker](http://biodocker.org/)**
+* **[Bioboxes](http://bioboxes.org/)**
+
+Como notamos, ambos se parecen mucho, la diferencia principal es que Bioboxes pide tener instalado `phyton` y `pip` para no interactuar directamente con docker. Biodocker no requiere instalar nada extra y además tiene actualmente más [contenedores](https://github.com/BioDocker/containers), así que es en el que me enfocaré, pero tu puedes usar y **contribuir** al que te convenga más. 
+
+**Ejercicio:** En un contenedor con FastXtools instalado y con un volumen montado a [Practicas/Uni5/DatosContenedor1/datos](Practicas/Uni5/DatosContenedor1/datos) utiliza una de las herramientas de FastXtools para clipear las secuencias del archivo `datos/eg_ddRAD_data.fastq`.
+
+**Ejercicio:** Utiliza Biodocker para crear un contenedor con alguno de los programas que ya existen en el Github de Biodocker. Esto puede tardar por los downloads necesarios y la red. 
+
+
+Referencia para el contenido de los comandos de un dockerfile: [Docker Explained: Using Dockerfiles to Automate Building of Images](https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images)
+
+
+
+ 
