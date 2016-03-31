@@ -307,7 +307,7 @@ Si quieres borrar contenedores o imágenes (son espacio en disco):
 
 1) Prende la máquina 
 
-Mac y Linux, Preferentemente desde tu terminal con (Windows desde QuickStartTerminal):
+Mac con QuickStartTerminal o desde tu terminal con: 
 
 ```
 $ docker-machine start default
@@ -319,8 +319,12 @@ Waiting for SSH to be available...
 Detecting the provisioner...
 Started machines may have new IP addresses. You may need to re-run the `docker-machine env` command.
 ```
-
 Recuerda que si estás en Mac y prendiste la máquina con `docker-machine start dafault` los comandos de abajo deben ir acompañados de `$(docker-machine config default)` por ejemplo `docker $(docker-machine config default) images`.
+
+Windows desde QuickStartTerminal.
+
+Linux: `sudo docker` ... y el comando de docker que desees, o `sudo service docker start` si lo anterior te dice que el demonio no está prendido.
+
 
 2) Enlista las imagenes:
 
@@ -603,13 +607,128 @@ Lo anterior también podríamos haberlo puesto dentro del dockerfile. ¿No serí
 
 Como notamos, ambos se parecen mucho, la diferencia principal es que Bioboxes pide tener instalado `phyton` y `pip` para no interactuar directamente con docker. Biodocker no requiere instalar nada extra y además tiene actualmente más [contenedores](https://github.com/BioDocker/containers), así que es en el que me enfocaré, pero tu puedes usar y **contribuir** al que te convenga más. 
 
+### Comandos de un docker file
+Referencia: [Docker Explained: Using Dockerfiles to Automate Building of Images](https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images)
+
+La sintaxis de un dockerfile consite en comentarios y comandos más argumentos. 
+
+Los comandos de docker se escriben con MAYÚSCULA y, al igual que en cualquier script, deben presentarse en forma secuencial. Son los siguientes:
+
+* `FROM` debe ser el primer comando dentro de un dockerfile, define a partir de qué imagen se va a crear el contenedor. 
+
+```
+# Usage: FROM [image name]
+FROM ubuntu
+```
+
+* `RUN` es el comando central de los dockerfiles. Toma el comando que se le de (por ejemplo uno de bash) y lo ejecuta para **construir** la imagen. 
+
+```
+# Usage: RUN [command]
+RUN aptitude install -y riak
+```
+
+* `ADD` copia los archivos de un host al sistema de archivos de un contenedor (ie se duplican en tu disco duro), pero la fuente tmb puede ser una URL, de modo que su contenido se baja y guarda en el contenedor.
+
+```
+# Usage: ADD [source directory or URL] [destination directory]
+ADD /my_app_folder /my_app_folder
+```
+
+* `CMD` similar a `RUN` pero se ejecuta cuado ya se creó el contenedor al crear una imagen. O sea es el (los) comando(s) que correrá(n) en automático.
+
+```
+# Usage 1: CMD application "argument", "argument", ..
+CMD "echo" "Hello docker!"
+```
+
+* `ENTRYPOINT` especifica cuál será la aplicación default que se utilizará al crear el contenedor. Útil si creaste un contenedor para correr solo esa aplicación en específico.
+
+```
+# Usage: ENTRYPOINT application "argument", "argument", ..
+# Remember: arguments are optional. They can be provided by CMD
+#           or during the creation of a container. 
+ENTRYPOINT echo
+
+# Usage example with CMD:
+# Arguments set with CMD can be overridden during *run*
+CMD "Hello docker!"
+ENTRYPOINT echo 
+```
+
+* `WORKDIR` define en que directorio se ejecutarán los comandos dados por CMD 
+
+
+* `ENV` crea las variables del ambiente ([enviromental variables](https://wiki.archlinux.org/index.php/environment_variables)) que pueden ser accedidas por el contenedor y los scripts. 
+
+```
+# Usage: ENV key value
+ENV SERVER_WORKS 4
+```
+
+* `USER` especifica que usuario (username) va a correr el contenedor.
+
+```
+# Usage: USER [UID]
+USER 751
+```
+
+* `VOLUME` monta un directorio del host como un volumen dentro del contenedor. 
+
+```
+# Usage: VOLUME ["/dir_1", "/dir_2" ..]
+VOLUME ["/my_files"]
+```
+
+* `EXPOSE` sirve para abrir un puerto que permita el acceso a la red entre un proceso dentro del contenedor y el mundo exterior 
+
+```
+# Usage: EXPOSE [port]
+EXPOSE 8080
+```
+
+* MAINTAINER quién hizo y da mantenimiento al dockerfile. Puede ir al principio o al final, no es algo que se ejecute, sol da info.
+
+```
+# Usage: MAINTAINER [name]
+MAINTAINER authors_name authors_contact
+```
+
+
+
+### Ejercicios 
+
 **Ejercicio:** En un contenedor con FastXtools instalado y con un volumen montado a [Practicas/Uni5/DatosContenedor1/datos](Practicas/Uni5/DatosContenedor1/datos) utiliza una de las herramientas de FastXtools para clipear las secuencias del archivo `datos/eg_ddRAD_data.fastq`.
 
 **Ejercicio:** Utiliza Biodocker para crear un contenedor con alguno de los programas que ya existen en el Github de Biodocker. Esto puede tardar por los downloads necesarios y la red. 
 
+**Ejercicio:** 
+a) En un contenedor donde tengas instalado vcftools utiliza un comando para bajar los datos en formato vcf del repositorio Schweizer RM, Robinson J, Harrigan R, Silva P, Galaverni M, Musiani M, Green RE, Novembre J, Wayne RK (2015) Data from: Targeted capture and resequencing of 1040 genes reveal environmentally driven functional variation in gray wolves. Dryad Digital Repository. [http://dx.doi.org/10.5061/dryad.8g0s3](http://datadryad.org/resource/doi:10.5061/dryad.8g0s3)
 
-Referencia para el contenido de los comandos de un dockerfile: [Docker Explained: Using Dockerfiles to Automate Building of Images](https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images)
+b) Cambia el nombre del archivo que acabas de bajar a `wolves.vcf`.
 
+c) ¿Cuántos MB pesa el archivo?
 
+d) ¿Cuántos individuos y variantes (SNPs) tiene el archivo?
 
+e) Calcula la frecuencia de cada alelo para todos los individuos dentro del archivo y guarda el resultado en un archivo.
+
+f) ¿Cuántos sitios del archiov no tienen missing data?
+
+g) Calcula la frecuencia de cada alelo para todos los individuos pero solo para los sitios sin missing data y guarda el resultado en un archivo. 
+
+h) ¿Cuántos sitios tienen una frecuencia del alelo menor <0.05?
+
+i) Calcula la heterozygosidad de cada individuo.
+
+j) Calcula la diversidad nucleotídica por sitio.
+
+k) Calcula la diversidad nucleotídica por sitio solo para los sitios del cromosoma 3
+
+l) Filtra los sitios que tengan una frecuencia del alelo menor  <0.05 y crea un archivo nuevo llamado `wolves_maf05.vcf`.
+
+m) Convierte el archivo `wolves_maf05.vcf` a formato plink. 
+
+**Ejercicio**
+Formen equipos de 3-5 personas con un tipo de datos/tema en común. Discutan qué software especializado utilizarían para sus datos. ¿Hay un dockerfile para este programa? Si sí, pullen la imagen a su docker. Si no, instalenlo dentro de un contenedor. Guarden una lista de los comandos que utilizaron para hacerlo, para que después pudieran hacer un dockerfile a partir de ellos.
  
