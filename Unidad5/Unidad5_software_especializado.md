@@ -582,7 +582,7 @@ Una vez dentro del contenedor:
 
 ```
 $ #Install Gtextutils
-$ wget https://github.com/agordon/libgtextutils/releases/ download/0.7/libgtextutils-0.7.tar.gz
+$ wget https://github.com/agordon/libgtextutils/releases/download/0.7/libgtextutils-0.7.tar.gz
 $ tar -xvf libgtextutils-0.7.tar.gz
 $ cd libgtextutils-0.7 
 $ ./configure
