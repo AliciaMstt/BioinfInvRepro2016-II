@@ -117,4 +117,15 @@ Introducción a Docker
 ## 17-Marzo (Jue)
 Ejercios en Docker 
 
-##
+## 29-Marzo (Mar)
+BioDocker e instalar FastXtools
+
+## 31-Marzo (Jue)
+Dockerfile
+Les dejo la Tarea 4.
+
+## 05-Apr (Mar)
+Ejercios en Docker vcftools y dinámica grupo
+
+## 07-Apr (Jue)
+Se entrega Tarea 4
