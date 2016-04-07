@@ -46,7 +46,7 @@ Markdown es el formato en el que está escrito este repositorio y el que ocupan 
 
 Básicamente es una manera de escribir texto de manera que sea interpretado por un programa y convertido en un bonito archivo html. Tiene la ventaja de que está especialmente hecho para poder `formatear código en un texto como este`.
 
-(Aquí una guía de MarkDown)[https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet]
+[Aquí una guía de MarkDown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 **Ejercicio:** abre el el editor de Markdown de tu preferencia y escribe un texto en formato Markdown de manera que quede igual que los tres primeros puntos de [Preparing the environment, cleaning the data for Stacks](http://catchenlab.life.illinois.edu/stacks/tut.php#prep) (incluyendo ese subtítulo). 
 
