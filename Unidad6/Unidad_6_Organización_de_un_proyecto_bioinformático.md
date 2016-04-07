@@ -48,7 +48,7 @@ Básicamente es una manera de escribir texto de manera que sea interpretado por 
 
 (Aquí una guía de MarkDown)[https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet]
 
-**Ejercicio:** abre el el editor de Markdown de tu preferencia y escribe un texto en formato Markdown de manera que quede igual que los tres primeros puntos de (Preparing the environment, cleaning the data for Stacks)[http://catchenlab.life.illinois.edu/stacks/tut.php#prep] (incluyendo ese subtítulo). 
+**Ejercicio:** abre el el editor de Markdown de tu preferencia y escribe un texto en formato Markdown de manera que quede igual que los tres primeros puntos de [Preparing the environment, cleaning the data for Stacks](http://catchenlab.life.illinois.edu/stacks/tut.php#prep) (incluyendo ese subtítulo). 
 
 Es útil aprender la sintaxis de Markdown para poder documentar mejor tus proyectos, sobretodo si los subes a GitHub. 
 
@@ -57,7 +57,7 @@ Es útil aprender la sintaxis de Markdown para poder documentar mejor tus proyec
 
 El control de versiones se refiere a llevar un registro de los cambios que se realizan sobre un proyecto informático, particularmente sobre las modificaciones a los scripts.
 
-Uno de los sistemas más utilizados de control de versiones es (`git`)[https://git-scm.com/]. Su principal ventaja es que no sólo puede llevar proyectos individuales, sino que está diseñado para proyectos colaborativos donde varias personas escriben código al mismo tiempo. ¿Creías que GoogleDocs era innovador? 
+Uno de los sistemas más utilizados de control de versiones es [`git`](https://git-scm.com/). Su principal ventaja es que no sólo puede llevar proyectos individuales, sino que está diseñado para proyectos colaborativos donde varias personas escriben código al mismo tiempo. ¿Creías que GoogleDocs era innovador? 
 
 Es muy buena idea llevar un control de versiones de tus scrips en tu carpeta `bin`. Esto puedes hacerlo por ejemplo con Github.
 
