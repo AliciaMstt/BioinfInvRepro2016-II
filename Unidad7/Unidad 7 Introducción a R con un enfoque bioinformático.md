@@ -120,7 +120,7 @@ Data frames
 * Data frame `data.frame(x = c("a", "b", "c"), y = 1:3)`
 * Acceso a elementos e una data.frame `[ , ]`, `$`
 
-Para una versión un poco más amplia del anterior resumen veamos estas [notas sobre los tipos de objetos de R básico]()
+Para una versión un poco más amplia del anterior resumen veamos estas [notas sobre los tipos de objetos de R básico](Tipos_objetos_baseR.Rmd)
 
 * Funciones de sistema: `list.files`, `getwd`, `setwd`
 * Cargar una función: `source`
@@ -129,10 +129,30 @@ Para una versión un poco más amplia del anterior resumen veamos estas [notas s
 * Cargar a R un archivo de texto con filas y columnas (separado por tabs o comas): `read.delim`.
 * "Pegar" texto uno detrás de otro: `paste()` y `paste0()`.
 
-**Ejercicio:** Carga en R el archivo `Practicas/Uni7/meta/maizteocintle_SNP50k_meta_extended.txt` y utiliza R para responder lo siguiente:
+**Ejercicio:** Carga en R el archivo `Practicas/Uni7/meta/maizteocintle_SNP50k_meta_extended.txt` y utiliza un script de R, que debe estar guardado en `Practicas/Uni7/bin`, para responder lo siguiente:
+
+* ¿Qué tipo de objeto creamos al cargar la base?
+
+* ¿Cómo se ven las primeras 6 líneas del archivo?
 
 * ¿Cuántas muestras hay?
-* 
+
+* ¿De cuántos estados se tienen muestras?
+
+* ¿Cuántas muestras fueron colectadas antes de 1980?
+
+* ¿Cuántas muestras hay de cada raza?
+
+* En promedio ¿a qué altitud fueron colectadas las muestras?
+
+* ¿Y a qué altitud máxima y mínima fueron colectadas?
+
+* Crea una nueva df de datos sólo con las muestras de la raza Olotillo
+
+* Crea una nueva df de datos sólo con las muestras de la raza Reventador, Jala y Ancho
+
+* Escribe la matriz anterior a un archivo llamado "submat.cvs" en /meta.
+
 
 
 ## 7.3. Graficar en R 		

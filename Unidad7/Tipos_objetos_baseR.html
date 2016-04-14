@@ -166,6 +166,7 @@ x</code></pre>
 anyDuplicated(names(x))</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p><code>anyDuplicated</code> brinda el índice del primer duplicado, así que 0 significa que nada está duplicado.</p>
+<p><strong>Ejercicio:</strong> crea un vector que contenga los números del 1 al 200 y los números del 300 al 450.</p>
 <div id="logical" class="section level3">
 <h3>Logical</h3>
 <p>Contienen información <code>TRUE</code> o <code>FALSE</code>. Sirven para evaluar expresiones de =, &lt;, &gt; y pueden ocuparse para obtener los elememntos de un vector que cumplan con la característica deseada.</p>
@@ -183,6 +184,7 @@ x&gt;15</code></pre>
 <pre class="r"><code>x&lt;-1:20
 sum(x&gt;15)</code></pre>
 <pre><code>## [1] 5</code></pre>
+<p><strong>Ejercicio</strong> utiliza una sola líndea de R para averiguar si el logaritmo base de 10 de 20 es menor que la raiz cuadrada de 4.</p>
 </div>
 <div id="character" class="section level3">
 <h3>Character</h3>
@@ -199,7 +201,10 @@ x[1]</code></pre>
 <pre><code>## character(0)</code></pre>
 <pre class="r"><code>x[grep(&quot;tangana&quot;, x)] </code></pre>
 <pre><code>## [1] &quot;tangana nica&quot; &quot;tangana na&quot;</code></pre>
-<p>x ### factor</p>
+<p><strong>Ejercicio:</strong> crea un vector de caracteres con tres nombres de especies</p>
+</div>
+<div id="factor" class="section level3">
+<h3>factor</h3>
 <p>Los factores son un tipo de vector que puede tomar un número “limitado” de valores, que normalmente se utilizan como variables categóricas. Por ejemplo: macho/hembra. Es útil tenener este tipo de objeto porque varios modelos estadísticos que se pueden correr en R los manejan. A los valores que pueden tomar los elementos del factor se les conoce como “levels”.</p>
 <pre class="r"><code>x&lt;- c(1,2,2,3,1,2,3,3,1,2,3,3,1)
 x</code></pre>
@@ -254,6 +259,7 @@ levels(meses)</code></pre>
 ## [15] May       August    July      December  August    August    September
 ## [22] November  February  Abril    
 ## 11 Levels: Abril August December February January July March ... September</code></pre>
+<p><strong>Ejercicio</strong> lee la ayuda de <code>as.factor</code> para determinar cómo crear un factor “ordenado”</p>
 </div>
 <div id="integers-y-numerics" class="section level3">
 <h3>Integers y numerics</h3>
@@ -341,6 +347,7 @@ x</code></pre>
 <pre><code>##   [,1] [,2] [,3]
 ## A    1    5    9</code></pre>
 <p>Por lo general las matrices se llenan con datos numéricos, pues hay muchas operaciones que se pueden hacer con ellas. Por ejemplo <code>rowSums</code>, <code>colSums</code> y <code>eigen</code> para calcular eigenvectores (que se usan por ejemplo en PCA)</p>
+<p><strong>Ejercicio</strong>: Muestra el valor del elemento de la segunda fila, tercera columna.</p>
 </div>
 <div id="data-frames" class="section level2">
 <h2>Data frames</h2>
@@ -372,6 +379,7 @@ x</code></pre>
 ## 2          Homo sapiens Female   30            FALSE Mesoamérica
 ## 3 Homo neanderthalensis   Male   10            FALSE      Europa
 ## 4 Homo neanderthalensis Female   50            FALSE      África</code></pre>
+<p><strong>Ejercicio</strong> muestra las 2 primeras filas de la data.frame del ejercicio anterior.</p>
 </div>
 
 

@@ -68,6 +68,8 @@ anyDuplicated(names(x))
 
 `anyDuplicated` brinda el índice del primer duplicado, así que 0 significa que nada está duplicado.
 
+**Ejercicio:** crea un vector que contenga los números del 1 al 200 y los números del 300 al 450.
+
 
 ### Logical
 
@@ -91,6 +93,7 @@ x<-1:20
 sum(x>15)
 ```
 
+**Ejercicio** utiliza una sola líndea de R para averiguar si el logaritmo base de 10 de 20 es menor que la raiz cuadrada de 4.
 
 ### Character
 
@@ -109,8 +112,8 @@ x[grep("tangana", x)]
 
 ```
 
+**Ejercicio:** crea un vector de caracteres con tres nombres de especies
 
-x
 ### factor
 
 Los factores son un tipo de vector que puede tomar un número "limitado" de valores, que normalmente se utilizan como variables categóricas. Por ejemplo: macho/hembra. Es útil tenener este tipo de objeto porque varios modelos estadísticos que se pueden correr en R los manejan. A los valores que pueden tomar los elementos del factor se les conoce como "levels".
@@ -152,6 +155,7 @@ meses
 
 ```
 
+**Ejercicio** lee la ayuda de `as.factor` para determinar cómo crear un factor "ordenado"
 
 ### Integers y numerics
 
@@ -237,6 +241,7 @@ x[1,,drop=FALSE]
 
 Por lo general las matrices se llenan con datos numéricos, pues hay muchas operaciones que se pueden hacer con ellas. Por ejemplo `rowSums`, `colSums` y  `eigen` para calcular eigenvectores (que se usan por ejemplo en PCA)
 
+**Ejercicio**: Muestra el valor del elemento de la segunda fila, tercera columna.
 
 ## Data frames
 
@@ -270,3 +275,5 @@ x<- cbind(x, pop=c("Australia", "Mesoamérica", "Europa", "África"))
 x
 ```
 
+
+**Ejercicio** muestra las 2 primeras filas de la data.frame del ejercicio anterior.
