@@ -79,6 +79,8 @@ Contienen información `TRUE` o `FALSE`. Sirven para evaluar expresiones de =, <
 ```{r}
 1<5
 10==0
+10!=0
+10<=0
 x<-1:20
 x>15
 x[x>15]
@@ -231,9 +233,11 @@ x["B",]
 x[x >= 5]
 ```
 
+Nota que subsetear con un nombre de fila no único no marca error, pero puede conducir a errores en nuestros análisis de datos.
 
-(note how subsetting with a non-unique name does not lead to an error).  If you grab a single row or a single column from a `matrix` you get a vector.  Sometimes, it is really nice to get a `matrix`; you do that by using `drop=FALSE` in the subsetting:
-```{r matrixSubset2}
+Para obtener la posición en la matriz (en vez de sólo un vector) al hacer un subset necesitamos utilizar el argumento `drop=FALSE`:
+
+```{r}
 x[1,]
 x[1,,drop=FALSE]
 ```

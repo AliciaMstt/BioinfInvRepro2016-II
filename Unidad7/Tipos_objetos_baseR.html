@@ -174,6 +174,10 @@ anyDuplicated(names(x))</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>10==0</code></pre>
 <pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>10!=0</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>10&lt;=0</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>x&lt;-1:20
 x&gt;15</code></pre>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
@@ -340,7 +344,8 @@ x</code></pre>
 <pre><code>## [1]  2  6 10</code></pre>
 <pre class="r"><code>x[x &gt;= 5]</code></pre>
 <pre><code>## [1]  5  6  7  8  9 10 11 12</code></pre>
-<p>(note how subsetting with a non-unique name does not lead to an error). If you grab a single row or a single column from a <code>matrix</code> you get a vector. Sometimes, it is really nice to get a <code>matrix</code>; you do that by using <code>drop=FALSE</code> in the subsetting:</p>
+<p>Nota que subsetear con un nombre de fila no único no marca error, pero puede conducir a errores en nuestros análisis de datos.</p>
+<p>Para obtener la posición en la matriz (en vez de sólo un vector) al hacer un subset necesitamos utilizar el argumento <code>drop=FALSE</code>:</p>
 <pre class="r"><code>x[1,]</code></pre>
 <pre><code>## [1] 1 5 9</code></pre>
 <pre class="r"><code>x[1,,drop=FALSE]</code></pre>
