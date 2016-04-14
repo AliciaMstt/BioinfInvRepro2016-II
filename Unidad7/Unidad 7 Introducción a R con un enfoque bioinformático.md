@@ -129,9 +129,10 @@ Para una versión un poco más amplia del anterior resumen veamos estas [notas s
 * Cargar a R un archivo de texto con filas y columnas (separado por tabs o comas): `read.delim`.
 * "Pegar" texto uno detrás de otro: `paste()` y `paste0()`.
 
-**Ejercicio:** Carga en R el archivo `Practicas/Uni7/ssssss` y responde lo siguiente:
+**Ejercicio:** Carga en R el archivo `Practicas/Uni7/meta/maizteocintle_SNP50k_meta_extended.txt` y utiliza R para responder lo siguiente:
 
-
+* ¿Cuántas muestras hay?
+* 
 
 
 ## 7.3. Graficar en R 		

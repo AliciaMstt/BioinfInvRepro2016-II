@@ -29,6 +29,12 @@ mi.vector
 length(mi.vector)
 ```
 
+Podemos agregar un vector a otro vector
+
+```{r}
+y<-c(mi.vector,20,23,80:85)
+y
+```
 
 Cada elemento dentro de un vector "está numerado" y además puede tener un nombre. Podemos "indexar" los elementos con base a su número o a su nombre.
 
@@ -75,6 +81,14 @@ x<-1:20
 x>15
 x[x>15]
 
+```
+
+Dentro de un vector logical `TRUE` equivale a 1 y `FALSE` equivale a 0, por lo tanto para contar cuántos `TRUE`s hay podemos hacer una suma:
+
+
+```{r}
+x<-1:20
+sum(x>15)
 ```
 
 
@@ -247,5 +261,12 @@ Nota que `sexo` se conviertió en un `factor`. Esto puede ser útil, pero tambi�
 ```{r}
 x <- data.frame(sp = c("Homo sapiens", "Homo sapiens", "Homo neanderthalensis", "Homo neanderthalensis"), sexo = c("Male", "Female", "Male", "Female"), edad = c(60,30,10,50), stringsAsfactors=FALSE)
 x$sexo
+```
+
+Podemos agregar una nueva columna o una nueva fila a una `data.frame` con las funciones `cbind` y `rbind`, respectivamente. La nueva fila/columna debe ser un vector del mismo largo que la `data.frame`.
+
+```{r}
+x<- cbind(x, pop=c("Australia", "Mesoamérica", "Europa", "África"))
+x
 ```
 
