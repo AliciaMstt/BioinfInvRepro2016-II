@@ -101,3 +101,4 @@ El curso **no** se enfocará en ningún software especializado particular (e.g. 
 14.	Reference-Guide – Rmarkdown Reference Guide (2015) [http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf
 ](http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf)
 15.	Bioconductor for Genomic Data Science, sitio del curso de Kasper Daniel Hansen [http://kasperdanielhansen.github.io/genbioconductor/](http://kasperdanielhansen.github.io/genbioconductor/)
+16. R Cheat sheet [https://cran.r-project.org/doc/contrib/Short-refcard.pdf](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)

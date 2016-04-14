@@ -8,7 +8,7 @@
   
    - Analizar otros datos ya publicados que sea necesario procesar del mismo modo que los datos que uds tendrán. La única condición es que me avisen desde un inicio de dónde los sacaron (artículo y repo) y que no existan scripts que hagan literalmente lo que uds quieren hacer. Es decir pueden aprovechar un artículo poco reproducible que venga sin los scripts que ocuparon, pero que sí diga lo que hicieron y que sea algo que a uds les interese. 
 
-   - Análisis de datos brindados por la profesora. Opciones: (a) [procesar datos ddRAD crudos](https://copy.com/3NpIfMDictJlwdes) de *Berberis alpina* y analizarlos *de novo* o (b) analizar datos de maíz en formato plink ya procesados de [Artega *et al*, 20105](http://datadryad.org/resource/doi:10.5061/dryad.4t20n) **junto con**  otros datos de maíz publicados (los que prefieras, pueden ser genomas u otros SNPBead chip).  
+   - Análisis de datos brindados por la profesora. Opciones: (a) [procesar datos ddRAD crudos](https://copy.com/3NpIfMDictJlwdes) de *Berberis alpina* y analizarlos *de novo* o (b) analizar datos de maíz en formato plink ya procesados de [Artega *et al*, 2015](http://datadryad.org/resource/doi:10.5061/dryad.4t20n) **junto con**  otros datos de maíz publicados (los que prefieras, pueden ser genomas u otros SNPBead chip).  
 
    - Hacer el dockerfile de un programa y correr datos ejemplo de un artículo ya publicado.
   
