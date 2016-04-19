@@ -209,13 +209,60 @@ s = generic_elsevier_api(query = query_string,
   res<-s$content$`search-results`$`opensearch:totalResults`
 ```
 
-Con base en el código anterior, utiliza un loop para repetir la búsqueda para todos los indicadores del archivo `/data/indicadores.txt"` y para tres países: México, Estados Unidos y Ecuador. Los resultados deben guardarse en un una df única y escribirse a un archivo que esté en una carpeta `out` que se llame `busquedaScopus.txt"`.
 
-### Source
+Con base en el código anterior, utiliza un loop para repetir la búsqueda para todos los indicadores del archivo `/data/indicadores.txt` (se encuentra en el repo de Practicas de la Uni7) y para tres países: México, Estados Unidos y Ecuador. Los resultados deben guardarse en un una df única y escribirse a un archivo que esté en una carpeta `out` que se llame `busquedaScopus.txt`. 
 
-`source` es una función que sirve para correr un script de R **dentro** de otro script de R. Esto permite modularizar un análisis y luego correr una pipeline general, así como tener por separado funciones escritas por nosotras (como las que tendríamos en un paquete) y que utilizamos mucho en diversos scripts. Este tipo de funciones son las que podemos compartir en Github con otros usuarios y hasta convertirlas en un paquete. 
+Tu código para este ejercico debe estar guardado en un script llamado `Ejercicio_rscopusloop.R`.
 
-Pero por lo pronto veamos un ejemplo de cómo utilizar `source` 
+
+### Crear funciones y utilizarlas con `source`
+
+
+`source` es una función que sirve para correr un script de R **dentro** de otro script de R. Esto permite modularizar un análisis y luego correr una pipeline general, así como tener por separado **funciones propias** (que podemos llamar igual que llamamos las funciones de los paquetes) y que utilizamos mucho en diversos scripts. Este tipo de funciones son las que podemos compartir en Github con otros usuarios y hasta convertirlas en un paquete. 
+
+Ejemplos de cómo utilizar `source`: correr el script del ejercicio anterior desde otro script con la línea.
+
+```{r}
+source("Ejercicio_rscopusloop.R")
+```
+Nota que pare que esto funcione tu working directory debe ser el correcto para leer `Ejercicio_rscopusloop.R` como si fuera un archivo (que lo es).
+
+**Hacer una función propia**:
+
+Este es el [esqueleto de una función escrita dentro de R](http://www.statmethods.net/management/userfunctions.html):
+
+```{r}
+myfunction <- function(arg1, arg2, ... ){
+statements
+return(object)
+}
+```
+ 
+Ejemplo:
+
+```{r}
+give_i_line<- function(file, i){
+  ## Arguments 
+  # file = path to desired file with the indicadores, must be tab delimited and do NOT have a header
+  # number of line of file we want to print
+
+  ## Function
+  # read indicadores list
+  indicador<-read.delim(file, header=FALSE, quote="", stringsAsFactors=FALSE)
+
+  # give text of the i line of the file  
+  x<-indicador[i,1]
+  return(x)
+  } 
+
+```
+
+Si guardamos la función como un script llamado [`give_i_line.r`](Practicas/Uni7/bin/give_i_line.r) después podemos correrlo desde otro script:
+
+``
+
+
+Ejercicio: 
 
 
 ## 7.3. Graficar en R 		
