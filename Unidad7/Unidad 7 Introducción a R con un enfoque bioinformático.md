@@ -153,6 +153,69 @@ Para una versión un poco más amplia del anterior resumen veamos estas [notas s
 
 * Escribe la matriz anterior a un archivo llamado "submat.cvs" en /meta.
 
+### For loops
+
+Al igual que en bash, en R pueden hacerse for loops, con la siguiente sintaxis:
+
+`for (counter in vector) {commands}`
+
+Ejemplo:
+
+```
+for (i in 2:10){
+  print(paste(i, "elefantes se columpiaban sobre la tela de una añara ))
+}
+
+```
+
+La anterior es la versión más simple de un loop. Para otras opciones (como `while`, `if`, `if else`, `next`) revisa este [tutorial](https://www.datacamp.com/community/tutorials/tutorial-on-loops-in-r).
+
+
+**Ejercicio** 
+
+* Escribe un for loop para que divida 35 entre 1:10 e imprima el resultado en la consola.
+
+* Modifica el loop anterior para que haga las divisiones solo para los números nones (con un comando, NO con `c(1,3,...)`). Pista: `next`.
+
+* Modifica el loop anterior para que los resultados de correr todo el loop se guarden en una df de dos columnas, la primera debe tener el texto "resultado para x" (donde x es cada uno de los elementos del loop) y la segunda el resultado correspondiente a cada elemento del loop. Pista: el primer paso es crear una matriz *fuera* del loop.
+
+**Ejercicio**  
+
+Observa el siguiente código:
+
+(para correr esto es necesario estar conectado a la red UNAM o tener una api key)
+
+```{r}
+# Required packages
+library(rscopus)
+library(httr)
+
+# Definir Apikey para poder acceder a scopus (la generé desde http://dev.elsevier.com/myapikey.html, se requiere entrar desde bidiunam)
+api_key<-"b3d334ef41f4096efa745ee88fcc55ca"
+
+# read indicadores list
+indicador<-read.delim(paste0(getwd(),"/../data/indicadores.txt"), header=FALSE, quote="", stringsAsFactors=FALSE)
+
+# Build query
+query_string<-paste0('(TITLE-ABS-KEY(Maize or "zea mays" production Mexico) AND NOT TITLE-ABS-KEY("new mexico") AND TITLE-ABS-KEY(', indicador[1,1],'))')
+  
+# Run query
+
+s = generic_elsevier_api(query = query_string,
+                           type = "search", search_type = "scopus",
+                           api_key = api_key, count=100)
+  
+# Extract number of resulted documents 
+  res<-s$content$`search-results`$`opensearch:totalResults`
+```
+
+Con base en el código anterior, utiliza un loop para repetir la búsqueda para todos los indicadores del archivo `/data/indicadores.txt"` y para tres países: México, Estados Unidos y Ecuador. Los resultados deben guardarse en un una df única y escribirse a un archivo que esté en una carpeta `out` que se llame `busquedaScopus.txt"`.
+
+### Source
+
+`source` es una función que sirve para correr un script de R **dentro** de otro script de R. Esto permite modularizar un análisis y luego correr una pipeline general, así como tener por separado funciones escritas por nosotras (como las que tendríamos en un paquete) y que utilizamos mucho en diversos scripts. Este tipo de funciones son las que podemos compartir en Github con otros usuarios y hasta convertirlas en un paquete. 
+
+Pero por lo pronto veamos un ejemplo de cómo utilizar `source` 
 
 
 ## 7.3. Graficar en R 		
