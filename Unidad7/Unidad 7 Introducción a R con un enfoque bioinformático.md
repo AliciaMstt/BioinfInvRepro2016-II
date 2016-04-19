@@ -55,7 +55,7 @@ Como hemos visto en otras unidades, un **script** es un archivo de nuestros aná
 * un archivo de texto plano 
 * permanente,
 * repetible,
-* antoado,
+* anotado,
 * compartible y 
 * compatible con otras plataformas
 
@@ -259,10 +259,14 @@ give_i_line<- function(file, i){
 
 Si guardamos la función como un script llamado [`give_i_line.r`](../Practicas/Uni7/bin/give_i_line.r) después podemos correrlo desde otro script:
 
-``
+```{r} 
+source("give_i_line.r")
+give_i_line(paste0(getwd(),"/../data/indicadores.txt"), i=2)
+```
 
+Nota que `source` NO corre la función en sí, sino que solo la carga al cerebro de R para que podamos usarla como a una función cualquiera de un paquete.
 
-Ejercicio: 
+**Ejercicio:** Escribe y corre desde otro script una función que te permita leer un archivo de indicadores y realizar una búsqueda de todos los indicadores del archivo con un loop como el del ejercicio del script `Ejercicio_rscopusloop.R`. Uno de los argumentos de tu función debe ser "country" de manera que sea posible utilizar la función para correr la misma búsqueda con diferente país. El nombre de tu función debe ser `search_IndicadoresCountry`.
 
 
 ## 7.3. Graficar en R 		
