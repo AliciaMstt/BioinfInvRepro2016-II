@@ -257,7 +257,7 @@ give_i_line<- function(file, i){
 
 ```
 
-Si guardamos la función como un script llamado [`give_i_line.r`](Practicas/Uni7/bin/give_i_line.r) después podemos correrlo desde otro script:
+Si guardamos la función como un script llamado [`give_i_line.r`](../Practicas/Uni7/bin/give_i_line.r) después podemos correrlo desde otro script:
 
 ``
 
