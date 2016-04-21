@@ -161,9 +161,9 @@ Al igual que en bash, en R pueden hacerse for loops, con la siguiente sintaxis:
 
 Ejemplo:
 
-```
+```{r}
 for (i in 2:10){
-  print(paste(i, "elefantes se columpiaban sobre la tela de una añara ))
+  print(paste(i, "elefantes se columpiaban sobre la tela de una araña"))
 }
 
 ```
@@ -177,7 +177,16 @@ La anterior es la versión más simple de un loop. Para otras opciones (como `wh
 
 * Modifica el loop anterior para que haga las divisiones solo para los números nones (con un comando, NO con `c(1,3,...)`). Pista: `next`.
 
-* Modifica el loop anterior para que los resultados de correr todo el loop se guarden en una df de dos columnas, la primera debe tener el texto "resultado para x" (donde x es cada uno de los elementos del loop) y la segunda el resultado correspondiente a cada elemento del loop. Pista: el primer paso es crear una matriz *fuera* del loop.
+* Modifica el loop anterior para que los resultados de correr todo el loop se guarden en una df de dos columnas, la primera debe tener el texto "resultado para x" (donde x es cada uno de los elementos del loop) y la segunda el resultado correspondiente a cada elemento del loop. Pista: el primer paso es crear un vector *fuera* del loop. Ejemplo:
+
+```{r}
+elefantes<-character(0)
+for (i in 2:10){
+  elefantes<-rbind(elefantes, (paste(i, "elefantes se columpiaban sobre la tela de una araña")))
+}
+elefantes
+
+```
 
 **Ejercicio**  
 
@@ -193,20 +202,26 @@ library(httr)
 # Definir Apikey para poder acceder a scopus (la generé desde http://dev.elsevier.com/myapikey.html, se requiere entrar desde bidiunam)
 api_key<-"b3d334ef41f4096efa745ee88fcc55ca"
 
+
 # read indicadores list
 indicador<-read.delim(paste0(getwd(),"/../data/indicadores.txt"), header=FALSE, quote="", stringsAsFactors=FALSE)
 
-# Build query
-query_string<-paste0('(TITLE-ABS-KEY(Maize or "zea mays" production Mexico) AND NOT TITLE-ABS-KEY("new mexico") AND TITLE-ABS-KEY(', indicador[1,1],'))')
-  
-# Run query
+## RUN
 
+# build query
+
+query_string<-paste0('(TITLE-ABS-KEY(Maize)', ' AND TITLE-ABS-KEY(', pais, ') AND TITLE-ABS-KEY(', indicador[i,1],'))')
+      
+# run query
+# check out this for more filters than can be added to the query: http://api.elsevier.com/documentation/SCOPUSSearchAPI.wadl
+      
 s = generic_elsevier_api(query = query_string,
-                           type = "search", search_type = "scopus",
-                           api_key = api_key, count=100)
-  
-# Extract number of resulted documents 
-  res<-s$content$`search-results`$`opensearch:totalResults`
+        type = "search", search_type = "scopus",
+        api_key = api_key)
+      
+# extract number of resulted documents 
+      res<-s$content$`search-results`$`opensearch:totalResults`
+      
 ```
 
 
@@ -261,12 +276,13 @@ Si guardamos la función como un script llamado [`give_i_line.r`](../Practicas/U
 
 ```{r} 
 source("give_i_line.r")
-give_i_line(paste0(getwd(),"/../data/indicadores.txt"), i=2)
+give_i_line("../data/indicadores.txt"), i=2)
 ```
 
 Nota que `source` NO corre la función en sí, sino que solo la carga al cerebro de R para que podamos usarla como a una función cualquiera de un paquete.
 
-**Ejercicio:** Escribe y corre desde otro script una función que te permita leer un archivo de indicadores y realizar una búsqueda de todos los indicadores del archivo con un loop como el del ejercicio del script `Ejercicio_rscopusloop.R`. Uno de los argumentos de tu función debe ser "country" de manera que sea posible utilizar la función para correr la misma búsqueda con diferente país. El nombre de tu función debe ser `search_IndicadoresCountry`.
+**Ejercicio:** Escribe una función que te permita leer un archivo de indicadores y realizar una búsqueda de todos los indicadores del archivo como en el ejercicio del script `Ejercicio_rscopusloop.R`. Uno de los argumentos de tu función debe ser "country" de manera que sea posible utilizar la función para correr la misma búsqueda con diferente país. El nombre de tu función debe ser `search_IndicadoresCountry`. Después en un script utiliza esa función para correr la búsqueda para dos países de tu elección, guarda los resultados en una df e imprímela en pantalla.
+
 
 
 ## 7.3. Graficar en R 		
