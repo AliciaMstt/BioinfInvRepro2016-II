@@ -204,23 +204,24 @@ api_key<-"b3d334ef41f4096efa745ee88fcc55ca"
 
 
 # read indicadores list
-indicador<-read.delim(paste0(getwd(),"/../data/indicadores.txt"), header=FALSE, quote="", stringsAsFactors=FALSE)
+indicador<-read.delim("../data/indicadores.txt", header=FALSE, 
+                       quote="", stringsAsFactors=FALSE)
 
 ## RUN
 
 # build query
+pais<-"Mexico"
+query_string<-paste0('(TITLE-ABS-KEY(Maize)', ' AND TITLE-ABS-KEY(', pais, ') AND TITLE-ABS-KEY(', indicador[1,1],'))')
 
-query_string<-paste0('(TITLE-ABS-KEY(Maize)', ' AND TITLE-ABS-KEY(', pais, ') AND TITLE-ABS-KEY(', indicador[i,1],'))')
-      
 # run query
 # check out this for more filters than can be added to the query: http://api.elsevier.com/documentation/SCOPUSSearchAPI.wadl
-      
+
 s = generic_elsevier_api(query = query_string,
-        type = "search", search_type = "scopus",
-        api_key = api_key)
-      
+  type = "search", search_type = "scopus",
+  api_key = api_key)
+
 # extract number of resulted documents 
-      res<-s$content$`search-results`$`opensearch:totalResults`
+res<-s$content$`search-results`$`opensearch:totalResults`
       
 ```
 
@@ -252,6 +253,8 @@ statements
 return(object)
 }
 ```
+**Ojo**: el comando `return` es necesario al final de una función simpre que queramos que dicha función "devuelva" un objeto (por ejemplo una df que creemos como parte de la función). De no poner esta instrucción, la función correrá desde otro script, pero no veremos ningún resultado.
+
  
 Ejemplo:
 
