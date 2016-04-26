@@ -234,7 +234,7 @@ Tu código para este ejercico debe estar guardado en un script llamado `Ejercici
 ### Crear funciones y utilizarlas con `source`
 
 
-`source` es una función que sirve para correr un script de R **dentro** de otro script de R. Esto permite modularizar un análisis y luego correr una pipeline general, así como tener por separado **funciones propias** (que podemos llamar igual que llamamos las funciones de los paquetes) y que utilizamos mucho en diversos scripts. Este tipo de funciones son las que podemos compartir en Github con otros usuarios y hasta convertirlas en un paquete. 
+`source` es una función que sirve para correr un script de R **dentro de otro script de R**. Esto permite modularizar un análisis y luego correr una pipeline general, así como tener por separado **funciones propias** (que podemos llamar igual que llamamos las funciones de los paquetes) y que utilizamos mucho en diversos scripts. Este tipo de funciones son las que podemos compartir en Github con otros usuarios y hasta convertirlas en un paquete. 
 
 Ejemplos de cómo utilizar `source`: correr el script del ejercicio anterior desde otro script con la línea.
 
@@ -284,7 +284,68 @@ give_i_line("../data/indicadores.txt"), i=2)
 
 Nota que `source` NO corre la función en sí, sino que solo la carga al cerebro de R para que podamos usarla como a una función cualquiera de un paquete.
 
+**Ejercicio:** Escribe una función llamada `calc.tetha` que te permita cacular tetha dados Ne y u como argumentos. Recuerda que tetha =4Neu.
+
 **Ejercicio:** Escribe una función que te permita leer un archivo de indicadores y realizar una búsqueda de todos los indicadores del archivo como en el ejercicio del script `Ejercicio_rscopusloop.R`. Uno de los argumentos de tu función debe ser "country" de manera que sea posible utilizar la función para correr la misma búsqueda con diferente país. El nombre de tu función debe ser `search_IndicadoresCountry`. Después en un script utiliza esa función para correr la búsqueda para dos países de tu elección, guarda los resultados en una df e imprímela en pantalla.
+
+
+### Operador "Forward pipe" `%>%`
+El forward pipe `%>%` pertenece al paquete `magrittr`. Puedes encontrar [más info y tutoriales aquí](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html). 
+
+Cuando uno hace varias operaciones es difícil leer y entender el código.
+
+Por ejemplo (asumiendo que hemos cargado la matriz de datos de maiz de los ejercicios anteriores con `fullmat<- read.delim("../meta/maizteocintle_SNP50k_meta_extended.txt"`)
+
+
+```{r}
+# Estimar la altitud media a la que fueron colectadas las muestras que fueron muestreadas a una latitud menor a 20?
+x<-mean(fullmat[fullmat$Latitud >20, 16], na.rm = TRUE)
+
+```
+
+La dificultad radica en que usualmente los parámetros se asignan después del 
+nombre de la función usando `()`. El operador "Forward Pipe" (`%>%`) cambia este 
+orden, manera que un parámetro que precede a la función es enviado ("piped") a 
+la función, similar a como vimos en ´bash´ con ´|´.
+
+Veamos como cambia el código anterior:
+
+```{r}
+library("magrittr")
+# Estimar la altitud media a la que fueron colectadas las muestras que fueron muestreadas a una latitud menor a 20?
+x<-fullmat[fullmat$Latitud >20, 16] %>%
+  mean
+```
+
+podemos leer %>% como "_después_". De modo que si asumimos que cada paso es una función podríamos tener código así:
+
+```{r}
+result <- datos %>% paso_uno() %>% paso_dos() %>% paso_tres()
+```
+
+Otro ejemplo ([tomado de aquí](http://grunwaldlab.github.io/Population_Genetics_in_R/Getting_ready_to_use_R.html)):
+
+```{r}
+library("poppr")
+library("magrittr")
+data(Pinf)
+
+# Compare the traditional R script
+
+allelic_diversity <- lapply(seppop(clonecorrect(Pinf, strata = ~Continent/Country)), 
+                            FUN = locus_table, info = FALSE)
+
+# versus the magrittr piping:
+
+allelic_diversity <- Pinf %>%
+  clonecorrect(strata= ~Continent/Country) %>% # clone censor by continent and country.
+  seppop() %>%                                # Separate populations (by continent)
+  lapply(FUN = locus_table, info = FALSE)     # Apply the function locus_table to both populations
+
+```
+
+**Ejercicio**
+A partir de sólo con las muestras de los estados Puebla, Jalisco, Yucatan crea una df que contenga las columnas NSiembra, Raza y Altitud de las muestras de Puebla ordenadas de menor a mayor altitud.
 
 
 
