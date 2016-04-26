@@ -20,7 +20,7 @@ indicador<-read.delim(paste0(getwd(),"/../data/indicadores.txt"), header=FALSE, 
 #Create where to store results
 ndocs_tot<-numeric(0)
 
-for (pais in c("México", '\"United States\"', "Ecuador")) {
+for (pais in c("Mexico", '\"United States\"', "Ecuador")) {
     for (i in 1:nrow(indicador)) {
       #build query
       query_string<-paste0('(TITLE-ABS-KEY(Maize)', ' AND TITLE-ABS-KEY(', pais, ') AND TITLE-ABS-KEY(', indicador[i,1],'))')
