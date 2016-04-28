@@ -41,7 +41,7 @@ Con base en el código anterior, utiliza un loop para repetir la búsqueda para 
 
 Pega en el cuadro de texto de abajo el contenido de tu script. No olvides primero comprobar que funcione asumiendo que tu wd sea bin (es decir Practicas/Uni7/bin).
 
-
+El resultado de este ejercicio está en el script [Ejercicio_rscopusloop.R](Ejercicio_rscopusloop.R)
 
 
 #### Carga en una df llamada fullmat el archivo `meta/maizteocintle_SNP50k_meta_extended.txt` (el del ejercicio de maíces que vimos al principio de la Uni7. Responde lo siguiente y escribe el código que utilizarías para responder en promedio ¿a qué altitud fueron colectadas las muestras que fueron colectadas a una latitud menor a 20?

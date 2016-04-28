@@ -348,6 +348,15 @@ allelic_diversity <- Pinf %>%
 A partir de sólo con las muestras de los estados Puebla, Jalisco, Yucatan crea una df que contenga las columnas NSiembra, Raza y Altitud de las muestras de Puebla ordenadas de menor a mayor altitud.
 
 
+### Manipulación y limpieza de datos
+
+La manipulación y la limpieza da datos muchas veces es necesaria antes de poner hacer análisis en R. Aquí trataremos brevemente lo siguientes puntos en notas aparte:
+
+* Reestructura de datos y el principio de los datos limpios.
+
+* Estrategia divide-aplica-combina.
+
+
 
 ## 7.3. Graficar en R 		
 
