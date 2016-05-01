@@ -46,7 +46,7 @@ El resultado de este ejercicio está en el script [Ejercicio_rscopusloop.R](Ejer
 
 #### Carga en una df llamada fullmat el archivo `meta/maizteocintle_SNP50k_meta_extended.txt` (el del ejercicio de maíces que vimos al principio de la Uni7. Responde lo siguiente y escribe el código que utilizarías para responder en promedio ¿a qué altitud fueron colectadas las muestras que fueron colectadas a una latitud menor a 20?
 
-`mean(fullmat[fullmat$Latitud >20, 16], na.rm = TRUE)`
+`mean(fullmat[fullmat$Latitud <20, 16], na.rm = TRUE)`
 
 #### Crear una nueva df de datos sólo con las muestras de los estados Puebla, Jalisco, Yucatan. Tu db debe llamarse subdf.
 ```
