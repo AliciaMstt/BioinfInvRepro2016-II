@@ -50,7 +50,7 @@ El resultado de este ejercicio está en el script [Ejercicio_rscopusloop.R](Ejer
 
 #### Crear una nueva df de datos sólo con las muestras de los estados Puebla, Jalisco, Yucatan. Tu db debe llamarse subdf.
 ```
-x<-fullmat$Estado %in% c("Puebla", "Jalisco", "Chiapas")
+x<-fullmat$Estado %in% c("Puebla", "Jalisco", "Yucatan")
 
 subdf<-fullmat[x, ]
 ```
@@ -66,12 +66,16 @@ Summary nos brinda un resumen que inluye el valor mínimo, medio y máximo, así
 ```
 AltitudCM<-subdf$Altitud * 100
 cbind(subdf, AltitudCM)
+
+# o más fácil:
+subdf$AltitudCM=subdf$Altitud*100
 ```
 
 #### Utilizando la subdf crea una df x que contegna las columnas NSiembra, Raza y Altitud de las muestras de Puebla ordenadas de menor a mayor altitud.
 ```
 x<-subdf[subdf$Estado=="Puebla", c(2,5,16)]
-x[order(x$Altitud), ]
+x<-x[order(x$Altitud), ]
+x
 ```
 
 
