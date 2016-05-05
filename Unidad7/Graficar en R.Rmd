@@ -183,11 +183,11 @@ str(tree)
 plot.phylo(tree, edge.width=2)
 ```
 
-La función `plot.tree` puede abreviarse como `plot`. R sabe que debe usar la función `plot.tree` y no `plot` básico (como lo usamos arriba) porque el objeto que le damos es un árbol. 
+La función `plot.phylo` puede abreviarse como `plot`. R sabe que debe usar la función `plot.phylo` y no `plot` básico (como lo usamos arriba) porque el objeto que le damos es un árbol. 
 
 Podemos modificar este árbol de manera similar a cómo lo hicimos en las gráficas anteriores. 
 
-## Cambiar el tipo de árbol
+### Cambiar el tipo de árbol
 
 **Ejercicio** Revisa la ayuda de `plot.phylo` y utiliza un argumento de dicha función para graficar el árbol simulado pero que se vea como un abanico y luego como un cladograma (así):
 
@@ -199,7 +199,7 @@ plot.phylo(tree, edge.width=2, type= "fan")
 plot.phylo(tree, edge.width=2, type= "cladogram")
 ```
 
-## Enraizar el árbol
+### Enraizar el árbol
 
 ```{r}
 # plot árbol sin enraizar
@@ -212,7 +212,7 @@ tree<-root(tree, outgroup="t2")
 plot.phylo(tree, edge.width=2)
 ```
 
-## Chulear el árbol
+### Chulear el árbol
 
 **Ejercicio:** Sigue los ejemplos de [Phylogenetic trees in R, del blog Sensory Evolution](https://ecomorph.wordpress.com/2014/10/09/phylogenetic-trees-in-r-4/) para realizar los siguientes cambios al árbol anterior:
 
@@ -221,13 +221,13 @@ plot.phylo(tree, edge.width=2)
 * Incremente al grosor de la línea
 * Cambia el color de la línea a verde oscuro
 
-## Leer un árbol en R y graficarlo
+### Leer un árbol en R y graficarlo
 
 Podemos leer árboles en formato newick o nexus a R con la función `read.tree` de `ape`:
 
 ```{r}
 # cargar archivo
-maiz.tree<-read.tree("../Practicas/Uni7/data/maiztree")
+maiz.tree<-read.nexus("../Practicas/Uni7/data/tree")
 
 # checar contenido
 maiz.tree
@@ -235,8 +235,268 @@ maiz.tree
 # graficar
 plot(maiz.tree, type="unrooted", edge.width=0.1, cex=0.5)
 
-# graficar sin nombres de muestras
-plot(maiz.tree, type="unrooted", edge.width=0.1, show.tip=FALSE)
 ```
 
-En los ejercicios siguientes haremos que ese árbol muestre más información.
+Vamos a poner colores de acuerdo a la Categoría de Altitud en vez de nombres de muestras. 
+
+```{r}
+### Graficar por Categorías Altitud
+
+# leer info extra de las muestras
+fullmat<-read.delim("../Practicas/Uni7/meta/maizteocintle_SNP50k_meta_extended.txt")
+
+# ¿Cuántos colores necesito?
+numcolsneeded<-length(levels(fullmat$Categ.Altitud))
+palette(rainbow(numcolsneeded)) 
+
+# graficar sin nombres de muestras
+plot(maiz.tree, type="unrooted", edge.width=0.3, show.tip=FALSE)
+
+# Agregar tip labels que correspondan a las categorías de altitud
+tiplabels(pch=20, col=fullmat$Categ.Altitud)
+# legend
+legend(x= "bottomleft", legend=levels(fullmat$Categ.Altitud), pch=19, col=1:numcolsneeded, cex=1, , bty="n")  
+
+```
+
+**Ejercicio**: Colorea el árbol anterior por Raza (sin incluir una leyenda porque son demasiadas)
+
+```{r, echo=FALSE}
+# Definir num de colores
+numcolsneeded<-length(levels(fullmat$Raza))
+palette(rainbow(numcolsneeded)) 
+
+# graficar
+plot(maiz.tree, type="unrooted", edge.width=0.3, show.tip=FALSE)
+
+# Agregar tip labels que correspondan a las categorías de altitud
+tiplabels(pch=20, col=fullmat$Raza)
+```
+
+Observa que las muestras 162-165 corresponden a teocintles (*Zea m. mexicana* y *Z. m. parviglumis*)
+
+```{r}
+fullmat[162:165, 1:4]
+```
+
+Si quisiéramos colorear todas las tips de maíz, pero no las teocintle podemos especificar esto así:
+
+```{r}
+# graficar sin nombres de muestras
+plot(maiz.tree, type="unrooted", edge.width=0.3, show.tip=FALSE)
+# Agregar tip labels sólo a los maíces
+tiplabels(tip=c(1:161), pch=20, col="black")
+```
+
+**Ejercicio** Grafica el árbol de maíces de manera que los teocintles sean cuadrados negros y lo s maíces círculos verdes, así:
+
+```{r, echo=FALSE}
+# graficar sin nombres de muestras
+plot(maiz.tree, type="unrooted", edge.width=0.3, show.tip=FALSE)
+# Agregar tip labels sólo a los maíces
+tiplabels(tip=c(162:165), pch=15, col="black", cex=.6)
+tiplabels(tip=c(1:161), pch=20, col="darkgreen", cex=.7)
+
+```
+
+
+## Mapas en R
+
+En R pueden visualizarse mapas de muchas maneras y de hecho hasta hacer análisis complejos con datos raster, como simulaciones de cambio climático y modelos de distribución potencial de las especies. Aquí sólo cubriremos brevemente cómo graficar un shapefile y agregar puntos. 
+
+Carguemos uno de los principales paquetes para manipular mapas:
+
+```{r}
+library(maptools)
+````
+
+### Leer un shapefile 
+La función `readShapePoly` de dicho paquete nos permite leer un [shapefile](https://en.wikipedia.org/wiki/Shapefile) de polígonos (para puntos hay que usar otra función parecida ¿cómo crees que se llame?).
+
+Por ejemplo vamos leer a R y graficar el  shaphile de las regiones biogeográficas de México:
+
+```{r}
+# leer shapefile
+biogeo<-readShapePoly("../Practicas/Uni7/data/rbiog4mgw/rbiog4mgw.shp")
+
+# plot
+plot(biogeo)
+
+# colorear por bioregioón
+palette("default")
+plot(biogeo, border="grey", col=biogeo$PROVINCIA)
+
+## Cambiar colores default a algo más bonito
+#¿Cuántos colores necesito?
+levels(biogeo$PROVINCIA)
+
+# Generar paleta con colores de RColorBrewer
+# ver opciones de colores
+library(RColorBrewer)
+display.brewer.all()  
+
+# generar paleta
+palette(c(brewer.pal(9, "Set1"), brewer.pal(10, "Set3")))
+
+# plot
+plot(biogeo, border="grey", col=biogeo$PROVINCIA)
+legend("bottomleft", legend=levels(biogeo$PROVINCIA), bty="n", cex=.4, fill=palette())
+  
+```
+
+**Ejercicio**: cambia el color de las provincias "Tamaulipecas" y "Costa del Pacífico" a otro color. 
+
+### Agregar puntos a un mapa
+
+Es muy común tener las coordenadas x,y de nuestros puntos de muestreo en un archivo junto con el resto de la info de nuestras muestras. Por ejemplo en el caso de la info de maíces que hemos estado utilizando:
+
+
+```{r}
+fullmat[1:5,c("Latitud", "Longitud")]
+```
+
+Agregar esta info a un mapa **en la misma proyección y sistema de coordenadas** puede hacerse con la función `points`:
+
+```{r}
+# plot map
+plot(biogeo, border="grey", col=biogeo$PROVINCIA, lwd=0.8)
+# agregar puntos
+points(fullmat$Longitud, fullmat$Latitud, pch=19, col="black", cex=0.4)
+```
+
+**Ejercicio**: Baja un mapa (nivel nacional) que te interese del [GeoPortal de la CONABIO](http://www.conabio.gob.mx/informacion/gis/), ploteálo y agrega los puntos del muestro de maíz, utilizando una forma de punto diferente para los teocintles. 
+
+
+### Utilizar mapas de GoogleMaps
+
+Hay una librería para bajar mapas (estáticos) de GoogleMaps: `RgoogleMaps`
+
+Ejemplo:
+
+```{r}
+# Cargar librería
+library(RgoogleMaps)
+
+# Establecer limites deseados
+lat <- c(13,30) # definir limites en y
+lon <- c(-112,-93) #definir limites en x
+center = c(mean(lat), mean(lon))  #donde queremos centrar
+zoom <- 4  #zoom deseado (1 lo más alejado)
+
+# obtener mapa
+mygooglemap <- GetMap(center=center, zoom=zoom, maptype= "terrain")
+
+# plot
+PlotOnStaticMap(mygooglemap)
+```
+
+## ggplot2
+
+Las gráficas que hemos visto hasta ahora pueden verse un poco feas de inicio y puede tomar un rato y mucho código arreglarlas a algo hermoso. `ggplot2` es un paquete que ahorra este trabajo y que ha comenzado a ser ampliamente adoptado.
+
+`ggplot2` construye gráficas definiendo sus componentes paso a paso.
+
+Para poder usar `ggplot2` se requiere que la data.frame esté en **formato largo**, como vimos cuando revisamos la función `gather`. Además de esos apuntes puedes revisar [esto](http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/) si te quedan dudas. 
+
+
+**Términos importantes**:
+
+**Ojo: Mucho mejor que ver la ayuda de cada función es ver la [Documentación online de ggplot2](http://docs.ggplot2.org/current/) y este [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/) **
+
+* `ggplot` la función principal donde se especifican el set de datos y las variables a graficar. 
+
+* __geoms__ "objetos geométricos" (el tipo de gráfica en cierto modo): 
+  - `geom_point()`
+  - `geom_bar()`
+  - `geom_density()`
+  - `geom_line()`
+  - `geom_area()`
+  - `geom_histogram()`
+
+* __aes__ los estéticos que pondremos: forma, transparencia (alpha), color, relleno, tipo de línea, etc. 
+
+* __scales__ para especificar si los datos se graficarán de forma continua, discreta, logarítmica.
+
+
+
+Ejemplo:
+
+```{r}
+# Cargar ggplot2
+library(ggplot2)
+
+# Examinar datos pre-cargados
+head(iris)
+
+# graficar 
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width)) + geom_point()
+```
+
+**Pregunta:** ¿Qué hace el símbolo +? Nota que el código  anterior tmb puede escribirse así:
+
+```{r}
+myplot<-ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width))
+
+myplot + geom_point()
+```
+
+Los colores y formas se cambian en **aes**:
+
+```{r}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width, color= Species, shape=Species)) + geom_point()
+
+```
+
+Ya sea en el aes de la función inicial o dentro de los geoms (Nota que el tamaño no es un aes, sino un argumento de geom_point)
+
+```{r}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width)) + 
+    geom_point(aes(color= Species, shape=Species), size=3)
+
+```
+
+
+Aveces queremos graficar en páneles separados la misma info para diferentes tratamientos o especies. Por ejemplo:
+
+```{r}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width)) + 
+  geom_point() +
+  facet_grid(Species ~ .)
+```
+
+**Ejercicio** Pon color por especie a la gráfica anterior:
+
+```{r}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width, color=Species)) + 
+  geom_point() +
+  facet_grid(Species ~ .)
+```
+
+**Ejercicio** Repite la gráfica anterior pero para que se vea así:
+
+```{r, echo=FALSE}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width, color=Species)) + 
+  geom_point() +
+  facet_grid(. ~ Species)
+```
+
+**Ejercicio** Cambia los labels de la figura anterior para que digan "Ancho de sépalo" y "Largo de sépalo", respectivamente. 
+
+
+```{r, echo=FALSE}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width, color=Species)) + 
+  geom_point() +
+  facet_grid(. ~ Species) +
+  ylab("Ancho del sépalo") + xlab("Largo del sépalo")  
+```
+
+También podemos agregar el resultado de un modelo matemático, como una regresión lineal:
+
+
+```{r, echo=FALSE}
+ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width, color=Species)) + 
+  geom_point() +
+  facet_grid(Species ~ .) +
+  geom_smooth(method="lm")
+```
+
