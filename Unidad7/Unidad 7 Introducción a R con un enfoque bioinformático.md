@@ -363,7 +363,11 @@ Los apuntes de esta sección están en [Graficar en R](Graficar_en_R.html) (cód
 
 ## 7.4. Bioconductor y paquetes bioinformáticos en R
 
-Los paquetes son un grupo de funciones que alguien desarrolla en torno a un tema específico. CRAN alberga muchos paquetes de R, algunos de ellos útiles para bioinformática, como [adegenet](http://adegenet.r-forge.r-project.org/) y [ape](https://cran.r-project.org/web/packages/ape/ape.pdf). Pero también existen repositorios de paquetes especializados en un área, por ejemplo bioinformática.
+Los paquetes son un grupo de funciones que alguien desarrolla en torno a un tema específico. CRAN alberga muchos paquetes de R, algunos de ellos útiles para bioinformática, como [adegenet](http://adegenet.r-forge.r-project.org/) y [ape](https://cran.r-project.org/web/packages/ape/ape.pdf). Puedes ver una lista de más paquetes relacionados con genética estadística en [CRAN Task Statistical Genetics](https://cran.r-project.org/web/views/Genetics.html).
+
+Otra opción para encontrar paquetes útiles es googlear "R package" + keywords de tu tema de interés, por ejemplo "metabarcoding".
+
+También existen repositorios de paquetes especializados en un área, por ejemplo bioinformática.
 
 **Bioconductor** es un repositorio de paquetes de R especializaos en en análisis de datos genómicos y de secuenciación masiva. 
 
@@ -381,7 +385,6 @@ La mejor manera de conocer qué hace y  usar un paquete es seguir un tutorial o 
 
 Por ejemplo esta de [ggtree](https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/ggtree.html)  y esta de [SNPRelate](http://corearray.sourceforge.net/tutorials/SNPRelate/).
 
-**Ejercicio** explora los paquetes de Bioconductor de acuerdo a tu tema y menciona tres que creas te serán útiles.
 
 #### [Workflows](https://www.bioconductor.org/help/workflows/)
 
@@ -432,3 +435,6 @@ Citar un paquete en particular:
 citation("NombrePaquete")
 ```
 (o lo que loas autoreas especifiquen en su sitio web)
+
+
+**Ejercicio** explora los paquetes de Bioconductor de acuerdo a tu tema y menciona tres que creas te serán útiles.
