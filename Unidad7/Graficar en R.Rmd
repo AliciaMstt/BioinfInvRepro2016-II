@@ -603,7 +603,7 @@ Recomiendo buscar más información y ejemplos en esta excelente guía [Cookbook
 
 Ejemplos:
 
-**Cambiar colores manualmente*
+**Cambiar colores manualmente**
 
 ```{r}
 # Crear paleta:
