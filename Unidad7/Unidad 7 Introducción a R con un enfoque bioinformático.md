@@ -228,7 +228,7 @@ res<-s$content$`search-results`$`opensearch:totalResults`
 
 Con base en el código anterior, utiliza un loop para repetir la búsqueda para todos los indicadores del archivo `/data/indicadores.txt` (se encuentra en el repo de Practicas de la Uni7) y para tres países: México, Estados Unidos y Ecuador. Los resultados deben guardarse en un una df única y escribirse a un archivo que esté en una carpeta `out` que se llame `busquedaScopus.txt`. 
 
-Tu código para este ejercico debe estar guardado en un script llamado `Ejercicio_rscopusloop.R`.
+Tu código para este ejercicio debe estar guardado en un script llamado `Ejercicio_rscopusloop.R`.
 
 
 ### Crear funciones y utilizarlas con `source`
@@ -284,7 +284,7 @@ give_i_line("../data/indicadores.txt"), i=2)
 
 Nota que `source` NO corre la función en sí, sino que solo la carga al cerebro de R para que podamos usarla como a una función cualquiera de un paquete.
 
-**Ejercicio:** Escribe una función llamada `calc.tetha` que te permita cacular tetha dados Ne y u como argumentos. Recuerda que tetha =4Neu.
+**Ejercicio:** Escribe una función llamada `calc.tetha` que te permita calcular tetha dados Ne y u como argumentos. Recuerda que tetha =4Neu.
 
 **Ejercicio:** Escribe una función que te permita leer un archivo de indicadores y realizar una búsqueda de todos los indicadores del archivo como en el ejercicio del script `Ejercicio_rscopusloop.R`. Uno de los argumentos de tu función debe ser "country" de manera que sea posible utilizar la función para correr la misma búsqueda con diferente país. El nombre de tu función debe ser `search_IndicadoresCountry`. Después en un script utiliza esa función para correr la búsqueda para dos países de tu elección, guarda los resultados en una df e imprímela en pantalla.
 
@@ -357,7 +357,78 @@ La manipulación y la limpieza da datos muchas veces es necesaria antes de poner
 * Estrategia divide-aplica-combina.
 
 
-
 ## 7.3. Graficar en R 		
 
+Los apuntes de esta sección están en [Graficar en R](Graficar_en_R.html) (código y gráficas) y [Graficar en R](Graficar en R.Rmd) (sólo código)
+
 ## 7.4. Bioconductor y paquetes bioinformáticos en R
+
+Los paquetes son un grupo de funciones que alguien desarrolla en torno a un tema específico. CRAN alberga muchos paquetes de R, algunos de ellos útiles para bioinformática, como [adegenet](http://adegenet.r-forge.r-project.org/) y [ape](https://cran.r-project.org/web/packages/ape/ape.pdf). Pero también existen repositorios de paquetes especializados en un área, por ejemplo bioinformática.
+
+**Bioconductor** es un repositorio de paquetes de R especializaos en en análisis de datos genómicos y de secuenciación masiva. 
+
+![logo_bioconductor.gif](logo_bioconductor.gif)
+
+### Generalidades de Bioconductor
+
+#### [Página principal de Bioconductor](https://www.bioconductor.org/)
+
+#### [Paquetes de Bioconductor](https://www.bioconductor.org/packages/release/BiocViews.html#___Software)
+
+Como los paquetes de Bioconductor están escritos en el lenguaje de R, muchos tendrán tipos de objetos particulares al paquete y funciones nuevas, pero con tener las bases de R que hemos visto estarás listoa para aprenderlo. 
+
+La mejor manera de conocer qué hace y  usar un paquete es seguir un tutorial o vignette.
+
+Por ejemplo esta de [ggtree](https://www.bioconductor.org/packages/release/bioc/vignettes/ggtree/inst/doc/ggtree.html)  y esta de [SNPRelate](http://corearray.sourceforge.net/tutorials/SNPRelate/).
+
+**Ejercicio** explora los paquetes de Bioconductor de acuerdo a tu tema y menciona tres que creas te serán útiles.
+
+#### [Workflows](https://www.bioconductor.org/help/workflows/)
+
+Para algunas tareas comunes en análisis genéticos, como [Variant calling](https://www.bioconductor.org/help/course-materials/2014/BioC2014/Lawrence_Tutorial.pdf).
+
+
+#### [Cursos y conferencias de Bioconductor](https://www.bioconductor.org/help/course-materials/)
+
+En particular yo recomiendo el curso online [Bioconductor for Genomic Data Science](http://kasperdanielhansen.github.io/genbioconductor/) de Kasper D. Hansen que incluye videos y código con notas en R y html. 
+
+#### Instalar Bioconductor y sus paquetes
+
+1) Tener instalado R
+
+2) Instalar bioconductor (`source` al script `biocLite.R` que nos permitirá instalar paquetes de Bioconductor).
+
+```
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+```
+(Si lo anterior manda algún error intenta http:// en vez de  https://)
+
+3) Utilizar la función `biocLite` para instalar los paquetes deseados. Ejemplo:
+
+```
+biocLite("ggtree")
+```
+
+Nota: algunos paquetes necesitan pasos extra de instalación, como jalar algo de GitHub, pero esto será indicado en la documentación del paquete.
+
+#### Cómo citar R y Bioconductor
+
+Citar R:
+
+```
+citation("base")
+```
+
+Citar Bioconductor:
+
+```
+citation("Biobase")
+```
+
+Citar un paquete en particular:
+
+```
+citation("NombrePaquete")
+```
+(o lo que loas autoreas especifiquen en su sitio web)
