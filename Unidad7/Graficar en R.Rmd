@@ -523,7 +523,7 @@ p
 
 También podemos agregar el resultado de un modelo matemático, como una regresión lineal:
 
-```{r, echo=FALSE}
+```{r}
 ggplot(data=iris, aes(x=Sepal.Length, y= Sepal.Width, color=Species)) + 
   geom_point() +
   facet_grid(Species ~ .) +
