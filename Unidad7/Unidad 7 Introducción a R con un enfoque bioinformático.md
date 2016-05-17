@@ -437,4 +437,92 @@ citation("NombrePaquete")
 (o lo que loas autoreas especifiquen en su sitio web)
 
 
-**Ejercicio** explora los paquetes de Bioconductor de acuerdo a tu tema y menciona tres que creas te serán útiles.
+#### Paquetes útiles por tema
+
+**Ejercicio** explora los paquetes de Bioconductor y CRAN de acuerdo a tu tema y menciona tres que creas te serán útiles.
+
+**Ejercicio** hagan equipos conforme a su tipo de datos y/o tema de investigación y discutan los paquetes que encontraron. Enlisten y describan para qué utilizarían los 3 que consideren más útiles.
+
+Resultados del ejercicio anterior:
+
+
+**Equipo Epigenética**
+
+[ComplexHeatmap](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html): permite no solo graficar heatmaps sino también combinar un mapa de metilacion con uno de expresión y dar una correlación entre la metilacion y la expresión transcripcional.
+
+[MethylMix](https://www.bioconductor.org/packages/release/bioc/html/MethylMix.html): Permite identificar patrones de metilacion en islas CpG que dirigen con cambios en el nivel de expresión.
+
+[SMITE](https://bioconductor.org/packages/release/bioc/html/SMITE.html): (Significance-based Modules Integrating the Transcriptome and Epigenome): permite integrar información de transcriptoma y epigenoma directamente desde los resultados de NGS.
+
+**Equipo Cáncer**
+
+[MethylMix](https://www.bioconductor.org/packages/release/bioc/html/MethylMix.html): (ahora para) detectar Genes con alteraciones en su perfil de metilación, es importante porque el gen que trabajo (LM = Pygo2) es un reclutador de modificadores de histonas.
+
+[pathifier](https://bioconductor.org/packages/release/bioc/html/pathifier.html): Busca vías de señalización alteradas que puedan iniciar el establecimiento del fenotipo tumoral. Para saber si componentes de la vía que estudio son importantes.
+
+[Genomic Alignments](https://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html) Se utilizaría para manipular pequeñas secuencias de aliniamiento de genes contra el genoma de referencia, para conteo de secuencias, contenido de nucleotidos dominios conservados en el genoma
+
+
+**Equipo Transcriptómica**
+
+[GOexpres](https://bioconductor.org/packages/release/bioc/html/GOexpress.html): que tiene métodos de agrupamiento para identificar ontología en genes y visualizar perfiles de expresión
+
+[KEGGprofile](https://bioconductor.org/packages/release/bioc/html/KEGGprofile.html): permite mapear transcritos a la (famosa) enciclopedia online KEGG para conocer su ontología
+
+[BitSeq](https://bioconductor.org/packages/release/bioc/html/BitSeq.html): sirve para identificar expresión diferencial de transcritos específicos mediante inferencia bayesiana 
+
+[OmicCircos](https://bioconductor.org/packages/release/bioc/html/OmicCircos.html): sirve para hacer gráficas circulares de genes muy bonitas 
+
+
+**Equipos genética de poblaciones y filogenómica**
+
+[GCAT](https://bioconductor.org/packages/release/bioc/html/gcatest.html): Prueba de asociación en donde se controla la estructura poblacional, bajo una clase de rasgos.
+
+[SimRAD](https://cran.r-project.org/web/packages/SimRAD/index.html): Predicción del número de loci RAD y GBS.
+
+[SnpStats](https://bioconductor.org/packages/release/bioc/html/snpStats.html): Esencial para GWASTools, y estudio de asociación de SNPs-Fenotipo. Para obtener FST, LD, TDT, PCA, entre otros.
+
+[Introgress](https://cran.r-project.org/web/packages/introgress/index.html): Sirve para estimar clinas genómicas en zonas de contacto entre especies en divergencia
+
+[AsMap](https://cran.r-project.org/web/packages/ASMap/index.html): Para construir mapas de ligamiento
+
+[hierfstat](https://cran.r-project.org/web/packages/hierfstat/index.html): Estadísticos básicos de genómica de poblaciones
+
+[GENESIS](https://bioconductor.org/packages/release/bioc/html/GENESIS.html): Con este paquete podremos inferir si las poblaciones con las que trabajamos están estructuradas y realizar analisis de parentesco.
+
+
+[ggtree](https://github.com/Bioconductor-mirror/ggtree/tree/release-3.3): Este paquete nos serviria para la lectura, edición y anotaciones de los arboles filogéneticos que pretendemos general a partir de datos genómicos (radseq, UCEs)
+
+[BioGeoBEARS](https://cran.r-project.org/web/packages/BioGeoBEARS/index.html):
+En este paquete podemos realizar reconstrucciones de geografía ancestral (biogeografía historica), modelar dispersion y extincion. Abordando así los objetivos finales de nuestros trabajos con base a filogenias genómicas.
+
+[diversitree](https://cran.r-project.org/web/packages/diversitree/index.html)
+En este paquete puede ayudarnos a probar si existen cambios en las tasas de diversificación y extinción. También puede ayudarnos a delimitar las especies nuevas que podamos proponer en nuestro grupo de estudio.
+
+[PopGenome](https://cran.r-project.org/web/packages/PopGenome/index.html). Transformar los datos a diferentes formatos, calcula Fst, 
+estimar desequilibrios de ligamiento.
+
+
+[Muscle](https://www.bioconductor.org/packages/release/bioc/html/muscle.html)Con esta herramiento realizaremos el alinemamento de las secuencias obtenidos por Ion Torrent.
+
+
+
+**Equipo los M-M-Metabarcoding**
+
+[MCMC.OTU](https://cran.r-project.org/web/packages/MCMC.OTU/index.html): Sirve para hacer análisis multivariado y asignar variables de manera individual (se puede usar ggplot para graficar)
+
+[Metagenomesec](http://bioconductor.org/packages/release/bioc/html/metagenomeSeq.html): determina características e identifica abundancias entre grupos. 
+
+[SpideR](http://spider.r-forge.r-project.org/SpiderWebSite/spider.html): sirve para delimitar especies de secuencias de barcoding.
+
+[BiodiversityR](https://cran.r-project.org/web/packages/BiodiversityR/index.html): Sirve para hacer análisis estadísticos de comunidades ecológicas y  diversidad.
+
+
+**Ejercicio**: 
+1. Escoge uno de los paquetes que tu equipo eligió en el ejercicio pasado. 
+2. Busca un tutorial, ayuda o vignette de ese paquete y síguelo con tus datos propios o con datos parecidos a los que tendrás que ya se encuentren publicados. 
+3. Utiliza knitr para crear un "notebook" de lo que realizaste. 
+4. Sube el código (.R) y el notebook (.html) a tu cuenta de github. Será necesario enviar el link via ClassMarker.
+
+Puedes apoyarte con loas integrantes de tu equipo del ejercicio pasado pero los resultados se entregan de forma individual y deben ser diferentes datos de input. 
+
