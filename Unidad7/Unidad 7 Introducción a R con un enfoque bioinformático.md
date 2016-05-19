@@ -507,7 +507,7 @@ estimar desequilibrios de ligamiento.
 
 
 
-**Equipo los M-M-Metabarcoding**
+**Equipo Metabarcoding**
 
 [MCMC.OTU](https://cran.r-project.org/web/packages/MCMC.OTU/index.html): Sirve para hacer análisis multivariado y asignar variables de manera individual (se puede usar ggplot para graficar)
 
@@ -526,3 +526,6 @@ estimar desequilibrios de ligamiento.
 
 Puedes apoyarte con loas integrantes de tu equipo del ejercicio pasado pero los resultados se entregan de forma individual y deben ser diferentes datos de input. 
 
+#### Ejemplo SNPRelate para análisis exploratorios genómica de poblaciones
+
+Puedes revisar el Rmdown [aquí](../Practicas/Uni7/bin/Ejemplo_SNPRelate.Rmd).
