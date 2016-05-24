@@ -14,6 +14,10 @@ Desventajas:
 
 - Utiliza tiempo de cómputo para correr
 
+
+Recuerda el ejercicio 4 de la Unidad 3 para un ejemplo de cómo puede ser esto útil.
+
+
 ### Correr R desde la Terminal
 
 R es un programa que funciona con la línea de comando y por lo tanto puede correrse desde la terminal de varias formas:
@@ -125,3 +129,36 @@ Type 'q()' to quit R.
 
 Notas recomendadas: [Running R in batch mode on Linux](http://www.cureffi.org/2014/01/15/running-r-batch-mode-linux/)
 
+
+### Correr cualquier programa desde R
+
+De forma similar, cualquier comando de bash (o programa que corra en bash) pude correrse desde R con la función `system()`. Por ejemplo el script `Practicas/Uni8/bin/system_ejemplo.R` que contiene:
+
+
+```
+# obtener wd
+system("pwd")
+
+# enlistar archivos
+system("ls")
+
+# crear carpeta
+system("mkdir Test")
+
+# checar
+system("ls")
+
+# ver ayuda vcf
+system("vcftools")
+
+#escribir datos
+x<-1:100
+x
+write(x, file="Test/x.txt")
+
+# borrar carpeta
+system("rm -r Test")
+
+```
+
+Puede correrse desde R e incluso guardarse en forma de notebook (knitr).
