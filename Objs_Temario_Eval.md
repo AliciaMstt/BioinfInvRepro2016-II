@@ -66,8 +66,7 @@ El curso **no** se enfocará en ningún software especializado particular (e.g. 
 | **Unidad 8 Análisis bioinformáticos usando Shell y R**                          |        4       |        18       |
 | 8.1. Creación de “pipelines” para análisis de datos crudos a resultados     |                |                 |
 | 8.2. Funciones propias                                                      |                |                 |
-| 8.3. Exploración gráfica y resumen de datos genéticos                       |                |                 |
-| 8.4. Estimación de parámetros genéticos                                     |                |                 |
+             
 
 ### Bibliografía
 
