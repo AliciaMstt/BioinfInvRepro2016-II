@@ -124,7 +124,7 @@ palette(rainbow(6))
 barplot(reads$nreads, col=reads$Library)
 ```
 
-Checa otras palettes parecidas a `rainbow` en [este link](http://www.r-bloggers.com/color-palettes-in-r/), y no te pierdas cómo nombrar muchos otros colores y utilizar otras paletas con más colores en la [R Color Reference Sheet](http://www.r-bloggers.com/r-color-reference-sheet/)
+Checa otras palettes parecidas a `rainbow` en [este link](http://www.r-bloggers.com/color-palettes-in-r/), y no te pierdas cómo nombrar muchos otros colores y utilizar otras paletas con más colores en la [R Color Reference Sheet](http://www.r-bloggers.com/r-color-reference-sheet/). Si necesitas generar muchos colores [I wanthue](http://tools.medialab.sciences-po.fr/iwanthue/) es lo que necesitas. 
 
 ### Agregar una leyenda
 
@@ -653,5 +653,46 @@ ggplot(df, aes(x=xval, y=yval, colour=yval)) + geom_point() +
 
 ```
 
+### Múltiples gráficas (=/= facets) en una gráfica:
+
+Veamos este [ejemplo de R Cookbook](http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_%28ggplot2%29/) sobre mutlipltos:
+
+Primero generamos y guardamos en objetos 4 gráficas:
+
+```{r}
+
+# This example uses the ChickWeight dataset, which comes with ggplot2
+# First plot
+p1 <- ggplot(ChickWeight, aes(x=Time, y=weight, colour=Diet, group=Chick)) +
+    geom_line() +
+    ggtitle("Growth curve for individual chicks")
+
+# Second plot
+p2 <- ggplot(ChickWeight, aes(x=Time, y=weight, colour=Diet)) +
+    geom_point(alpha=.3) +
+    geom_smooth(alpha=.2, size=1) +
+    ggtitle("Fitted growth curve per diet")
+
+# Third plot
+p3 <- ggplot(subset(ChickWeight, Time==21), aes(x=weight, colour=Diet)) +
+    geom_density() +
+    ggtitle("Final weight, by diet")
+
+# Fourth plot
+p4 <- ggplot(subset(ChickWeight, Time==21), aes(x=weight, fill=Diet)) +
+    geom_histogram(colour="black", binwidth=50) +
+    facet_grid(Diet ~ .) +
+    ggtitle("Final weight, by diet") +
+    theme(legend.position="none")        # No legend (redundant in this graph)    
+
+```
+
+Luego las graficamos juntas con la función `multiplot`, del paquete Rmisc:
+
+`
+```{r}
+library(Rmisc)
+multiplot(p1, p2, p3, p4, cols=2)
+```
 
 

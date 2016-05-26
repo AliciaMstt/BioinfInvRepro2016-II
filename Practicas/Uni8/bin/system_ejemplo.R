@@ -1,22 +1,20 @@
-# obtener wd
+getwd()
+
+# ver mi wd desde bash
 system("pwd")
 
-# enlistar archivos
+# enlistas archivos en wd
 system("ls")
 
-# crear carpeta
+#hacer directorio
 system("mkdir Test")
 
-# checar
-system("ls")
-
 # ver ayuda vcf
-system("vcftools")
+system("vcftools --help")
 
-#escribir datos
+#escribir datos a un archivo
 x<-1:100
-x
-write(x, file="Test/x.txt")
+write(x,file="Test/x.txt")
 
-# borrar carpeta
+# borrar carpeta test
 system("rm -r Test")

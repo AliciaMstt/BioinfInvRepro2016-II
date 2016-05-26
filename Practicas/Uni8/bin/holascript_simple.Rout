@@ -17,10 +17,13 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > x<-10
 > y<-6
 > cat("¡Hola mundo!", x, "+", y, "es igual a", x+y)
-¡Hola mundo! 10 + 6 es igual a 16> 
+¡Hola mundo! 10 + 6 es igual a 16> write(x, file="aquiestax.txt")
+> 
 > proc.time()
    user  system elapsed 
-  0.230   0.034   0.242 
+  0.250   0.035   0.267 
